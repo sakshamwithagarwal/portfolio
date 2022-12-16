@@ -1,0 +1,130 @@
+main {
+  margin: 2.3rem 0 6rem;
+}
+
+.heading_main {
+  color: var(--text-darker);
+  font-size: clamp(100px, 30vh, 260px);
+  letter-spacing: -12.5px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-left: -16px;
+}
+
+main p {
+  width: 50%;
+  font-size: 3vh;
+  font-weight: 300;
+}
+
+.right_list {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.heading_main .animated_heading {
+  height: clamp(100px, 28vh, 300px);
+  overflow: hidden;
+}
+
+.heading_main .animated_heading > div > div {
+  display: inline-block;
+  height: 12rem;
+  margin-bottom: 12rem;
+}
+
+.heading_main .animated_heading div:first-child {
+  animation: text-animation 8s infinite;
+}
+
+@keyframes text-animation {
+  /* 0% {margin-top: 0;}
+    10% {margin-top: 0;}
+    20% {margin-top: -24rem;}
+    30% {margin-top: -24rem;}
+    40% {margin-top: -48rem;}
+    60% {margin-top: -48rem;}
+    70% {margin-top: -24rem;}
+    80% {margin-top: -24rem;}
+    90% {margin-top: 0;}
+    100% {margin-top: 0;} */
+  0% {
+    margin-top: 0;
+  }
+  20% {
+    margin-top: 0;
+  }
+  40% {
+    margin-top: -24rem;
+  }
+  55% {
+    margin-top: -24rem;
+  }
+  70% {
+    margin-top: -48rem;
+  }
+  85% {
+    margin-top: -48rem;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
+.animated_heading span {
+  -ms-animation: topToBottom 12.5s linear infinite 0s;
+  -webkit-animation: topToBottom 12.5s linear infinite 0s;
+  animation: topToBottom 12.5s linear infinite 0s;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0;
+}
+
+@media screen and (max-width: 480px) {
+  main {
+    min-height: 71vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .heading_main {
+    font-size: 3.5rem;
+    letter-spacing: -3px;
+    margin-left: 0;
+  }
+  .heading_main .animated_heading {
+    height: 8vh;
+  }
+  .heading_main .animated_heading > div > div {
+    margin-bottom: 5rem;
+    height: 10vh;
+  }
+  @keyframes text-animation {
+    0% {
+      margin-top: 0;
+    }
+    20% {
+      margin-top: 0;
+    }
+    40% {
+      margin-top: -21vh;
+    }
+    55% {
+      margin-top: -21vh;
+    }
+    70% {
+      margin-top: -42vh;
+    }
+    85% {
+      margin-top: -42vh;
+    }
+    100% {
+      margin-top: 0;
+    }
+  }
+  main p {
+    font-size: 1rem;
+    width: 90%;
+  }
+}
