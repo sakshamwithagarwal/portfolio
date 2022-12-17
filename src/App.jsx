@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Home />,
   },
-]);
+], {basename: "/portfolio"});
 
 function App() {
   const scrollRef = createRef();
