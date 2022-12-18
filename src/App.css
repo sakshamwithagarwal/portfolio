@@ -61,7 +61,7 @@ a {
 
 .circle {
   position: absolute;
-  top: 50%;
+  top: 50vh;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 0.9px solid var(--text-darker);
@@ -103,9 +103,13 @@ section {
 
 @media screen and (max-width: 480px) {
   .section_title {
-    padding: .5em;
+    padding: 0.5em;
   }
   .section_title h3 {
     font-size: 1.5rem;
+  }
+  .circle {
+    width: 50vw;
+    height: 50vw;
   }
 }

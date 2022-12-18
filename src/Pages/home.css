@@ -4,7 +4,9 @@ main {
 
 .heading_main {
   color: var(--text-darker);
-  font-size: clamp(100px, 30vh, 260px);
+  /* font-size: clamp(100px, 30vh, 260px); */
+  /* font-size: 30vh; */
+  font-size: 12rem;
   letter-spacing: -12.5px;
   text-transform: uppercase;
   line-height: 1;
@@ -23,67 +25,42 @@ main p {
   align-items: center;
 }
 
-.heading_main .animated_heading {
-  height: clamp(100px, 28vh, 300px);
+.animated_heading_wrapper {
   overflow: hidden;
+  height: 10rem;
 }
 
-.heading_main .animated_heading > div > div {
-  display: inline-block;
-  height: 12rem;
-  margin-bottom: 12rem;
+.animated_heading_wrapper span {
+  display: block;
+  height: 100%;
+  animation: spin-words-vertical 8s infinite;
 }
 
-.heading_main .animated_heading div:first-child {
-  animation: text-animation 8s infinite;
-}
-
-@keyframes text-animation {
-  /* 0% {margin-top: 0;}
-    10% {margin-top: 0;}
-    20% {margin-top: -24rem;}
-    30% {margin-top: -24rem;}
-    40% {margin-top: -48rem;}
-    60% {margin-top: -48rem;}
-    70% {margin-top: -24rem;}
-    80% {margin-top: -24rem;}
-    90% {margin-top: 0;}
-    100% {margin-top: 0;} */
-  0% {
-    margin-top: 0;
+@keyframes spin-words-vertical {
+  11% {
+    transform: translateY(-112%); 
   }
-  20% {
-    margin-top: 0;
+  37% {
+    transform: translateY(-102%); 
   }
-  40% {
-    margin-top: -24rem;
+  48% {
+    transform: translateY(-212%);
   }
-  55% {
-    margin-top: -24rem;
-  }
-  70% {
-    margin-top: -48rem;
+  74% {
+    transform: translateY(-202%);
   }
   85% {
-    margin-top: -48rem;
+    transform: translateY(-312%);
   }
   100% {
-    margin-top: 0;
+    transform: translateY(-302%);
   }
 }
 
-.animated_heading span {
-  -ms-animation: topToBottom 12.5s linear infinite 0s;
-  -webkit-animation: topToBottom 12.5s linear infinite 0s;
-  animation: topToBottom 12.5s linear infinite 0s;
-  overflow: hidden;
-  position: absolute;
-  opacity: 0;
-}
 
 @media screen and (max-width: 480px) {
   main {
-    min-height: 71vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -92,36 +69,6 @@ main p {
     font-size: 3.5rem;
     letter-spacing: -3px;
     margin-left: 0;
-  }
-  .heading_main .animated_heading {
-    height: 8vh;
-  }
-  .heading_main .animated_heading > div > div {
-    margin-bottom: 5rem;
-    height: 10vh;
-  }
-  @keyframes text-animation {
-    0% {
-      margin-top: 0;
-    }
-    20% {
-      margin-top: 0;
-    }
-    40% {
-      margin-top: -21vh;
-    }
-    55% {
-      margin-top: -21vh;
-    }
-    70% {
-      margin-top: -42vh;
-    }
-    85% {
-      margin-top: -42vh;
-    }
-    100% {
-      margin-top: 0;
-    }
   }
   main p {
     font-size: 1rem;
