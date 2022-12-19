@@ -17,14 +17,10 @@ const Home = () => {
           <span>Designer</span>
         </h1>
         <p>
-          Hi there,
-          <br />
-          I, Saksham Parag Agarwal am an Industrial Design Student from <b style={{fontWeight: '400'}}>Delhi
-          Technological University</b>. I also have a flair for Interaction and
-          Visual design works. I like to create designs that are both universal
-          sustainable. <br /> I try to draw inspiration from music and comics in order
-          to create designs that provide a harmonious and consistent user
-          experience for others.
+          I am an Industrial and Interaction Designer who creates designs that
+          are both sustainable and universal. I try to draw inspiration from
+          music and comics in order to create designs that provide a harmonious
+          and consistent user experience for others.
         </p>
       </main>
 
