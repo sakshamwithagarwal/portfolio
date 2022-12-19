@@ -1,5 +1,5 @@
 main {
-  margin: 2.3rem 0 6rem;
+  margin: 3rem 0 6rem;
 }
 
 .heading_main {
@@ -14,8 +14,8 @@ main {
 }
 
 main p {
-  width: 50%;
-  font-size: 3vh;
+  width: 52%;
+  font-size: 1.5rem;
   font-weight: 300;
 }
 
@@ -73,5 +73,8 @@ main p {
   main p {
     font-size: 1rem;
     width: 90%;
+  }
+  .animated_heading_wrapper {
+    height: 3rem;
   }
 }
