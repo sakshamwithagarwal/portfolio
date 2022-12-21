@@ -9,6 +9,7 @@
   padding: 0.5rem 2rem;
   border-radius: 5px;
   margin-top: 1.5rem;
+  padding-bottom: 0;
 }
 
 .projects .section_container ol li::before {
@@ -19,6 +20,8 @@
 
 .projects .section_container .project {
   min-height: 50vh;
+  width: 100%;
+  position: relative;
 }
 
 .projects .section_container .project .project_details {
@@ -31,6 +34,9 @@
   padding: 0.3em 0.5em;
   color: var(--text-darker);
   font-family: var(--details-font);
+  position: absolute;
+  bottom: 1rem;
+  width: 94%;
 }
 
 .projects .section_container .project:nth-child(3n + 1) {
@@ -47,6 +53,15 @@
   text-align: right;
 }
 
+.projects .project .project_container {
+  width: inherit;
+}
+
+.projects .project .project_container img {
+  width: 100%;
+  border: 1px solid red;
+}
+
 @media screen and (max-width: 480px) {
   .projects .section_container ol li {
     padding: .5em;
@@ -58,4 +73,9 @@
     font-size: .7rem;
     padding: .1em .5em;
   }
+}
+
+.model-viewer {
+  width: 100%;
+  min-height: 50vh;
 }
