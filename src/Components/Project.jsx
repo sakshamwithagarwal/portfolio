@@ -31,7 +31,7 @@ const Project = () => {
       <div className="project_container">
         <model-viewer
           className="model-viewer"
-          src="/assets/3D-models/plug-tug-glass.gltf"
+          src="./3D-models/plug-tug-glass.gltf"
           alt="plug tug 3D model"
           exposure="0.008"
           camera-controls
