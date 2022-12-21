@@ -35,8 +35,6 @@ const Project = () => {
           alt="plug tug 3D model"
           exposure="0.008"
           camera-controls
-          ar
-          ar-modes="webxr"
           ref={(ref) => {
             modelRef.current = ref;
           }}
