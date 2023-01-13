@@ -1,0 +1,75 @@
+.collection {
+  max-height: 100vh;
+}
+
+.collection__container {
+  display: flex;
+}
+
+.collection__list-wrapper,
+.collection__thumbnail {
+  flex: 1 1 50%;
+}
+
+.collection__thumbnail img {
+  width: 60%;
+  height: auto;
+  margin: 0 20%;
+  border-radius: 0.6rem;
+}
+
+.collection__list-wrapper {
+  margin-top: 8rem;
+}
+
+.collection__list {
+  width: 75%;
+  list-style: none;
+  max-height: 50vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.collection__list-title {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.collection__list-item {
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-top: 2px solid;
+  position: relative;
+}
+
+.collection__list-item div {
+  padding: 2rem 0;
+  transition: 0.3s;
+}
+
+.collection__list-item:hover div {
+  transform: translateX(10px);
+}
+
+/* SCROLL WHEEL CUSTOM STYLE */
+.collection__list {
+  padding-right: 1.5rem;
+}
+
+.collection__list::-webkit-scrollbar {
+  width: .5em;
+}
+
+.collection__list::-webkit-scrollbar-track{
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+  background-color: var(--main-bg);
+}
+
+.collection__list::-webkit-scrollbar-thumb{
+  /* width: 80%; */
+  border-radius: 10px;
+  border: 3px solid var(--text-main); 
+  background-color: transparent;
+}
