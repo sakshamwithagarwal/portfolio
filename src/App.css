@@ -2,8 +2,8 @@
 
 :root {
   --main-bg: #f1ede8;
-  --medium-bg: #E5D5C3;
-  --dark-bg: #EBDED2;
+  --medium-bg: #e5d5c3;
+  --dark-bg: #ebded2;
   --grey: #c9c8c9;
   --text-main: #272421;
   --text-darker: #2b2b2b;
@@ -12,12 +12,12 @@
 }
 
 .dark-theme {
-  --main-bg: #1C1C25;
+  --main-bg: #1c1c25;
   --medium-bg: #727272;
-  --dark-bg: #9F9F9F;
-  --grey: #B0B0B0;
+  --dark-bg: #9f9f9f;
+  --grey: #b0b0b0;
   --text-main: #83878d;
-  --text-darker: #C6C5C5;
+  --text-darker: #c6c5c5;
 }
 
 body {
@@ -67,8 +67,10 @@ a {
   border: 0.9px solid var(--text-darker);
   font-size: 16px;
   opacity: 0.2;
-  width: 58vh;
-  height: 58vh;
+  /* width: 58vh;
+  height: 58vh; */
+  width: 29.27vw;
+  height: 29.27vw;
   border-radius: 50%;
 }
 
@@ -92,8 +94,12 @@ section {
 .section_title {
   background-color: var(--text-main);
   color: var(--main-bg);
-  padding: 0.5rem 2rem;
+
   border-radius: 5px;
+
+  padding: 0.5rem 2rem;
+  padding-left: clamp(0.8rem, 1.25vw, 2rem);
+  margin-bottom: 1.5em;
 }
 
 .section_title h3 {

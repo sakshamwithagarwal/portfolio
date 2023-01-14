@@ -1,4 +1,3 @@
-import { createRef, useEffect } from "react";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -20,7 +19,7 @@ const router = createBrowserRouter([
     path: "/collection",
     element: <Collection />
   }
-], {basename: "/portfolio"});
+], {basename: "/portfolio/"});
 
 function App() {
   
