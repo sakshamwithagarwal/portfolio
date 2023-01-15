@@ -108,9 +108,15 @@ section {
   letter-spacing: -2.4px;
 }
 
+@media screen and (max-width: 600px) {
+  .section_title {
+    margin-bottom: 1em;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .section_title {
-    padding: 0.5em;
+    /* padding: 0.5em; */
   }
   .section_title h3 {
     font-size: 1.5rem;
