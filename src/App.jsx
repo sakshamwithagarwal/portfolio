@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     path: "/collection",
     element: <Collection />
   }
-], {basename: "/portfolio/"});
+], {basename: "/"});
 
 function App() {
   
