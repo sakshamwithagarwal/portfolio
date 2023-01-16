@@ -20,7 +20,7 @@
 
   font-size: 3.5em;
   font-size: clamp(1.5em, 3.9vw, 3.5em);
-  font-weight: 700;
+  /* font-weight: 700; */
   color: #fff;
   font-family: var(--head-font);
 

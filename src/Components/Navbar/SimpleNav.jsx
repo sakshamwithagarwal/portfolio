@@ -5,12 +5,10 @@ import "./custom-ham.css";
 const SimpleNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
-    // this.classList.toggle("opened");
-    // this.setAttribute("aria-expanded", this.classList.contains("opened"));
     setIsOpen(!isOpen);
   };
   return (
-    <div className="simplified__nav" data-scroll>
+    <div className="simplified__nav">
       <nav>
         <div className="logo">
           <a href="/">
