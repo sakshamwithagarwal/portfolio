@@ -125,9 +125,6 @@ section {
 }
 
 @media screen and (max-width: 480px) {
-  .section_title {
-    /* padding: 0.5em; */
-  }
   .section_title h3 {
     font-size: 1.5rem;
   }
