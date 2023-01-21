@@ -35,6 +35,22 @@
   position: relative;
   background-color: var(--dark-bg);
   aspect-ratio: 1.96;
+
+  cursor: pointer;
+
+  background-size: cover;
+}
+
+.projects .section_container .project .project__title {
+  color: white;
+  font-family: var(--project-title-font);
+  font-size: 1.6rem;
+  
+  width: 200px;
+
+  position: absolute;
+  top: clamp(1.5em, 5.9vw, 7.5em);
+  left: clamp(0.8rem, 1.25vw, 1.5rem);
 }
 
 .projects .section_container .project .project_details {
@@ -84,7 +100,7 @@
 @media screen and (max-width: 600px) {
   .projects .section_container ol {
     grid-template-columns: 1fr;
-    grid-gap: .5em;
+    grid-gap: 0.5em;
   }
   .projects .section_container .project .project_details {
     font-size: 0.5rem;

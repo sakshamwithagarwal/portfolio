@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./collections.css";
 
 const Collections = () => {
@@ -8,11 +9,11 @@ const Collections = () => {
     </div>
     <div className="section_container">
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+          <Link to="/collection"><li></li></Link>
+          <Link to="/collection"><li></li></Link>
+          <Link to="/collection"><li></li></Link>
+          <Link to="/collection"><li></li></Link>
+          <Link to="/collection"><li></li></Link>
         </ul>
     </div>
   </section>;

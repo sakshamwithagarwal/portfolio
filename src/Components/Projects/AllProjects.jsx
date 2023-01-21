@@ -1,4 +1,5 @@
 import React from "react";
+import projectData from "../../assets/ProjectsList.json";
 import Project from "./Project";
 
 const AllProjects = () => {
@@ -9,15 +10,9 @@ const AllProjects = () => {
       </div>
       <div className="section_container">
         <ol>
-          <Project />
-          <Project />
-          <Project />
-          <Project />
-          <Project />
-          <Project />
-          <Project />
-          <Project />
-          <Project />
+          {projectData.projects.map((project, id) => (
+            <Project key={id} data={project} />
+          ))}
         </ol>
       </div>
     </section>
