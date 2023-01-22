@@ -50,7 +50,7 @@
   [data-theme="dark"] .sun-and-moon > .sun {
     transform: scale(1.75);
     transition-timing-function: var(--ease-3);
-    transition-duration: 0.25s;
+    transition-duration: 0.5s;
   }
   
   [data-theme="dark"] .sun-and-moon > .sun-beams {
