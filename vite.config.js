@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import postcssPresetEnv from 'postcss-preset-env'
 import react from '@vitejs/plugin-react'
 
 const rewriteSlashToIndexHtml = () => {
@@ -24,4 +25,9 @@ export default defineConfig({
   appType: 'mpa',
   base: '/',
   plugins: [react(), rewriteSlashToIndexHtml()],
+  css: {
+    postcss: {
+      plugins: [postcssPresetEnv]
+    }
+  }
 })
