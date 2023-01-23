@@ -13,7 +13,6 @@ const Collections = () => {
           <Link to="/collection"><li></li></Link>
           <Link to="/collection"><li></li></Link>
           <Link to="/collection"><li></li></Link>
-          <Link to="/collection"><li></li></Link>
         </ul>
     </div>
   </section>;

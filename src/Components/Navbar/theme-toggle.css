@@ -28,17 +28,3 @@
   block-size: 100%;
   stroke-linecap: round;
 }
-
-@media (hover: none) {
-  .theme-toggle {
-    --size: 48px;
-  }
-}
-
-/* .theme-toggle {
-  background-image: url(../Assets/moon.svg);
-}
-
-[data-theme="dark"] .theme-toggle {
-  background-image: url(../Assets/sun.svg);
-} */

@@ -8,9 +8,18 @@
   --grey: #c9c8c9;
   --text-main: #272421;
   --text-darker: #2b2b2b;
+
+
   --body-font: "Open Sans", sans-serif;
-  --head-font: "Portfolio Font";
+  --head-font: "Portfolio Font", sans-serif;
   --project-title-font: "Basic", sans-serif;
+
+  --laptop-l-breakpoint: 1440px;
+  --laptop-breakpoint: 1024px;
+  --laptop-sm-breakpoint: 992px;
+  --tablet-breakpoint: 768px;
+  --mobile-breakpoint: 576px;
+  --mobile-sm-breakpoint: 350px;
 }
 
 [data-theme="dark"] {
@@ -108,7 +117,7 @@ section {
 
   border-radius: 5px;
 
-  padding: 0.5rem 2rem;
+  padding: 0rem 2rem;
   padding-left: clamp(0.8rem, 1.25vw, 2rem);
   margin-bottom: 1.5em;
 }
@@ -133,3 +142,10 @@ section {
     height: 50vw;
   }
 }
+
+/* @media screen and (max-width: 1440px)
+@media screen and (max-width: 1024px)
+@media screen and (max-width: 992px)
+@media screen and (max-width: 768px)
+@media screen and (max-width: 576px)
+@media screen and (max-width: 350px) */

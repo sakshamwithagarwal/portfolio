@@ -9,7 +9,6 @@ const Project = ({data}) => {
       </div>
       <div className="project_details">
         <div className="left">Project Duration - { data.duration }</div>
-        {/* <div className="right">August &#39;21 - October &#39;21</div> */}
         <div className="right">{ data.period }</div>
       </div>
     </li>

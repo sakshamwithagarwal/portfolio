@@ -19,7 +19,7 @@
   content: counter(project-counter);
 
   font-size: 3.5em;
-  font-size: clamp(1.5em, 3.9vw, 3.5em);
+  font-size: clamp(1.5em, 3.9vw, 2.5em);
   /* font-weight: 700; */
   color: #fff;
   font-family: var(--head-font);
@@ -49,12 +49,13 @@
   width: 200px;
 
   position: absolute;
-  top: clamp(1.5em, 5.9vw, 7.5em);
+  top: clamp(1.5em, 4.9vw, 5.5em);
   left: clamp(0.8rem, 1.25vw, 1.5rem);
 }
 
 .projects .section_container .project .project_details {
   display: flex;
+  opacity: 0;
   justify-content: space-between;
 
   width: 94%;
@@ -72,6 +73,12 @@
   position: absolute;
   left: 3%;
   bottom: 0.8rem;
+
+  transition: .3s;
+}
+
+.projects .section_container .project:hover .project_details {
+  opacity: 1;
 }
 
 /* .projects .section_container ol li:nth-child(6n + 4)::before,
