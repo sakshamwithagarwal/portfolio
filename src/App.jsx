@@ -9,6 +9,7 @@ import { createRoot } from "react-dom/client";
 import { Collection, Home } from "./Pages";
 
 import "./App.css";
+import { Noise, SplashScreen } from "./Components";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,9 @@ function App() {
 
   return (
     <div className="App" >
+      <Noise />
+      {/* <SplashScreen /> */}
+
       <div>
         <RouterProvider router={router} />
       </div>

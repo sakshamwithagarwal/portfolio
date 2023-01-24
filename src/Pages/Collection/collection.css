@@ -31,7 +31,8 @@
 }
 
 .collection__list-title {
-  font-size: 4rem;
+  /* font-size: 4rem; */
+  font-size: clamp(2rem, 3.4vw, 4rem);
   margin-bottom: 1rem;
   text-transform: uppercase;
 }
