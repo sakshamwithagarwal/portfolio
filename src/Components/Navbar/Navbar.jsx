@@ -1,7 +1,7 @@
 import React from "react";
 import './nav.css'
 
-const Navbar = () => {
+const Navbar = ({handler}) => {
   return (
     <nav >
       <ul>
@@ -25,6 +25,7 @@ const Navbar = () => {
               title="Toggles light & dark"
               aria-label="auto"
               aria-live="polite"
+              onClick={handler}
             >
               <svg className="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
                 <mask className="moon" id="moon-mask">
