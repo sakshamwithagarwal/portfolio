@@ -77,7 +77,8 @@
   transition: .3s;
 }
 
-.projects .section_container .project:hover .project_details {
+.projects .section_container .project:hover .project_details,
+.projects .section_container .project.touched .project_details {
   opacity: 1;
 }
 
