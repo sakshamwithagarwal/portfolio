@@ -47,8 +47,6 @@ const Home = () => {
 
   window.onload = () => {
     reflectPreference();
-
-    // document.querySelector("#theme-toggle").addEventListener('click')
   };
 
   window
