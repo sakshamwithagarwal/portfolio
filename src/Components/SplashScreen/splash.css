@@ -1,0 +1,34 @@
+.splash__screen {
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+
+  background-color: var(--main-bg);
+  text-align: center;
+
+  font-family: var(--head-font);
+}
+
+.splash__screen .splash__screen-content h1 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.splash__screen-content h3 {
+  font-size: 2.8rem;
+}
+
+.splash__screen-info {
+  /* margin-top: auto; */
+}
+
