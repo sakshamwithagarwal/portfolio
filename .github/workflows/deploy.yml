@@ -37,10 +37,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
 
-    environment:
-      name: github-pages
-      url: ${{steps.deployment.outputs.page_url}}
-
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v2
@@ -53,3 +49,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          custom-domain: sakshamagarwal.live
