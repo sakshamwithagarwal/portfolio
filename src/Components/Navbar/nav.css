@@ -58,79 +58,150 @@ nav .contact_btn {
   stroke-width: 2px;
 }
 
-.simplified__nav .nav__toggle #menu_checkbox {
-  display: none;
-
+.simplified__nav .nav__toggle>* {
+  box-sizing: border-box;
 }
 
-.simplified__nav .nav__toggle label {
-  /* position: absolute; */
-  /* top: 50%; */
-  right: 0;
-  left: 0;
-  display: block;
-  width: 1rem;
-  height: 1rem;
-  margin: -30px auto 0 auto;
+.nav__toggle .menu-icon {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+
   cursor: pointer;
+  /* background: pink; */
 }
 
-label:before {
-  content: "";
-  position: fixed;
+.nav__toggle .menu-icon__checkbox {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  opacity: 0;
+  z-index: 2;
+
+  /* background: red; */
+}
+
+.nav__toggle .menu-icon div {
+  margin: auto;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  transition: 1.2s cubic-bezier(0, 0.96, 1, 0.02) background-color;
+
+  width: 100%;
+  height: 80%;
+  /* background: yellow; */
 }
 
-label div {
+.nav__toggle .menu-icon div span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border: .5px solid var(--text-main);
+  border-radius: 5px;
+  transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+}
+
+.nav__toggle .menu-icon div span:first-of-type {
+  top: 0;
+}
+
+.nav__toggle .menu-icon div span:nth-child(2) {
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.nav__toggle .menu-icon div span:last-of-type {
+  bottom: 0;
+}
+
+
+.menu-icon__checkbox:checked+div span:first-of-type {
+  transform: rotate(45deg);
+  top: 10px;
+}
+
+.menu-icon__checkbox:checked+div span:last-of-type {
+  transform: rotate(-45deg);
+  bottom: 9px;
+}
+
+.menu-icon__checkbox:checked+div span:nth-child(2) {
+  opacity: 0;
+}
+
+.simplified__nav .nav__list {
+  display: none;
+}
+
+.simplified__nav .nav__list.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--main-bg);
+  z-index: 1;
+}
+
+.simplified__nav .nav__list ul {
+  display: block;
+  list-style: none;
+}
+
+.simplified__nav .nav__list ul li {
   position: relative;
+  /* list-style-image: url("data:image/svg+xml;utf8,<svg width='35' height='34' viewBox='0 0 35 34' fill='none' xmlns='http://www.w3.org/2000/svg'>  <path d='M2 32.4674L33 2M33 2H10.0462M33 2V24.4981' stroke='#83878D' stroke-width='16' stroke-miterlimit='10'/>  </svg>"); */
+
+  list-style-image: url("data:image/svg+xml;utf8,<svg width='35' height='34' viewBox='0 0 35 34' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 32.4674L33 2M33 2H10.0462M33 2V24.4981' stroke='#83878D' stroke-width='16' stroke-miterlimit='10'/></svg>");
+  font-family: var(--head-font);
+  font-size: 5rem;
+}
+
+/* .simplified__nav .nav__list ul li::before {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: -2rem;
+
+  /* transform: translate(0%, 50%); 
+  transform-origin: 0% 50%;
+
+  width: 2rem;
+  height: 2rem;
+  background: url(../../assets/list-icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+} */
+
+
+
+.simplified__nav .nav__list .nav__sublist li {
+  font-size: 1.7rem;
+}
+
+/* .simplified__nav .nav__list ul li::before {
+  content: '';
+  position: absolute;
   top: 0;
-  height: .5rem;
-  background-color: #fff;
-  margin-bottom: .5rem;
-  transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width,
-    0.3s ease right;
-  border-radius: 2px;
-}
+  left: 0;
 
-label div:first-child {
-  transform-origin: 0;
-}
-
-label div:last-child {
-  margin-bottom: 0;
-  transform-origin: 1rem;
-}
-
-label div:nth-child(2) {
-  right: 0;
   width: 1rem;
-}
-
-#menu_checkbox:checked + label div:first-child {
-  top: -6px;
-  transform: rotateZ(45deg);
-}
-
-#menu_checkbox:checked + label div:last-child {
-  top: 6px;
-  transform: rotateZ(45deg);
-}
-
-#menu_checkbox:checked + label div:nth-child(2) {
-  width: 85px;
-  top: 0;
-  right: 13px;
-  transform: rotateZ(-45deg);
-}
-
-
-
+  background: url(../../assets/list-icon.svg);
+} */
 
 @media screen and (max-width: 480px) {
+
   nav,
   .simplified__nav {
     margin-top: 1rem;
@@ -139,6 +210,7 @@ label div:nth-child(2) {
   .simplified__nav .logo svg {
     width: 3em;
   }
+
   .brand_logo {
     font-size: 3.5em;
   }
