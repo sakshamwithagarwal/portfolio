@@ -161,8 +161,6 @@ nav .contact_btn {
 
 .simplified__nav .nav__list ul li {
   position: relative;
-  /* list-style-image: url("data:image/svg+xml;utf8,<svg width='35' height='34' viewBox='0 0 35 34' fill='none' xmlns='http://www.w3.org/2000/svg'>  <path d='M2 32.4674L33 2M33 2H10.0462M33 2V24.4981' stroke='#83878D' stroke-width='16' stroke-miterlimit='10'/>  </svg>"); */
-
   list-style-image: url("data:image/svg+xml;utf8,<svg width='35' height='34' viewBox='0 0 35 34' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 32.4674L33 2M33 2H10.0462M33 2V24.4981' stroke='#83878D' stroke-width='16' stroke-miterlimit='10'/></svg>");
   font-family: var(--head-font);
   font-size: 5rem;
