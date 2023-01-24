@@ -35,7 +35,7 @@ nav .contact_btn {
 /* SIMPLIFIED NAVBAR */
 
 .simplified__nav {
-  margin: 2.5rem 0;
+  margin: 2rem 0;
 }
 
 .simplified__nav nav {
@@ -46,6 +46,16 @@ nav .contact_btn {
 
 .simplified__nav .logo img {
   height: 2.8rem;
+}
+
+.simplified__nav .logo svg {
+  width: 5em;
+  display: block;
+}
+
+.simplified__nav .logo path {
+  stroke: var(--text-main);
+  stroke-width: 2px;
 }
 
 .simplified__nav .nav__toggle #menu_checkbox {
@@ -121,10 +131,14 @@ label div:nth-child(2) {
 
 
 @media screen and (max-width: 480px) {
-  nav {
+  nav,
+  .simplified__nav {
     margin-top: 1rem;
   }
 
+  .simplified__nav .logo svg {
+    width: 3em;
+  }
   .brand_logo {
     font-size: 3.5em;
   }
