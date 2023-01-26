@@ -163,33 +163,43 @@ nav .contact_btn {
 }
 
 .simplified__nav .nav__list ul li {
-  position: relative;
-  list-style-image: url("data:image/svg+xml;utf8,<svg width='35' height='34' viewBox='0 0 35 34' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 32.4674L33 2M33 2H10.0462M33 2V24.4981' stroke='#83878D' stroke-width='16' stroke-miterlimit='10'/></svg>");
   font-family: var(--head-font);
-  font-size: 5rem;
+  font-size: max(3rem, min(4vw, 5rem));
 }
 
 .simplified__nav .nav__list .nav__sublist {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
+  margin-left: clamp(2rem, 2rem, 4rem);
 }
 
 .simplified__nav .nav__list .nav__sublist li {
-  font-size: 1.7rem;
+  /* font-size: 1.7rem; */
+  font-size: clamp(1.2rem, 1.4vw, 1.7rem);
   font-family: var(--portfolio-font-medium);
 }
 
 .nav__list .listIcon {
   stroke: var(--text-main);
   stroke-width: 4;
+  display: inline-block;
 }
 
 .nav__sublist .listIcon {
   stroke-width: 4px;
   width: 1rem;
   height: 1rem;
-  display: inline-block;
+}
+
+@media screen and (max-width: 576px) {
+  .nav__list .listIcon {
+    width: 1.5rem;
+    height: auto;
+  }
+  .nav__sublist .listIcon {
+    width: .6rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
