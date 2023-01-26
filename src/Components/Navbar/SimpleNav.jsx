@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./nav.css";
 import "./custom-ham.css";
+import ListIconComp from "./ListIconComp";
 
 // import listIcon from "../../assets/list-icon.svg"
 
@@ -9,6 +10,45 @@ const SimpleNav = () => {
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
+
+  const listItem = [
+    {
+      title: "Home",
+      sublist: [],
+    },
+    {
+      title: "Projects",
+      sublist: [],
+    },
+    {
+      title: "Collections",
+      sublist: [
+        {
+          title: "Posters",
+        },
+        {
+          title: "3D Renders",
+        },
+        {
+          title: "User Interface",
+        },
+      ],
+    },
+    {
+      title: "About",
+      sublist: [
+        {
+          title: "Instagram",
+        },
+        {
+          title: "Behance",
+        },
+        {
+          title: "LinkedIn",
+        },
+      ],
+    },
+  ];
   return (
     <div className="simplified__nav">
       <nav>
@@ -27,36 +67,34 @@ const SimpleNav = () => {
           </a>
         </div>
 
-        <div className="nav__list">
+        <div className={isOpen ? "nav__list active" : "nav__list"}>
           <div className="line-1"></div>
           <div className="line-2"></div>
           <div className="line-3"></div>
           <div className="circle"></div>
           <ul>
-            <li> Home</li>
-            <li>Projects</li>
-            <li>
-              Collections
-              <ul className="nav__sublist">
-                <li>Posters</li>
-                <li>3D Renders</li>
-                <li>User Interface</li>
-              </ul>
-            </li>
-            <li>
-              About
-              <ul className="nav__sublist">
-                <li>Instagram</li>
-                <li>Behance</li>
-                <li>LinkedIn</li>
-              </ul>
-            </li>
+            {listItem.map((item) => (
+              <li>
+                <ListIconComp /> {"  "} {item.title}
+                <ul className="nav__sublist">
+                  {item.sublist.map((subItem) => (
+                    <li>
+                      <ListIconComp /> {"  "} {subItem.title}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div className="nav__toggle">
           <div className="menu-icon">
-            <input className="menu-icon__checkbox" type="checkbox" />
+            <input
+              className="menu-icon__checkbox"
+              type="checkbox"
+              onChange={handleClick}
+            />
             <div>
               <span></span>
               <span></span>

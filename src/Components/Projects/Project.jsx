@@ -12,6 +12,9 @@ const Project = ({ data }) => {
     setIsTouched(false);
   };
 
+  const creatMarkup = (str) => {
+    return {__html: str}
+  }
   return (
     <li
       className={isTouched ? "project touched" : "project"}
@@ -21,7 +24,7 @@ const Project = ({ data }) => {
       onTouchEnd={handleTouchEnd}
     >
       <div className="project_container">
-        <div className="project__title">{data.title}</div>
+        <div className="project__title" dangerouslySetInnerHTML={creatMarkup(data.title)}></div>
       </div>
       <div className="project_details">
         <div className="left">Project Duration - {data.duration}</div>

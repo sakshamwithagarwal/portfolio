@@ -42,6 +42,8 @@ nav .contact_btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  position: relative;
 }
 
 .simplified__nav .logo img {
@@ -125,12 +127,12 @@ nav .contact_btn {
 
 .menu-icon__checkbox:checked+div span:first-of-type {
   transform: rotate(45deg);
-  top: 10px;
+  top: .65rem;
 }
 
 .menu-icon__checkbox:checked+div span:last-of-type {
   transform: rotate(-45deg);
-  bottom: 9px;
+  bottom: 0.65rem;
 }
 
 .menu-icon__checkbox:checked+div span:nth-child(2) {
@@ -139,16 +141,17 @@ nav .contact_btn {
 
 .simplified__nav .nav__list {
   display: none;
+  transition: all .3s ease;
 }
 
 .simplified__nav .nav__list.active {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
+  width: 100%;
+  height: 85vh;
+  position: absolute;
+  top: 100%;
   left: 0;
   background: var(--main-bg);
   z-index: 1;
@@ -166,37 +169,28 @@ nav .contact_btn {
   font-size: 5rem;
 }
 
-/* .simplified__nav .nav__list ul li::before {
-  content: '';
-  position: absolute;
-  top: 40%;
-  left: -2rem;
+.simplified__nav .nav__list .nav__sublist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 
-  /* transform: translate(0%, 50%); 
-  transform-origin: 0% 50%;
-
-  width: 2rem;
-  height: 2rem;
-  background: url(../../assets/list-icon.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-} */
-
-
+}
 
 .simplified__nav .nav__list .nav__sublist li {
   font-size: 1.7rem;
+  font-family: var(--portfolio-font-medium);
 }
 
-/* .simplified__nav .nav__list ul li::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+.nav__list .listIcon {
+  stroke: var(--text-main);
+  stroke-width: 4;
+}
 
+.nav__sublist .listIcon {
+  stroke-width: 4px;
   width: 1rem;
-  background: url(../../assets/list-icon.svg);
-} */
+  height: 1rem;
+  display: inline-block;
+}
 
 @media screen and (max-width: 480px) {
 
