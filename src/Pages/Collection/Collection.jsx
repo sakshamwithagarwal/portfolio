@@ -21,6 +21,22 @@ const Collection = () => {
   const handleMouseLeave = () => {
     setThumbnail("");
   };
+
+  (function (timer) {
+    window.addEventListener("load", function () {
+      var el = document.querySelector(".collection__list");
+      el.addEventListener("scroll", function (e) {
+        (function (el) {
+          el.classList.add("scroll");
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            el.classList.remove("scroll");
+          }, 100);
+        })(el);
+      });
+    });
+  })();
+
   return (
     <div className="collection">
       <SimpleNav />
@@ -31,25 +47,27 @@ const Collection = () => {
         </div>
         <div className="collection__list-wrapper">
           <h3 className="collection__list-title">Posters</h3>
-          <ul className="collection__list">
-            {collectionData.posters.map((item, key) => (
-              <li
-                className={
-                  isTouched
-                    ? "collection__list-item touched"
-                    : "collection__list-item"
-                }
-                key={key}
-                onMouseEnter={() => handleMouseEnter(item.thumbnail)}
-                onMouseLeave={() => handleMouseLeave()}
-                // onTouchStart={handleTouchStart}
-                // onTouchMove={handleTouchStart}
-                // onTouchEnd={handleTouchEnd}
-              >
-                <div>{item.title}</div>
-              </li>
-            ))}
-          </ul>
+          <div className="collection__list-outer">
+            <ul className="collection__list">
+              {collectionData.posters.map((item, key) => (
+                <li
+                  className={
+                    isTouched
+                      ? "collection__list-item touched"
+                      : "collection__list-item"
+                  }
+                  key={key}
+                  onMouseEnter={() => handleMouseEnter(item.thumbnail)}
+                  onMouseLeave={() => handleMouseLeave()}
+                  // onTouchStart={handleTouchStart}
+                  // onTouchMove={handleTouchStart}
+                  // onTouchEnd={handleTouchEnd}
+                >
+                  <div>{item.title}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

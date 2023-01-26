@@ -63,10 +63,10 @@ const Home = () => {
       data-scroll-position="top"
       ref={scrollRef}
     >
-      <div className="line-1"></div>
+      {/* <div className="line-1"></div>
       <div className="line-2"></div>
       <div className="line-3"></div>
-      <div className="circle"></div>
+      <div className="circle"></div> */}
       <Navbar handler={onClick} />
       <Main />
       <AllProjects />

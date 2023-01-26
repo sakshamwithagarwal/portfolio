@@ -42,6 +42,8 @@ nav .contact_btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  position: relative;
 }
 
 .simplified__nav .logo img {
@@ -125,12 +127,12 @@ nav .contact_btn {
 
 .menu-icon__checkbox:checked+div span:first-of-type {
   transform: rotate(45deg);
-  top: 10px;
+  top: .65rem;
 }
 
 .menu-icon__checkbox:checked+div span:last-of-type {
   transform: rotate(-45deg);
-  bottom: 9px;
+  bottom: 0.65rem;
 }
 
 .menu-icon__checkbox:checked+div span:nth-child(2) {
@@ -139,16 +141,17 @@ nav .contact_btn {
 
 .simplified__nav .nav__list {
   display: none;
+  transition: all .3s ease;
 }
 
 .simplified__nav .nav__list.active {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
+  width: 100%;
+  height: 85vh;
+  position: absolute;
+  top: 100%;
   left: 0;
   background: var(--main-bg);
   z-index: 1;
@@ -160,43 +163,44 @@ nav .contact_btn {
 }
 
 .simplified__nav .nav__list ul li {
-  position: relative;
-  list-style-image: url("data:image/svg+xml;utf8,<svg width='35' height='34' viewBox='0 0 35 34' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 32.4674L33 2M33 2H10.0462M33 2V24.4981' stroke='#83878D' stroke-width='16' stroke-miterlimit='10'/></svg>");
   font-family: var(--head-font);
-  font-size: 5rem;
+  font-size: max(3rem, min(4vw, 5rem));
 }
 
-/* .simplified__nav .nav__list ul li::before {
-  content: '';
-  position: absolute;
-  top: 40%;
-  left: -2rem;
+.simplified__nav .nav__list .nav__sublist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 
-  /* transform: translate(0%, 50%); 
-  transform-origin: 0% 50%;
-
-  width: 2rem;
-  height: 2rem;
-  background: url(../../assets/list-icon.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-} */
-
-
+  margin-left: clamp(2rem, 2rem, 4rem);
+}
 
 .simplified__nav .nav__list .nav__sublist li {
-  font-size: 1.7rem;
+  /* font-size: 1.7rem; */
+  font-size: clamp(1.2rem, 1.4vw, 1.7rem);
+  font-family: var(--portfolio-font-medium);
 }
 
-/* .simplified__nav .nav__list ul li::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+.nav__list .listIcon {
+  stroke: var(--text-main);
+  stroke-width: 4;
+  display: inline-block;
+}
 
+.nav__sublist .listIcon {
+  stroke-width: 4px;
   width: 1rem;
-  background: url(../../assets/list-icon.svg);
-} */
+  height: 1rem;
+}
+
+@media screen and (max-width: 576px) {
+  .nav__list .listIcon {
+    width: 1.5rem;
+    height: auto;
+  }
+  .nav__sublist .listIcon {
+    width: .6rem;
+  }
+}
 
 @media screen and (max-width: 480px) {
 
