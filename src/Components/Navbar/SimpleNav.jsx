@@ -15,6 +15,7 @@ const SimpleNav = () => {
     {
       title: "Home",
       sublist: [],
+      url: '/'
     },
     {
       title: "Projects",
