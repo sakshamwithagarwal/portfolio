@@ -17,6 +17,40 @@ main {
   margin-bottom: 1rem;
 }
 
+.hero__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero__scroll_arrow {
+  position: absolute;
+  right: 0;
+  
+  border-radius: 50%;
+  border: 1px solid var(--text-main);
+  
+  width: 200px;
+  height: 200px;
+  
+  margin-top: -3rem;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  transition: .3s;
+}
+
+/* .hero__scroll_arrow:hover {
+  width: 210px;
+  height: 210px;
+} */
+
+.hero__content svg path {
+  stroke: var(--text-main);
+  cursor: pointer;
+}
+
 main p {
   width: 52%;
   width: clamp(52%, 56%, 58%);

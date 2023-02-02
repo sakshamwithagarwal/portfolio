@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import projects from "../../assets/ProjectsList.json";
 import Project from "./Project";
 
-const AllProjects = () => {
+
+const AllProjects = forwardRef((props, ref) => {
   const [projectData, setProjectData] = useState(projects.projects);
 
   useEffect(() => {
@@ -13,7 +14,7 @@ const AllProjects = () => {
   }, [projectData]);
 
   return (
-    <section className="projects">
+    <section className="projects" ref={ref}>
       <div className="section_title">
         <h3>Projects</h3>
       </div>
@@ -26,6 +27,6 @@ const AllProjects = () => {
       </div>
     </section>
   );
-};
+});
 
 export default AllProjects;

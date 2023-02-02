@@ -23,6 +23,7 @@ const Project = ({ data }) => {
       onTouchMove={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
+      {/* <img src={data.thu} /> */}
       <div className="project_container">
         <div className="project__title" dangerouslySetInnerHTML={creatMarkup(data.title)}></div>
       </div>

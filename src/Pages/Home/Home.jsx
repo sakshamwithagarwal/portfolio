@@ -1,9 +1,10 @@
-import React, { createRef, useEffect } from "react";
+import React, { createRef, useEffect, useRef } from "react";
 import locomotiveScroll from "locomotive-scroll";
 import { Navbar, Main, AllProjects, Collections } from "../../Components";
 import "./home.css";
 
 const Home = () => {
+  const projectCompRef = useRef(null);
   const scrollRef = createRef();
   const storageKey = "theme-preference";
 
@@ -68,8 +69,8 @@ const Home = () => {
       <div className="line-3"></div>
       <div className="circle"></div> */}
       <Navbar handler={onClick} />
-      <Main />
-      <AllProjects />
+      <Main compRef={projectCompRef}/>
+      <AllProjects ref={projectCompRef} />
       <Collections />
     </div>
   );

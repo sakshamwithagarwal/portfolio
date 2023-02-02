@@ -107,8 +107,8 @@ a {
 }
 
 section {
-  margin: 5rem 0 0;
-  padding-bottom: 5rem;
+  padding: 2rem 0 3rem;
+  /* padding-bottom: 5rem; */
 }
 
 .section_title {

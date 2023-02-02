@@ -68,18 +68,18 @@ const SimpleNav = () => {
         </div>
 
         <div className={isOpen ? "nav__list active" : "nav__list"}>
-          <div className="line-1"></div>
+          {/* <div className="line-1"></div>
           <div className="line-2"></div>
           <div className="line-3"></div>
-          <div className="circle"></div>
+          <div className="circle"></div> */}
           <ul>
             {listItem.map((item) => (
               <li>
-                <ListIconComp /> {"  "} {item.title}
+                <ListIconComp className="icon" /> {"  "} {item.title}
                 <ul className="nav__sublist">
-                  {item.sublist.map((subItem) => (
+                  { item.sublist && item.sublist.map((subItem) => (
                     <li>
-                      <ListIconComp /> {"  "} {subItem.title}
+                      <ListIconComp className="icon" /> {"  "} {subItem.title}
                     </li>
                   ))}
                 </ul>
