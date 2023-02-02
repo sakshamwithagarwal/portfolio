@@ -1,64 +1,94 @@
 {
     "posters": [
         {
-            "title": "lonely",
+            "title": "Interstellar",
             "diffFont": false,
             "fontFamily": "",
             "thumbnail": "temp-post.png"
         },
         {
-            "title": "lonely",
+            "title": "The Shining",
             "diffFont": false,
             "fontFamily": "",
-            "thumbnail": "temp-post.png"
+            "thumbnail": "shining.webp"
         },
         {
-            "title": "lonely",
-            "diffFont": false,
-            "fontFamily": "",
-            "thumbnail": "temp-post.png"
+            "title": "CREATIVE BLOCK",
+            "diffFont": true,
+            "fontFamily": "Minecraft",
+            "thumbnail": "creativeblock.webp"
         },
         {
-            "title": "lonely",
+            "title": "life moves fast",
             "diffFont": false,
             "fontFamily": "",
-            "thumbnail": "temp-post.png"
+            "thumbnail": "lifemovesfast.webp"
         },
         {
-            "title": "lonely",
+            "title": "overthink",
             "diffFont": false,
             "fontFamily": "",
-            "thumbnail": "temp-post.png"
+            "thumbnail": "overthink.webp"
         },
         {
-            "title": "lonely",
+            "title": "live, love, laugh",
             "diffFont": false,
             "fontFamily": "",
-            "thumbnail": "temp-post.png"
+            "thumbnail": "livelovelaugh.webp"
         },
         {
-            "title": "lonely",
+            "title": "live, love, laugh",
             "diffFont": false,
             "fontFamily": "",
-            "thumbnail": "temp-post.png"
+            "thumbnail": "livelovelaugh.webp"
         },
         {
-            "title": "lonely",
+            "title": "wanderlust",
             "diffFont": false,
             "fontFamily": "",
-            "thumbnail": "temp-post.png"
+            "thumbnail": "wanderlust.webp"
         },
         {
-            "title": "lonely",
+            "title": "Joker",
             "diffFont": false,
             "fontFamily": "",
-            "thumbnail": "temp-post.png"
+            "thumbnail": "joker.webp"
         },
         {
-            "title": "lonely",
+            "title": "Man of Steel",
             "diffFont": false,
             "fontFamily": "",
-            "thumbnail": "temp-post.png"
+            "thumbnail": "manofsteel.webp"
+        },
+        {
+            "title": "you do you",
+            "diffFont": false,
+            "fontFamily": "",
+            "thumbnail": "you do you.webp"
+        },
+        {
+            "title": "speed",
+            "diffFont": false,
+            "fontFamily": "",
+            "thumbnail": "speed.webp"
+        },
+        {
+            "title": "work hard, dream big.",
+            "diffFont": false,
+            "fontFamily": "",
+            "thumbnail": "workhard.webp"
+        },
+        {
+            "title": "nostalgia",
+            "diffFont": false,
+            "fontFamily": "",
+            "thumbnail": "nostalgia.webp"
+        },
+        {
+            "title": "mystery",
+            "diffFont": false,
+            "fontFamily": "",
+            "thumbnail": "mystery.webp"
         }
     ]
 }

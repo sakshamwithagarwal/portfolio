@@ -94,7 +94,7 @@ const Collection = () => {
                   // onTouchMove={handleTouchStart}
                   // onTouchEnd={handleTouchEnd}
                 >
-                  <div>{item.title}</div>
+                  <div style={item.diffFont ? {fontFamily: item.fontFamily} : {}}>{item.title}</div>
                 </li>
               ))}
             </ul>
