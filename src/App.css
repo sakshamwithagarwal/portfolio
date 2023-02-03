@@ -35,16 +35,25 @@
 
 body {
   background-color: var(--main-bg);
-  font-family: var(--body-font);
   color: var(--text-main);
+  
+  font-family: var(--body-font);
+  font-size: 16px;
+  
   width: 95%;
   margin: auto;
-  font-size: 16px;
+
+  cursor: none;
 }
 
 /* @custom-media :--heading h1, h2, h3, h4, h5, h6; */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--head-font);
   font-weight: normal;
 }
@@ -54,6 +63,7 @@ a {
   font: inherit;
   color: inherit;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -137,6 +147,7 @@ section {
   .section_title h3 {
     font-size: 1.5rem;
   }
+
   .circle {
     width: 50vw;
     height: 50vw;
@@ -149,3 +160,20 @@ section {
 @media screen and (max-width: 768px)
 @media screen and (max-width: 576px)
 @media screen and (max-width: 350px) */
+
+.cursor {
+  pointer-events: none;
+}
+
+.cursor__ball {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  mix-blend-mode: difference;
+  z-index: 100;
+}
+
+.cursor__ball circle {
+  fill: var(--text-main);
+}
