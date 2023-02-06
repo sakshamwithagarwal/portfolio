@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import "./main.css";
+import { gsap } from "gsap";
 
-const Main = ({compRef}) => {
+const Main = ({ compRef }) => {
+  const arrowRef = useRef(null);
+
+  const handleArrowMouseEnter = () => {
+    gsap.to(arrowRef.current, {
+      scale: 1.1,
+      duration: 0.3,
+    });
+  };
+
+  const handleArrowMouseLeave = () => {
+    gsap.to(arrowRef.current, {
+      scale: 1,
+      duration: 0.3,
+    });
+  };
+
   const handleClickToScroll = () => {
     compRef.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -25,6 +42,14 @@ const Main = ({compRef}) => {
           and consistent user experience for others.
         </p>
         <div className="hero__scroll_arrow" onClick={handleClickToScroll}>
+          <div
+            className="hero__scroll-arrow-circle"
+            ref={arrowRef}
+            onMouseEnter={handleArrowMouseEnter}
+            onMouseLeave={handleArrowMouseLeave}
+            onTouchStart={handleArrowMouseEnter}
+            onTouchEnd={handleArrowMouseLeave}
+          ></div>
           <svg
             width="93"
             height="74"

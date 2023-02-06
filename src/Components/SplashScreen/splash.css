@@ -39,3 +39,13 @@
 
   font-size: 1.8rem;
 }
+
+@media screen and (max-width: 576px) {
+  .splash__screen .splash__screen-content h1 {
+    font-size: 2rem;
+  }
+
+  .splash__screen-content h3 {
+    font-size: 1.4rem;
+  }
+}

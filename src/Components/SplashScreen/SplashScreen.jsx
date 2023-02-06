@@ -28,7 +28,7 @@ const SplashScreen = ({ handleClick }) => {
         {
           y: 0,
           scale: 1,
-          delay: 3,
+          delay: 1,
           duration: 0.5,
         }
       );
