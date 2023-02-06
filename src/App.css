@@ -175,5 +175,5 @@ section {
 }
 
 .cursor__ball circle {
-  fill: var(--text-main);
+  fill: #f7f8fa;
 }
