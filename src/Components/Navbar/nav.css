@@ -239,3 +239,19 @@ nav .contact_btn {
     width: 42%;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .nav__toggle .menu-icon {
+    width: 3.6rem;
+    height: 3.3rem;
+  }
+  .nav__toggle .menu-icon div span {
+    height: 9px;
+  }
+  .menu-icon__checkbox:checked+div span:first-of-type {
+    top: 1rem;
+  }
+  .menu-icon__checkbox:checked+div span:last-of-type {
+    bottom: 1rem;
+  }
+}

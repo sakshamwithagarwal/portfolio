@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Collection, Home } from "./Pages";
 import { Noise, SplashScreen, Cursor } from "./Components";
 import "./App.css";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 
 const router = createBrowserRouter(
@@ -20,12 +20,13 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  // const cursorRef = {
-  //   cursorBigCircle: useRef(null),
-  //   cursorSmallCircle: useRef(null),
-  // };
   const cursorBigCircle = useRef(null);
   const cursorSmallCircle = useRef(null);
+  const [isSplashOpen, setIsSplashOpen] = useState(true);
+
+  const onClickHandler = () => {
+    setIsSplashOpen(false);
+  };
 
   const moveCursor = (e) => {
     gsap.to(cursorBigCircle.current, {
@@ -44,6 +45,8 @@ function App() {
   return (
     <div className="App" onMouseMove={moveCursor}>
       {/* <Cursor ref={cursorRef} /> */}
+
+      {isSplashOpen && <SplashScreen handleClick={onClickHandler} />}
 
       <div className="cursor">
         <div className="cursor__ball cursor__ball--big" ref={cursorBigCircle}>
