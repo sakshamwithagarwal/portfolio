@@ -40,7 +40,7 @@
   background-color: var(--dark-bg);
   aspect-ratio: 1.96;
 
-  cursor: pointer;
+  /* cursor: pointer; */
 
   background-size: cover;
 }
