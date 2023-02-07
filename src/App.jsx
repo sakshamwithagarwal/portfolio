@@ -44,7 +44,6 @@ function App() {
 
   return (
     <div className="App" onMouseMove={moveCursor} onTouchMove={moveCursor}>
-      {/* <Cursor ref={cursorRef} /> */}
 
       {isSplashOpen && <SplashScreen handleClick={onClickHandler} />}
 

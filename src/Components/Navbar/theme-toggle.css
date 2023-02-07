@@ -2,7 +2,7 @@
 
 .theme-toggle {
   --size: 2rem;
-  --icon-fill: var(--text-darker);
+  --icon-fill: var(--text-main);
 
   background: none;
   border: none;

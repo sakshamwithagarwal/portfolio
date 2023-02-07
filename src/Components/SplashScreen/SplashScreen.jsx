@@ -38,7 +38,12 @@ const SplashScreen = ({ handleClick }) => {
   }, []);
 
   return (
-    <div className="splash__screen" id="splash__screen" ref={splashRef}>
+    <div
+      className="splash__screen"
+      id="splash__screen"
+      ref={splashRef}
+      onClick={handleClick}
+    >
       <div className="line-1"></div>
       <div className="line-2"></div>
       <div className="line-3"></div>
@@ -48,9 +53,7 @@ const SplashScreen = ({ handleClick }) => {
         <h3>I am an Experience Designer</h3>
       </div>
 
-      <div className="splash__screen-info" onClick={handleClick}>
-        click to enter
-      </div>
+      <div className="splash__screen-info">click to enter</div>
     </div>
   );
 };
