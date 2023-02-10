@@ -4,7 +4,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
   position: fixed;
@@ -26,7 +26,15 @@
 
 .splash__screen-content h3,
 .splash__screen-info {
-  font-family: "Portfolio Font - Light";
+  font-family: var(--portfolio-font-light);
+}
+.splash__screen-credits {
+  font-size: 2.5rem;
+  font-family: var(--head-font);
+}
+
+.splash__screen-credits span {
+  font-family: var(--portfolio-font-italic);
 }
 
 .splash__screen-content h3 {
@@ -34,7 +42,7 @@
 }
 
 .splash__screen-info {
-  position: fixed;
+  /* position: fixed; */
   bottom: 2rem;
 
   font-size: 1.8rem;

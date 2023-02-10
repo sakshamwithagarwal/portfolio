@@ -22,6 +22,7 @@ const router = createBrowserRouter(
 function App() {
   const cursorBigCircle = useRef(null);
   const cursorSmallCircle = useRef(null);
+  const lineRef = useRef(null);
   const [isSplashOpen, setIsSplashOpen] = useState(true);
 
   const onClickHandler = () => {
@@ -42,9 +43,27 @@ function App() {
     });
   };
 
-  return (
-    <div className="App" onMouseMove={moveCursor} onTouchMove={moveCursor}>
+  const onClickCursor = () => {
+    gsap.fromTo(
+      cursorBigCircle.current,
+      { scale: 1.5, ease: "true" },
+      { scale: 1, duration: 1.5 }
+    );
+  };
+  // useEffect(() => {
+  //   gsap.timeline({reversed: true, paused: true});
 
+  //   gsap.set(lineRef.current, {height: 0})
+  //   gsap.to(lineRef.current, {height: '100vh'})
+  // }, [])
+
+  return (
+    <div
+      className="App"
+      onMouseMove={moveCursor}
+      onTouchMove={moveCursor}
+      onClick={onClickCursor}
+    >
       {isSplashOpen && <SplashScreen handleClick={onClickHandler} />}
 
       <div className="cursor">
@@ -64,9 +83,9 @@ function App() {
       </div>
 
       <Noise />
-      <div className="line-1"></div>
-      <div className="line-2"></div>
-      <div className="line-3"></div>
+      <div className="line-1" ref={lineRef}></div>
+      <div className="line-2" ref={lineRef}></div>
+      <div className="line-3" ref={lineRef}></div>
       <div className="circle"></div>
       <div>
         <RouterProvider router={router} />

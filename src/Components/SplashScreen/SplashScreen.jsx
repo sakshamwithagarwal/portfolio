@@ -48,6 +48,9 @@ const SplashScreen = ({ handleClick }) => {
       <div className="line-2"></div>
       <div className="line-3"></div>
       <div className="circle"></div>
+      <div className="splash__screen-credits">
+        PORTFOLIO <br /> <span>by</span> saksham.
+      </div>
       <div className="splash__screen-content">
         <h1>Hey, I am Saksham Parag Agarwal</h1>
         <h3>I am an Experience Designer</h3>
