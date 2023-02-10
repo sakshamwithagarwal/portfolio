@@ -10,7 +10,7 @@
 }
 
 .collections .section_container ul li {
-  max-height: 50vh;
+  /* max-height: 50vh; */
   aspect-ratio: 1/1;
 
   border-radius: 5px;

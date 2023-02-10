@@ -35,6 +35,7 @@
 
 .splash__screen-credits span {
   font-family: var(--portfolio-font-italic);
+  font-size: 1.8rem;
 }
 
 .splash__screen-content h3 {

@@ -22,7 +22,10 @@ const router = createBrowserRouter(
 function App() {
   const cursorBigCircle = useRef(null);
   const cursorSmallCircle = useRef(null);
-  const lineRef = useRef(null);
+  const line1Ref = useRef(null);
+  const line2Ref = useRef(null);
+  const line3Ref = useRef(null);
+  const circleRef = useRef(null);
   const [isSplashOpen, setIsSplashOpen] = useState(true);
 
   const onClickHandler = () => {
@@ -50,12 +53,29 @@ function App() {
       { scale: 1, duration: 1.5 }
     );
   };
-  // useEffect(() => {
-  //   gsap.timeline({reversed: true, paused: true});
 
-  //   gsap.set(lineRef.current, {height: 0})
-  //   gsap.to(lineRef.current, {height: '100vh'})
-  // }, [])
+  useEffect(() => {
+    gsap.fromTo(
+      line1Ref.current,
+      { height: 0 },
+      { height: "100%", duration: 1.4, delay: 0.6 }
+    );
+    gsap.fromTo(
+      line2Ref.current,
+      { height: 0 },
+      { height: "100%", duration: 1.4, delay: 0.8 }
+    );
+    gsap.fromTo(
+      line3Ref.current,
+      { height: 0 },
+      { height: "100%", duration: 1.4, delay: 1 }
+    );
+    gsap.fromTo(
+      circleRef.current,
+      { width: 0, height: 0 },
+      { width: "29.27vw", height: "29.27vw", duration: 1, delay: 1.2 }
+    );
+  }, []);
 
   return (
     <div
@@ -64,7 +84,7 @@ function App() {
       onTouchMove={moveCursor}
       onClick={onClickCursor}
     >
-      {isSplashOpen && <SplashScreen handleClick={onClickHandler} />}
+      {/* {isSplashOpen && <SplashScreen handleClick={onClickHandler} />} */}
 
       <div className="cursor">
         <div className="cursor__ball cursor__ball--big" ref={cursorBigCircle}>
@@ -83,10 +103,10 @@ function App() {
       </div>
 
       <Noise />
-      <div className="line-1" ref={lineRef}></div>
-      <div className="line-2" ref={lineRef}></div>
-      <div className="line-3" ref={lineRef}></div>
-      <div className="circle"></div>
+      <div className="line-1" ref={line1Ref}></div>
+      <div className="line-2" ref={line2Ref}></div>
+      <div className="line-3" ref={line3Ref}></div>
+      <div className="circle" ref={circleRef}></div>
       <div>
         <RouterProvider router={router} />
       </div>

@@ -4,6 +4,12 @@ import { gsap } from "gsap";
 
 const Main = ({ compRef }) => {
   const arrowRef = useRef(null);
+  const arrowSVGRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(arrowRef.current, {width: 0, height: 0}, {width: '200px', height: '200px', duration: 1, delay: 1.4})
+    gsap.fromTo(arrowSVGRef.current, {scale: 0}, {scale: 1, delay: 1.6, ease: 'ease.in', duration: 1})
+  }, [])
 
   const handleArrowMouseEnter = () => {
     gsap.to(arrowRef.current, {
@@ -56,6 +62,7 @@ const Main = ({ compRef }) => {
             viewBox="0 0 93 74"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            ref={arrowSVGRef}
           >
             {/* <circle cx={0} cy={0} r={100} stroke="white" strokeWidth={1} /> */}
             <path

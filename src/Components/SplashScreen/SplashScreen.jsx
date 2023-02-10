@@ -24,17 +24,18 @@ const SplashScreen = ({ handleClick }) => {
   //   return () => ctx.revert();
   // }, []);
 
+  // e.keyCode === 32
+  
   const handleKeyPress = (e) => {
-    console.log(e)
-    if (e.keyCode === 32) alert('Enter is pressed')
+    if (e.keyCode === 13) handleClick()
   }
+  window.addEventListener('keydown', handleKeyPress)
 
   return (
     <div
       className="splash__screen"
       id="splash__screen"
       ref={splashRef}
-      onKeyDown={handleKeyPress}
     >
       <div className="line-1"></div>
       <div className="line-2"></div>
