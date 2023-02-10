@@ -24,12 +24,17 @@ const SplashScreen = ({ handleClick }) => {
   //   return () => ctx.revert();
   // }, []);
 
+  const handleKeyPress = (e) => {
+    console.log(e)
+    if (e.keyCode === 32) alert('Enter is pressed')
+  }
+
   return (
     <div
       className="splash__screen"
       id="splash__screen"
       ref={splashRef}
-      onClick={handleClick}
+      onKeyDown={handleKeyPress}
     >
       <div className="line-1"></div>
       <div className="line-2"></div>
@@ -42,7 +47,7 @@ const SplashScreen = ({ handleClick }) => {
         <h1>Hey, I am Saksham Parag Agarwal</h1>
         <h3>I am an Experience Designer</h3>
       </div>
-      <div className="splash__screen-info">
+      <div className="splash__screen-info" onClick={handleClick}>
         click to enter{" "}
         <div className="arrow-circle">
         <svg

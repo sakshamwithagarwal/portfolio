@@ -69,7 +69,7 @@ function App() {
       <div className="cursor">
         <div className="cursor__ball cursor__ball--big" ref={cursorBigCircle}>
           <svg height="30" width="30">
-            <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+            <circle cx="15" cy="15" r="12" strokeWidth="0"></circle>
           </svg>
         </div>
         <div
@@ -77,7 +77,7 @@ function App() {
           ref={cursorSmallCircle}
         >
           <svg height="10" width="10">
-            <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+            <circle cx="5" cy="5" r="4" strokeWidth="0"></circle>
           </svg>
         </div>
       </div>
