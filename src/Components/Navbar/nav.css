@@ -213,6 +213,9 @@ nav .contact_btn {
   .nav__sublist .listIcon {
     width: .6rem;
   }
+  .simplified__nav .nav__list.active {
+    padding-left: 2rem;
+  }
 }
 
 @media screen and (max-width: 480px) {

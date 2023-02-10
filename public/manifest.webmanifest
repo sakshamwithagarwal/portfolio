@@ -1,0 +1,13 @@
+{
+    "name": "Saksham Agarwal",
+    "short_name": "Saksham",
+    "id": "/",
+    "lang": "en",
+    "description": "Saksham Agarwal's portfolio",
+    "start_url": "/",
+    "scope": "/",
+    "orientation": "portrait",
+    "theme_color": "#83878d",
+    "background_color": "#1c1c25",
+    "display": "standalone"
+  }

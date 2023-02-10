@@ -41,6 +41,7 @@
   aspect-ratio: 1.96;
 
   /* cursor: pointer; */
+  pointer-events: none;
 
   background-size: cover;
 }

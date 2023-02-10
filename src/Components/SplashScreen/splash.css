@@ -4,7 +4,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
   position: fixed;
@@ -26,7 +26,16 @@
 
 .splash__screen-content h3,
 .splash__screen-info {
-  font-family: "Portfolio Font - Light";
+  font-family: var(--portfolio-font-light);
+}
+.splash__screen-credits {
+  font-size: 2.5rem;
+  font-family: var(--head-font);
+}
+
+.splash__screen-credits span {
+  font-family: var(--portfolio-font-italic);
+  font-size: 1.8rem;
 }
 
 .splash__screen-content h3 {
@@ -34,10 +43,62 @@
 }
 
 .splash__screen-info {
-  position: fixed;
-  bottom: 2rem;
-
   font-size: 1.8rem;
+  
+  border: 1px solid var(--text-main);
+  border-radius: 2rem;
+  
+  padding: .5rem;
+  padding-left: 1em;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  transition: .3s;
+}
+
+.splash__screen-info:hover {
+  gap: 2rem;
+}
+
+.splash__screen-info .arrow-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border: 1px solid var(--text-main);
+  border-radius: 50%;
+  
+  padding: .5rem;
+  
+  width: 3rem;
+  height: 3rem;
+  
+  margin-left: auto;
+}
+
+/* .splash__screen-info .arrow-circle:hover svg path {
+  transform: translateX(5px);
+} */
+
+.splash__screen-links {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+}
+
+.splash__screen-links ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  font-size: 2rem;
+}
+
+.splash__screen-links ul li {
+  text-transform: uppercase;
+  font-family: var(--extra-font);
 }
 
 @media screen and (max-width: 576px) {

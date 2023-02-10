@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Basic&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 :root {
   --main-bg: #f1ede8;
@@ -14,7 +15,9 @@
   --head-font: "Portfolio Font", sans-serif;
   --portfolio-font-light: "Portfolio Font - Light", sans-serif;
   --portfolio-font-medium: "Portfolio Font - Medium", sans-serif;
+  --portfolio-font-italic: "Portfolio Font - Italics";
   --project-title-font: "Basic", sans-serif;
+  --extra-font: 'Bebas Neue', cursive;
 
   --laptop-l-breakpoint: 1440px;
   --laptop-breakpoint: 1024px;
