@@ -7,9 +7,25 @@ const Main = ({ compRef }) => {
   const arrowSVGRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(arrowRef.current, {width: 0, height: 0}, {width: '200px', height: '200px', duration: 1, delay: 1.4})
-    gsap.fromTo(arrowSVGRef.current, {scale: 0}, {scale: 1, delay: 1.6, ease: 'ease.in', duration: 1})
-  }, [])
+    gsap.fromTo(
+      arrowRef.current,
+      { width: 0, height: 0 },
+      { width: "200px", height: "200px", duration: 1, delay: 1.4 }
+    );
+    gsap.fromTo(
+      arrowSVGRef.current,
+      { scale: 0 },
+      { scale: 1, delay: 1.6, ease: "ease.in", duration: 1 }
+    );
+    let mm = gsap.matchMedia();
+    mm.add("(max-width: 576px", () => {
+      gsap.fromTo(
+        arrowRef.current,
+        { width: 0, height: 0 },
+        { width: "100px", height: "100px", duration: 1, delay: 1.4 }
+      );
+    });
+  }, []);
 
   const handleArrowMouseEnter = () => {
     gsap.to(arrowRef.current, {
