@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserView } from "react-device-detect";
 
 import { Collection, Home } from "./Pages";
 import { Noise, SplashScreen, Cursor, Background } from "./Components";
@@ -31,7 +32,9 @@ function App() {
     <MouseContextProvider>
       <div className="App">
         {/* {isSplashOpen && <SplashScreen handleClick={onClickHandler} />} */}
-        <Cursor />
+        <BrowserView>
+          <Cursor />
+        </BrowserView>
         <Noise />
         <div>
           <RouterProvider router={router} />

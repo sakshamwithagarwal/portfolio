@@ -2,36 +2,13 @@ import React, { useEffect, useRef, useContext } from "react";
 import { gsap } from "gsap";
 import "./cursor.css";
 import { MouseContext } from "../../context/MouseContext";
+import useMousePosition from "./useMousePosition";
 
 const Cursor = () => {
   const cursorBigCircle = useRef(null);
   const cursorSmallCircle = useRef(null);
   const { cursorType } = useContext(MouseContext);
-  const cursorVisible = useRef(true);
-
-  const toggleCursorVisibility = () => {
-    if (cursorVisible.current) {
-      cursorBigCircle.current.style.opacity = 1;
-      cursorSmallCircle.current.style.opacity = 1;
-    } else {
-      cursorBigCircle.current.style.opacity = 0;
-      cursorSmallCircle.current.style.opacity = 0;
-    }
-  };
-
-  const moveCursor = (e) => {
-    gsap.to(cursorBigCircle.current, {
-      x: e.pageX - 15,
-      y: e.pageY - 15,
-      duration: 0.4,
-    });
-
-    gsap.to(cursorSmallCircle.current, {
-      x: e.pageX - 5,
-      y: e.pageY - 7,
-      duration: 0.1,
-    });
-  };
+  const { x, y } = useMousePosition();
 
   const mouseHover = (e) => {
     gsap.to(cursorBigCircle.current, {
@@ -53,6 +30,19 @@ const Cursor = () => {
   };
 
   useEffect(() => {
+    const moveCursor = (e) => {
+      gsap.to(cursorBigCircle.current, {
+        x: e.pageX - 15,
+        y: e.pageY - 15,
+        duration: 0.4,
+      });
+
+      gsap.to(cursorSmallCircle.current, {
+        x: e.pageX - 5,
+        y: e.pageY - 7,
+        duration: 0.1,
+      });
+    };
     document.addEventListener("mousemove", moveCursor);
     document.addEventListener("click", onClickCursor);
 
@@ -64,9 +54,9 @@ const Cursor = () => {
 
   useEffect(() => {
     if (cursorBigCircle.current.classList.contains("hoverable")) {
-      mouseHover()
+      mouseHover();
     } else {
-      mouseHoverOut()
+      mouseHoverOut();
     }
   }, [cursorType]);
 

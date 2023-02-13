@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 
 // import listIcon from "../../assets/list-icon.svg"
 
-const SimpleNav = () => {
+const SimpleNav = ({isOpen, setIsOpen}) => {
   const { cursorChangeHandler } = useContext(MouseContext);
 
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
@@ -80,10 +80,6 @@ const SimpleNav = () => {
         </div>
 
         <div className={isOpen ? "nav__list active" : "nav__list"}>
-          {/* <div className="line-1"></div>
-          <div className="line-2"></div>
-          <div className="line-3"></div>
-          <div className="circle"></div> */}
           <ul>
             {listItem.map((item, idx) => {
               return (

@@ -157,7 +157,7 @@ nav .contact_btn {
   top: 100%;
   left: 0;
 
-  background: var(--main-bg);
+  /* background: var(--main-bg); */
   
   z-index: 1;
 }
