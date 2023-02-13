@@ -9,12 +9,10 @@
 .projects .section_container ol li {
   counter-increment: project-counter;
   position: relative;
+  
   padding: 0.8rem 1.3rem;
-  border-radius: 5px;
-  /* margin-top: 1.5rem; */
   padding-bottom: 0;
-
-  /* opacity: 0; */
+  border-radius: 5px;
 }
 
 .projects .section_container ol li::before {
@@ -39,9 +37,6 @@
   position: relative;
   background-color: var(--dark-bg);
   aspect-ratio: 1.96;
-
-  /* cursor: pointer; */
-  pointer-events: none;
 
   background-size: cover;
 }
@@ -101,21 +96,12 @@
   opacity: 1;
 }
 
-/* .projects .section_container ol li:nth-child(6n + 4)::before,
-.projects .section_container ol li:nth-child(6n + 5)::before,
-.projects .section_container ol li:nth-child(6n + 6)::before {
-  top: 2rem;
-  right: 1.5rem;
-  left: auto;
-} */
-
 .projects .project .project_container {
   width: inherit;
 }
 
 .projects .project .project_container img {
   width: 100%;
-  /* border: 1px solid red; */
 }
 
 @media screen and (max-width: 768px) {

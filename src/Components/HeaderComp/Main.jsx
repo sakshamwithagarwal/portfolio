@@ -1,10 +1,12 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import "./main.css";
 import { gsap } from "gsap";
+import { MouseContext } from "../../context/MouseContext";
 
 const Main = ({ compRef }) => {
   const arrowRef = useRef(null);
   const arrowSVGRef = useRef(null);
+  const { cursorChangeHandler } = useContext(MouseContext)
 
   useEffect(() => {
     gsap.fromTo(
@@ -79,6 +81,8 @@ const Main = ({ compRef }) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             ref={arrowSVGRef}
+            onMouseEnter={() => cursorChangeHandler("hoverable")}
+            onMouseLeave={() => cursorChangeHandler("")}
           >
             {/* <circle cx={0} cy={0} r={100} stroke="white" strokeWidth={1} /> */}
             <path

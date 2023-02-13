@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./nav.css";
 import "./custom-ham.css";
 import ListIconComp from "./ListIconComp";
+import { MouseContext } from "../../context/MouseContext";
+import { Link } from "react-router-dom";
 
 // import listIcon from "../../assets/list-icon.svg"
 
 const SimpleNav = () => {
+  const { cursorChangeHandler } = useContext(MouseContext);
+
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -15,23 +19,27 @@ const SimpleNav = () => {
     {
       title: "Home",
       sublist: [],
-      url: '/'
+      url: "/",
     },
     {
       title: "Projects",
       sublist: [],
+      url: "/#projects",
     },
     {
       title: "Collections",
       sublist: [
         {
           title: "Posters",
+          url: "/collection",
         },
         {
           title: "3D Renders",
+          url: "/collection",
         },
         {
           title: "User Interface",
+          url: "/collection",
         },
       ],
     },
@@ -40,12 +48,15 @@ const SimpleNav = () => {
       sublist: [
         {
           title: "Instagram",
+          url: "/",
         },
         {
           title: "Behance",
+          url: "/",
         },
         {
           title: "LinkedIn",
+          url: "/",
         },
       ],
     },
@@ -74,22 +85,50 @@ const SimpleNav = () => {
           <div className="line-3"></div>
           <div className="circle"></div> */}
           <ul>
-            {listItem.map((item) => (
-              <li>
-                <ListIconComp className="icon" /> {"  "} {item.title}
-                <ul className="nav__sublist">
-                  { item.sublist && item.sublist.map((subItem) => (
-                    <li>
-                      <ListIconComp className="icon" /> {"  "} {subItem.title}
+            {listItem.map((item, idx) => {
+              return (
+                <>
+                  {item.sublist.length >= 1 ? (
+                    <li
+                      key={idx}
+                      onMouseEnter={() => cursorChangeHandler("hoverable")}
+                      onMouseLeave={() => cursorChangeHandler("")}
+                    >
+                      <ListIconComp className="icon" /> {"  "} {item.title}
+                      <ul className="nav__sublist">
+                        {item.sublist.map((subItem) => (
+                          <Link to={subItem.url}>
+                            <li>
+                              <ListIconComp className="icon" /> {"  "}{" "}
+                              {subItem.title}
+                            </li>
+                          </Link>
+                        ))}
+                      </ul>
                     </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
+                  ) : (
+                    <Link
+                      to={item.url}
+                      key={idx}
+                      onMouseEnter={() => cursorChangeHandler("hoverable")}
+                      onMouseLeave={() => cursorChangeHandler("")}
+                    >
+                      <li>
+                        <ListIconComp className="icon" /> {"  "} {item.title}
+                      </li>
+                    </Link>
+                  )}
+                </>
+              );
+            })}
           </ul>
         </div>
 
-        <div className="nav__toggle">
+        <div
+          className="nav__toggle"
+          onMouseEnter={() => cursorChangeHandler("hoverable")}
+          onMouseLeave={() => cursorChangeHandler("")}
+        >
           <div className="menu-icon">
             <input
               className="menu-icon__checkbox"

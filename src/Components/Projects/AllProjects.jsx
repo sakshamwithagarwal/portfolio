@@ -14,7 +14,7 @@ const AllProjects = forwardRef((props, ref) => {
   }, [projectData]);
 
   return (
-    <section className="projects" ref={ref}>
+    <section className="projects" ref={ref} id="projects">
       <div className="section_title">
         <h3>Projects</h3>
       </div>

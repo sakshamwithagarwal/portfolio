@@ -47,7 +47,6 @@ main {
 
 .hero__content svg path {
   stroke: var(--text-main);
-  cursor: pointer;
 }
 
 main p {
