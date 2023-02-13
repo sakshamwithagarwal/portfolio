@@ -47,7 +47,6 @@ main {
 
 .hero__content svg path {
   stroke: var(--text-main);
-  cursor: pointer;
 }
 
 main p {
@@ -104,7 +103,7 @@ main p {
 
 @media screen and (max-width: 703px) {
   main {
-    min-height: 80vh;
+    min-height: 86vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

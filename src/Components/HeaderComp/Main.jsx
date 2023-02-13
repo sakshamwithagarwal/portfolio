@@ -1,15 +1,33 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import "./main.css";
 import { gsap } from "gsap";
+import { MouseContext } from "../../context/MouseContext";
 
 const Main = ({ compRef }) => {
   const arrowRef = useRef(null);
   const arrowSVGRef = useRef(null);
+  const { cursorChangeHandler } = useContext(MouseContext)
 
   useEffect(() => {
-    gsap.fromTo(arrowRef.current, {width: 0, height: 0}, {width: '200px', height: '200px', duration: 1, delay: 1.4})
-    gsap.fromTo(arrowSVGRef.current, {scale: 0}, {scale: 1, delay: 1.6, ease: 'ease.in', duration: 1})
-  }, [])
+    gsap.fromTo(
+      arrowRef.current,
+      { width: 0, height: 0 },
+      { width: "200px", height: "200px", duration: 1, delay: 1.4 }
+    );
+    gsap.fromTo(
+      arrowSVGRef.current,
+      { scale: 0 },
+      { scale: 1, delay: 1.6, ease: "ease.in", duration: 1 }
+    );
+    let mm = gsap.matchMedia();
+    mm.add("(max-width: 576px", () => {
+      gsap.fromTo(
+        arrowRef.current,
+        { width: 0, height: 0 },
+        { width: "100px", height: "100px", duration: 1, delay: 1.4 }
+      );
+    });
+  }, []);
 
   const handleArrowMouseEnter = () => {
     gsap.to(arrowRef.current, {
@@ -63,6 +81,8 @@ const Main = ({ compRef }) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             ref={arrowSVGRef}
+            onMouseEnter={() => cursorChangeHandler("hoverable")}
+            onMouseLeave={() => cursorChangeHandler("")}
           >
             {/* <circle cx={0} cy={0} r={100} stroke="white" strokeWidth={1} /> */}
             <path

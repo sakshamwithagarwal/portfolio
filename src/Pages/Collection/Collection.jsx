@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./collection.css";
 import { SimpleNav } from "../../Components";
 import collectionData from "../../assets/PostersList.json";
-
+import { MouseContext } from "../../context/MouseContext";
 const Collection = () => {
   const [thumbnail, setThumbnail] = useState("");
   const [isTouched, setIsTouched] = useState(false);
   const storageKey = "theme-preference";
+  const { cursorChangeHandler} = useContext(MouseContext)
 
   const getColorPreference = () => {
     if (localStorage.getItem(storageKey))
@@ -88,8 +89,8 @@ const Collection = () => {
                       : "collection__list-item"
                   }
                   key={key}
-                  onMouseEnter={() => handleMouseEnter(item.thumbnail)}
-                  onMouseLeave={() => handleMouseLeave()}
+                  onMouseEnter={() => {handleMouseEnter(item.thumbnail); cursorChangeHandler("hoverable")}}
+                  onMouseLeave={() => {handleMouseLeave(); cursorChangeHandler("")}}
                   // onTouchStart={handleTouchStart}
                   // onTouchMove={handleTouchStart}
                   // onTouchEnd={handleTouchEnd}

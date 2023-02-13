@@ -1,11 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useState, useContext } from "react";
+import { MouseContext } from "../../context/MouseContext";
 import "./project.css";
 
 const Project = ({ data }) => {
   const [isTouched, setIsTouched] = useState(false);
+  const { cursorChangeHandler } = useContext(MouseContext)
 
   const handleTouchStart = () => {
     setIsTouched(true);
+    cursorChangeHandler("hoverable")
   };
 
   const handleTouchEnd = () => {
@@ -22,8 +25,9 @@ const Project = ({ data }) => {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      onMouseEnter={handleTouchStart}
+      onMouseLeave={handleTouchEnd}
     >
-      {/* <img src={data.thu} /> */}
       <div className="project_container">
         <div className="project__title" dangerouslySetInnerHTML={creatMarkup(data.title)}></div>
       </div>
