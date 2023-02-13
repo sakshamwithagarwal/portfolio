@@ -13,29 +13,33 @@ const Collections = () => {
       </div>
       <div className="section_container">
         <ul>
-          <Link to="/collection">
-            <li
-              onMouseEnter={() => cursorChangeHandler("hoverable")}
-              onMouseLeave={() => cursorChangeHandler("")}
-            ></li>
+          <Link
+            to="/collection"
+            onMouseEnter={() => cursorChangeHandler("hoverable")}
+            onMouseLeave={() => cursorChangeHandler("")}
+          >
+            <li></li>
           </Link>
-          <Link to="/collection">
-            <li
-              onMouseEnter={() => cursorChangeHandler("hoverable")}
-              onMouseLeave={() => cursorChangeHandler("")}
-            ></li>
+          <Link
+            to="/collection"
+            onMouseEnter={() => cursorChangeHandler("hoverable")}
+            onMouseLeave={() => cursorChangeHandler("")}
+          >
+            <li></li>
           </Link>
-          <Link to="/collection">
-            <li
-              onMouseEnter={() => cursorChangeHandler("hoverable")}
-              onMouseLeave={() => cursorChangeHandler("")}
-            ></li>
+          <Link
+            to="/collection"
+            onMouseEnter={() => cursorChangeHandler("hoverable")}
+            onMouseLeave={() => cursorChangeHandler("")}
+          >
+            <li></li>
           </Link>
-          <Link to="/collection">
-            <li
-              onMouseEnter={() => cursorChangeHandler("hoverable")}
-              onMouseLeave={() => cursorChangeHandler("")}
-            ></li>
+          <Link
+            to="/collection"
+            onMouseEnter={() => cursorChangeHandler("hoverable")}
+            onMouseLeave={() => cursorChangeHandler("")}
+          >
+            <li></li>
           </Link>
         </ul>
       </div>

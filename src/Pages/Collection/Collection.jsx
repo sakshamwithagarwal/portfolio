@@ -3,9 +3,12 @@ import "./collection.css";
 import { SimpleNav } from "../../Components";
 import collectionData from "../../assets/PostersList.json";
 import { MouseContext } from "../../context/MouseContext";
+
 const Collection = () => {
   const [thumbnail, setThumbnail] = useState("");
   const [isTouched, setIsTouched] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+
   const storageKey = "theme-preference";
   const { cursorChangeHandler} = useContext(MouseContext)
 
@@ -71,9 +74,9 @@ const Collection = () => {
 
   return (
     <div className="collection">
-      <SimpleNav />
+      <SimpleNav isOpen={isOpen} setIsOpen={setIsOpen}/>
 
-      <div className="collection__container">
+      {isOpen ? '' : <div className="collection__container">
         <div className="collection__thumbnail">
           <img src={"/assets/" + thumbnail} alt="" />
         </div>
@@ -101,7 +104,7 @@ const Collection = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 };
