@@ -32,9 +32,9 @@ function App() {
     <MouseContextProvider>
       <div className="App">
         {/* {isSplashOpen && <SplashScreen handleClick={onClickHandler} />} */}
-        <BrowserView>
+        {/* <BrowserView>
           <Cursor />
-        </BrowserView>
+        </BrowserView> */}
         <Noise />
         <div>
           <RouterProvider router={router} />

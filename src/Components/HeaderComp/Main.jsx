@@ -55,8 +55,26 @@ const Main = ({ compRef }) => {
           <span>Interaction</span>
           <span>Visual</span>
         </div>
+        <div className="hero__heading-mobile">
+          <div className="hero__heading_row-1">
+            <span>Visual</span>
+            <span>Indust</span>
+            <span>Interac</span>
+            <span>Visual</span>
+          </div>
+          <div className="hero__heading_row-2">
+            <div className="hero__heading_col-1"></div>
+            <div className="hero__heading_col-2">
+            <span>O.O</span>
+            <span>rial</span>
+            <span>tion</span>
+            <span>O.O</span>
+            </div>
+          </div>
+        </div>
 
-        <span>Designer</span>
+        <span className="hero__subheading">Designer</span>
+        <span className="hero__subheading-mobile">Design <br/> er</span>
       </h1>
       <div className="hero__content">
         <p>
