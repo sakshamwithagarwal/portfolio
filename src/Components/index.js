@@ -7,4 +7,5 @@ export {default as Collections} from './Collections/Collections'
 export {default as SplashScreen} from './SplashScreen/SplashScreen'
 export {default as Noise} from './Noise/Noise'
 export {default as Cursor} from './Cursor/Cursor'
+export {default as AnimatedCursor} from './Cursor/AnimatedCursor'
 export {default as Background} from "./BackgroundStyle/Background"

@@ -1,14 +1,11 @@
 import React, { useState, useContext } from "react";
-import { MouseContext } from "../../context/MouseContext";
 import "./project.css";
 
 const Project = ({ data }) => {
   const [isTouched, setIsTouched] = useState(false);
-  const { cursorChangeHandler } = useContext(MouseContext)
 
   const handleTouchStart = () => {
     setIsTouched(true);
-    cursorChangeHandler("hoverable")
   };
 
   const handleTouchEnd = () => {

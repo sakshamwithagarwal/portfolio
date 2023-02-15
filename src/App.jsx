@@ -3,9 +3,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BrowserView } from "react-device-detect";
 
 import { Collection, Home } from "./Pages";
-import { Noise, SplashScreen, Cursor, Background } from "./Components";
-
-import MouseContextProvider from "./context/MouseContext";
+import {
+  Noise,
+  SplashScreen,
+  Cursor,
+  Background,
+  AnimatedCursor,
+} from "./Components";
 import "./App.css";
 
 const router = createBrowserRouter(
@@ -29,19 +33,17 @@ function App() {
   };
 
   return (
-    <MouseContextProvider>
-      <div className="App">
-        {/* {isSplashOpen && <SplashScreen handleClick={onClickHandler} />} */}
-        {/* <BrowserView>
-          <Cursor />
-        </BrowserView> */}
-        <Noise />
-        <div>
-          <RouterProvider router={router} />
-        </div>
-        <Background />
+    <div className="App">
+      {/* {isSplashOpen && <SplashScreen handleClick={onClickHandler} />} */}
+      <BrowserView>
+        <AnimatedCursor />
+      </BrowserView>
+      <Noise />
+      <div>
+        <RouterProvider router={router} />
       </div>
-    </MouseContextProvider>
+      <Background />
+    </div>
   );
 }
 

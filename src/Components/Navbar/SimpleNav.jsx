@@ -2,13 +2,11 @@ import React, { useState, useContext } from "react";
 import "./nav.css";
 import "./custom-ham.css";
 import ListIconComp from "./ListIconComp";
-import { MouseContext } from "../../context/MouseContext";
 import { Link } from "react-router-dom";
 
 // import listIcon from "../../assets/list-icon.svg"
 
-const SimpleNav = ({isOpen, setIsOpen}) => {
-  const { cursorChangeHandler } = useContext(MouseContext);
+const SimpleNav = ({ isOpen, setIsOpen }) => {
 
   // const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
@@ -87,8 +85,6 @@ const SimpleNav = ({isOpen, setIsOpen}) => {
                   {item.sublist.length >= 1 ? (
                     <li
                       key={idx}
-                      onMouseEnter={() => cursorChangeHandler("hoverable")}
-                      onMouseLeave={() => cursorChangeHandler("")}
                     >
                       <ListIconComp className="icon" /> {"  "} {item.title}
                       <ul className="nav__sublist">
@@ -106,8 +102,6 @@ const SimpleNav = ({isOpen, setIsOpen}) => {
                     <Link
                       to={item.url}
                       key={idx}
-                      onMouseEnter={() => cursorChangeHandler("hoverable")}
-                      onMouseLeave={() => cursorChangeHandler("")}
                     >
                       <li>
                         <ListIconComp className="icon" /> {"  "} {item.title}
@@ -120,11 +114,7 @@ const SimpleNav = ({isOpen, setIsOpen}) => {
           </ul>
         </div>
 
-        <div
-          className="nav__toggle"
-          onMouseEnter={() => cursorChangeHandler("hoverable")}
-          onMouseLeave={() => cursorChangeHandler("")}
-        >
+        <div className="nav__toggle link">
           <div className="menu-icon">
             <input
               className="menu-icon__checkbox"
