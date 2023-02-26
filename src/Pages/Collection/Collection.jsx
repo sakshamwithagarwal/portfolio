@@ -2,15 +2,13 @@ import React, { useContext, useState } from "react";
 import "./collection.css";
 import { SimpleNav } from "../../Components";
 import collectionData from "../../assets/PostersList.json";
-import { MouseContext } from "../../context/MouseContext";
 
 const Collection = () => {
   const [thumbnail, setThumbnail] = useState("");
   const [isTouched, setIsTouched] = useState(false);
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const storageKey = "theme-preference";
-  const { cursorChangeHandler} = useContext(MouseContext)
 
   const getColorPreference = () => {
     if (localStorage.getItem(storageKey))
@@ -74,37 +72,45 @@ const Collection = () => {
 
   return (
     <div className="collection">
-      <SimpleNav isOpen={isOpen} setIsOpen={setIsOpen}/>
+      <SimpleNav isOpen={isOpen} setIsOpen={setIsOpen} />
 
-      {isOpen ? '' : <div className="collection__container">
-        <div className="collection__thumbnail">
-          <img src={"/assets/" + thumbnail} alt="" />
-        </div>
-        <div className="collection__list-wrapper">
-          <h3 className="collection__list-title">Posters</h3>
-          <div className="collection__list-outer">
-            <ul className="collection__list">
-              {collectionData.posters.map((item, key) => (
-                <li
-                  className={
-                    isTouched
-                      ? "collection__list-item touched"
-                      : "collection__list-item"
-                  }
-                  key={key}
-                  onMouseEnter={() => {handleMouseEnter(item.thumbnail); cursorChangeHandler("hoverable")}}
-                  onMouseLeave={() => {handleMouseLeave(); cursorChangeHandler("")}}
-                  // onTouchStart={handleTouchStart}
-                  // onTouchMove={handleTouchStart}
-                  // onTouchEnd={handleTouchEnd}
-                >
-                  <div style={item.diffFont ? {fontFamily: item.fontFamily} : {}}>{item.title}</div>
-                </li>
-              ))}
-            </ul>
+      {isOpen ? (
+        ""
+      ) : (
+        <div className="collection__container">
+          <div className="collection__thumbnail">
+            <img src={"/assets/" + thumbnail} alt="" />
+          </div>
+          <div className="collection__list-wrapper">
+            <h3 className="collection__list-title">Posters</h3>
+            <div className="collection__list-outer">
+              <ul className="collection__list">
+                {collectionData.posters.map((item, key) => (
+                  <li
+                    className={
+                      isTouched
+                        ? "collection__list-item touched"
+                        : "collection__list-item"
+                    }
+                    key={key}
+                    onMouseEnter={() => handleMouseEnter(item.thumbnail)}
+                    onMouseLeave={() => handleMouseLeave()}
+                  >
+                    <div
+                      style={
+                        item.diffFont ? { fontFamily: item.fontFamily } : {}
+                      }
+                      className="hoverable"
+                    >
+                      {item.title}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>}
+      )}
     </div>
   );
 };

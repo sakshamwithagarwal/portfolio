@@ -1,14 +1,11 @@
 import React, { useState, useContext } from "react";
-import { MouseContext } from "../../context/MouseContext";
 import "./project.css";
 
 const Project = ({ data }) => {
   const [isTouched, setIsTouched] = useState(false);
-  const { cursorChangeHandler } = useContext(MouseContext)
 
   const handleTouchStart = () => {
     setIsTouched(true);
-    cursorChangeHandler("hoverable")
   };
 
   const handleTouchEnd = () => {
@@ -20,7 +17,7 @@ const Project = ({ data }) => {
   }
   return (
     <li
-      className={isTouched ? "project touched" : "project"}
+      className={isTouched ? "project touched hoverable" : "project hoverable"}
       style={{ backgroundImage: `url(${data.thumbnail})` }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchStart}

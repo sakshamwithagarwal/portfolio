@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
-import { MouseContext } from "../../context/MouseContext";
+import React from "react";
 import "./nav.css";
 
 const Navbar = ({ handler }) => {
-  const { cursorChangeHandler } = useContext(MouseContext);
-
   return (
     <nav>
       <ul>
@@ -58,7 +55,7 @@ const Navbar = ({ handler }) => {
               </svg>
             </button>
 
-            <a href="http://" className="contact_btn" onMouseEnter={() => cursorChangeHandler("hoverable")} onMouseLeave={() => cursorChangeHandler("")}>
+            <a href="http://" className="contact_btn">
               Contact
             </a>
           </div>
