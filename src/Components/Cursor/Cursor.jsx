@@ -1,81 +1,157 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useContext,
+  useCallback,
+  useState,
+} from "react";
 import { gsap } from "gsap";
+import { useEventListener } from "../../hooks/useEventListener";
 import "./cursor.css";
-import { MouseContext } from "../../context/MouseContext";
-import useMousePosition from "./useMousePosition";
 
 const Cursor = () => {
-  const cursorBigCircle = useRef(null);
-  const cursorSmallCircle = useRef(null);
-  const { cursorType } = useContext(MouseContext);
-  const { x, y } = useMousePosition();
+  const cursorBigCircle = useRef();
+  const cursorSmallCircle = useRef();
+  const requestRef = useRef();
+  const previousTimeRef = useRef();
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  const [isActiveClickable, setIsActiveClickable] = useState(false);
+  const clickables = [
+    "a",
+    'input[type="text"]',
+    'input[type="email"]',
+    'input[type="number"]',
+    'input[type="submit"]',
+    'input[type="image"]',
+    "label[for]",
+    "select",
+    "textarea",
+    "button",
+    ".hoverable",
+    ".link"
+  ];
+  const trailingSpeed = 8;
+  let endX = useRef(0);
+  let endY = useRef(0);
 
-  const mouseHover = (e) => {
-    gsap.to(cursorBigCircle.current, {
-      scale: 3,
-    });
-  };
-  const mouseHoverOut = (e) => {
-    gsap.to(cursorBigCircle.current, {
-      scale: 1,
-    });
-  };
-
-  const onClickCursor = () => {
-    gsap.fromTo(
-      cursorBigCircle.current,
-      { scale: 1.5, ease: "true" },
-      { scale: 1, duration: 1.5 }
-    );
-  };
-
-  useEffect(() => {
-    const moveCursor = (e) => {
-      gsap.to(cursorBigCircle.current, {
-        x: e.pageX - 15,
-        y: e.pageY - 15,
-        duration: 0.4,
-      });
-
-      gsap.to(cursorSmallCircle.current, {
-        x: e.pageX - 5,
-        y: e.pageY - 7,
-        duration: 0.1,
-      });
-    };
-    document.addEventListener("mousemove", moveCursor);
-    document.addEventListener("click", onClickCursor);
-
-    return () => {
-      document.removeEventListener("mousemove", moveCursor);
-      document.removeEventListener("click", onClickCursor);
-    };
+  const onMouseMove = useCallback(({ clientX, clientY }) => {
+    setCoords({ x: clientX, y: clientY });
+    cursorSmallCircle.current.style.top = `${clientY}px`;
+    cursorSmallCircle.current.style.left = `${clientX}px`;
+    endX.current = clientX;
+    endY.current = clientY;
   }, []);
 
+  const animateOuter = useCallback(
+    (time) => {
+      if (previousTimeRef.current !== undefined) {
+        coords.x += (endX.current - coords.x) / trailingSpeed;
+        coords.y += (endY.current - coords.y) / trailingSpeed;
+        cursorBigCircle.current.style.top = `${coords.y}px`;
+        cursorBigCircle.current.style.left = `${coords.x}px`;
+      }
+      previousTimeRef.current = time;
+      requestRef.current = requestAnimationFrame(animateOuter);
+    },
+    [requestRef]
+  );
   useEffect(() => {
-    if (cursorBigCircle.current.classList.contains("hoverable")) {
-      mouseHover();
+    requestRef.current = requestAnimationFrame(animateOuter);
+    return () => cancelAnimationFrame(requestRef.current);
+  }, [animateOuter]);
+
+  const onMouseDown = useCallback(() => setIsActive(true));
+  const onMouseUp = useCallback(() => setIsActive(false));
+  const onMouseEnterViewport = useCallback(() => setIsVisible(true), []);
+  const onMouseLeaveViewport = useCallback(() => setIsVisible(false), []);
+
+  useEventListener("mousemove", onMouseMove);
+  useEventListener("mousedown", onMouseDown);
+  useEventListener("mouseup", onMouseUp);
+  useEventListener("mouseover", onMouseEnterViewport);
+  useEventListener("mouseout", onMouseLeaveViewport);
+
+  useEffect(() => {
+    if (isActive) {
+      cursorSmallCircle.current.style.transform = `translate(-50%, -50%)`;
+      cursorBigCircle.current.style.transform = `translate(-50%, -50%) scale(3)`;
     } else {
-      mouseHoverOut();
+      cursorSmallCircle.current.style.transform =
+        "translate(-50%, -50%) scale(1)";
+      cursorBigCircle.current.style.transform =
+        "translate(-50%, -50%) scale(1)";
     }
-  }, [cursorType]);
+  }, [isActive]);
+
+  useEffect(() => {
+    if (isVisible) {
+      cursorBigCircle.current.style.opacity = 1;
+      cursorSmallCircle.current.style.opacity = 1;
+    } else {
+      cursorBigCircle.current.style.opacity = 0;
+      cursorSmallCircle.current.style.opacity = 0;
+    }
+  }, [isVisible]);
+
+  useEffect(() => {
+    const clickableEles = document.querySelectorAll(clickables.join(","));
+    clickableEles.forEach((el) => {
+      el.style.cursor = "none";
+      el.addEventListener("mouseover", () => {
+        setIsActive(true);
+      });
+      el.addEventListener("click", () => {
+        setIsActive(true);
+        setIsActiveClickable(false);
+      });
+      el.addEventListener("mousedown", () => {
+        setIsActiveClickable(true);
+      });
+      el.addEventListener("mouseup", () => {
+        setIsActive(true);
+      });
+      el.addEventListener("mouseout", () => {
+        setIsActive(false);
+        setIsActiveClickable(false);
+      });
+    });
+
+    return () => {
+      clickableEles.forEach((el) => {
+        el.removeEventListener("mouseover", () => {
+          setIsActive(true);
+        });
+        el.removeEventListener("click", () => {
+          setIsActive(true);
+          setIsActiveClickable(false);
+        });
+        el.removeEventListener("mousedown", () => {
+          setIsActiveClickable(true);
+        });
+        el.removeEventListener("mouseup", () => {
+          setIsActive(true);
+        });
+        el.removeEventListener("mouseout", () => {
+          setIsActive(false);
+          setIsActiveClickable(false);
+        });
+      });
+    };
+  }, [isActive, clickables]);
 
   return (
-    <div className="cursor">
+    <>
       <div
-        className={`cursor__ball cursor__ball--big ${cursorType}`}
+        className="cursor__ball cursor__ball--big"
         ref={cursorBigCircle}
-      >
-        <svg height="30" width="30">
-          <circle cx="15" cy="15" r="12" strokeWidth="0"></circle>
-        </svg>
-      </div>
-      <div className="cursor__ball cursor__ball--small" ref={cursorSmallCircle}>
-        <svg height="10" width="10">
-          <circle cx="5" cy="5" r="4" strokeWidth="0"></circle>
-        </svg>
-      </div>
-    </div>
+      ></div>
+      <div
+        className="cursor__ball cursor__ball--small"
+        ref={cursorSmallCircle}
+      ></div>
+    </>
   );
 };
 

@@ -17,7 +17,7 @@ const Project = ({ data }) => {
   }
   return (
     <li
-      className={isTouched ? "project touched" : "project"}
+      className={isTouched ? "project touched hoverable" : "project hoverable"}
       style={{ backgroundImage: `url(${data.thumbnail})` }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchStart}

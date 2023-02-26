@@ -7,8 +7,7 @@ import {
   Noise,
   SplashScreen,
   Cursor,
-  Background,
-  AnimatedCursor,
+  Background
 } from "./Components";
 import "./App.css";
 
@@ -35,8 +34,9 @@ function App() {
   return (
     <div className="App">
       {/* {isSplashOpen && <SplashScreen handleClick={onClickHandler} />} */}
+      {/* <AnimatedCursor /> */}
       <BrowserView>
-        <AnimatedCursor />
+        <Cursor />
       </BrowserView>
       <Noise />
       <div>

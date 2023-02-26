@@ -89,8 +89,8 @@ const Collection = () => {
                   <li
                     className={
                       isTouched
-                        ? "collection__list-item touched link"
-                        : "collection__list-item link"
+                        ? "collection__list-item touched"
+                        : "collection__list-item"
                     }
                     key={key}
                     onMouseEnter={() => handleMouseEnter(item.thumbnail)}
@@ -100,6 +100,7 @@ const Collection = () => {
                       style={
                         item.diffFont ? { fontFamily: item.fontFamily } : {}
                       }
+                      className="hoverable"
                     >
                       {item.title}
                     </div>
