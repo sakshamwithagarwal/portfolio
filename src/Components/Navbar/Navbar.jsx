@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import "./nav.css";
 
 const Navbar = ({ handler }) => {
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(navRef.current, {y: -100}, {y: 0})
+  }, [])
+
   return (
-    <nav>
+    <nav ref={navRef}>
       <ul>
         <li>
           <a className="brand_logo" href="/" rel="noopener noreferrer">

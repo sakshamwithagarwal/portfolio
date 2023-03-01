@@ -69,7 +69,7 @@ const Home = () => {
       <div className="line-3"></div>
       <div className="circle"></div> */}
       <Navbar handler={onClick} />
-      <Main compRef={projectCompRef}/>
+      <Main compRef={projectCompRef} />
       <AllProjects ref={projectCompRef} />
       <Collections />
     </div>

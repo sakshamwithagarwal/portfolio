@@ -77,6 +77,7 @@ const Cursor = () => {
     if (isActive) {
       cursorSmallCircle.current.style.transform = `translate(-50%, -50%)`;
       cursorBigCircle.current.style.transform = `translate(-50%, -50%) scale(3)`;
+      cursorBigCircle.current.style.transitionDuration = `300ms`;
     } else {
       cursorSmallCircle.current.style.transform =
         "translate(-50%, -50%) scale(1)";
