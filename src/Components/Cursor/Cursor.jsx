@@ -95,51 +95,51 @@ const Cursor = () => {
     }
   }, [isVisible]);
 
-  useEffect(() => {
-    const clickableEles = document.querySelectorAll(clickables.join(","));
-    clickableEles.forEach((el) => {
-      el.style.cursor = "none";
-      el.addEventListener("mouseover", () => {
-        setIsActive(true);
-      });
-      el.addEventListener("click", () => {
-        setIsActive(true);
-        setIsActiveClickable(false);
-      });
-      el.addEventListener("mousedown", () => {
-        setIsActiveClickable(true);
-      });
-      el.addEventListener("mouseup", () => {
-        setIsActive(true);
-      });
-      el.addEventListener("mouseout", () => {
-        setIsActive(false);
-        setIsActiveClickable(false);
-      });
-    });
+  // useEffect(() => {
+  //   const clickableEles = document.querySelectorAll(clickables.join(","));
+  //   clickableEles.forEach((el) => {
+  //     el.style.cursor = "none";
+  //     el.addEventListener("mouseover", () => {
+  //       setIsActive(true);
+  //     });
+  //     el.addEventListener("click", () => {
+  //       setIsActive(true);
+  //       setIsActiveClickable(false);
+  //     });
+  //     el.addEventListener("mousedown", () => {
+  //       setIsActiveClickable(true);
+  //     });
+  //     el.addEventListener("mouseup", () => {
+  //       setIsActive(true);
+  //     });
+  //     el.addEventListener("mouseout", () => {
+  //       setIsActive(false);
+  //       setIsActiveClickable(false);
+  //     });
+  //   });
 
-    return () => {
-      clickableEles.forEach((el) => {
-        el.removeEventListener("mouseover", () => {
-          setIsActive(true);
-        });
-        el.removeEventListener("click", () => {
-          setIsActive(true);
-          setIsActiveClickable(false);
-        });
-        el.removeEventListener("mousedown", () => {
-          setIsActiveClickable(true);
-        });
-        el.removeEventListener("mouseup", () => {
-          setIsActive(true);
-        });
-        el.removeEventListener("mouseout", () => {
-          setIsActive(false);
-          setIsActiveClickable(false);
-        });
-      });
-    };
-  }, [isActive, clickables]);
+  //   return () => {
+  //     clickableEles.forEach((el) => {
+  //       el.removeEventListener("mouseover", () => {
+  //         setIsActive(true);
+  //       });
+  //       el.removeEventListener("click", () => {
+  //         setIsActive(true);
+  //         setIsActiveClickable(false);
+  //       });
+  //       el.removeEventListener("mousedown", () => {
+  //         setIsActiveClickable(true);
+  //       });
+  //       el.removeEventListener("mouseup", () => {
+  //         setIsActive(true);
+  //       });
+  //       el.removeEventListener("mouseout", () => {
+  //         setIsActive(false);
+  //         setIsActiveClickable(false);
+  //       });
+  //     });
+  //   };
+  // }, [isActive, clickables]);
 
   return (
     <>
