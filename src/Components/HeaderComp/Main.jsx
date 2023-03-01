@@ -1,10 +1,13 @@
-import React, { useRef, useEffect, useContext } from "react";
+import React, { useRef, useEffect, useContext, useLayoutEffect } from "react";
 import "./main.css";
 import { gsap } from "gsap";
 
 const Main = ({ compRef }) => {
   const arrowRef = useRef(null);
   const arrowSVGRef = useRef(null);
+  const headingRef = useRef(null);
+  const subHeadingRef = useRef(null);
+  const contentRef = useRef(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -17,6 +20,10 @@ const Main = ({ compRef }) => {
       { scale: 0 },
       { scale: 1, delay: 1.6, ease: "ease.in", duration: 1 }
     );
+    // gsap.fromTo(headingRef.current, {autoAlpha: 0}, {autoAlpha: 1, duration: 1});
+    // gsap.fromTo(subHeadingRef.current, {y: 500}, {y: 0});
+    gsap.fromTo(contentRef.current, {y: 500}, {y: 0});
+
     let mm = gsap.matchMedia();
     mm.add("(max-width: 576px", () => {
       gsap.fromTo(
@@ -46,7 +53,7 @@ const Main = ({ compRef }) => {
   };
   return (
     <main>
-      <h1 className="heading_main">
+      <h1 className="heading_main" ref={headingRef}>
         <div className="animated_heading_wrapper">
           <span>Visual</span>
           <span>Industrial</span>
@@ -63,19 +70,21 @@ const Main = ({ compRef }) => {
           <div className="hero__heading_row-2">
             <div className="hero__heading_col-1"></div>
             <div className="hero__heading_col-2">
-            <span>O.O</span>
-            <span>rial</span>
-            <span>tion</span>
-            <span>O.O</span>
+              <span>O.O</span>
+              <span>rial</span>
+              <span>tion</span>
+              <span>O.O</span>
             </div>
           </div>
         </div>
 
-        <span className="hero__subheading">Designer</span>
-        <span className="hero__subheading-mobile">Design <br/> er</span>
+        <span className="hero__subheading" ref={subHeadingRef}>Designer</span>
+        <span className="hero__subheading-mobile">
+          Design <br /> er
+        </span>
       </h1>
       <div className="hero__content">
-        <p>
+        <p ref={contentRef}>
           I am an Industrial and Interaction Designer who creates designs that
           are both sustainable and universal. I try to draw inspiration from
           music and comics in order to create designs that provide a harmonious

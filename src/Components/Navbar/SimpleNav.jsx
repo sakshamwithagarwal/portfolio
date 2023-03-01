@@ -1,12 +1,29 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef, useEffect, useLayoutEffect } from "react";
 import "./nav.css";
 import "./custom-ham.css";
 import ListIconComp from "./ListIconComp";
+import { gsap } from "gsap"
 import { Link } from "react-router-dom";
 
 // import listIcon from "../../assets/list-icon.svg"
 
 const SimpleNav = ({ isOpen, setIsOpen }) => {
+  const navRef = useRef(null)
+  const listRef = useRef()
+
+  useEffect(() => {
+    gsap.fromTo(navRef.current, {y: -100}, {y: 0})
+  }, [])
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo(".nav__list-item", {y: 70, autoAlpha: 0}, {y: 0, autoAlpha: 1})
+      gsap.fromTo(".nav__list-sub-item", {y: 50, autoAlpha: 0}, {y: 0, autoAlpha: 1})
+    }, listRef);
+
+
+    return () => ctx.revert()
+  }, [isOpen])
 
   // const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
@@ -61,7 +78,7 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
   ];
   return (
     <div className="simplified__nav">
-      <nav>
+      <nav ref={navRef}>
         <div className="logo">
           <a href="/">
             <svg
@@ -78,19 +95,19 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
         </div>
 
         <div className={isOpen ? "nav__list active" : "nav__list"}>
-          <ul>
+          <ul ref={listRef}>
             {listItem.map((item, idx) => {
               return (
                 <>
                   {item.sublist.length >= 1 ? (
-                    <li
+                    <li className="nav__list-sub-item"
                       key={idx}
                     >
                       <ListIconComp className="icon" /> {"  "} {item.title}
                       <ul className="nav__sublist">
                         {item.sublist.map((subItem) => (
                           <Link to={subItem.url}>
-                            <li>
+                            <li className="nav__list-item">
                               <ListIconComp className="icon" /> {"  "}{" "}
                               {subItem.title}
                             </li>
@@ -103,7 +120,7 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
                       to={item.url}
                       key={idx}
                     >
-                      <li>
+                      <li className="nav__list-item">
                         <ListIconComp className="icon" /> {"  "} {item.title}
                       </li>
                     </Link>
