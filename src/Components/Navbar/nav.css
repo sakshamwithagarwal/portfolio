@@ -158,9 +158,42 @@ nav .contact_btn {
   left: 0;
 
   /* background: var(--main-bg); */
-  
+
   z-index: 1;
 }
+
+.simplified__nav .nav__list .nav__list-item {
+  font-variation-settings: "wdth" 125;
+}
+
+.simplified__nav .nav__list .nav__list-sub-item {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.simplified__nav .nav__list .nav__list-sub-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  width: 0%;
+  background-color: var(--text-main);
+  transform: translateX(-101%);
+  transition: transform .5s ease-out;
+}
+
+.simplified__nav .nav__list .nav__list-sub-item:hover::after{
+  transform: translateX(0);
+  width: 95%;
+}
+
+.simplified__nav .nav__list .nav__list-item:hover {
+  font-variation-settings: "wdth" 100;
+  /* color: pink; */
+}
+
 
 .simplified__nav .nav__list ul {
   display: block;
@@ -175,8 +208,11 @@ nav .contact_btn {
 .simplified__nav .nav__list .nav__sublist {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: .5rem 0rem;
 
   margin-left: clamp(3.8rem, 3rem, 4rem);
+  margin-top: .5rem;
+  /* padding-bottom: .5rem; */
 }
 
 .simplified__nav .nav__list .nav__sublist li {
@@ -192,17 +228,17 @@ nav .contact_btn {
   stroke-width: 4;
   display: inline-block;
 
-  height: 1.8rem;
+  height: 1.5rem;
 
-  margin-right: .5rem;
+  margin-right: .3rem;
 }
 
 .nav__sublist .listIcon {
   stroke-width: 4px;
   width: 1rem;
-  height: 1rem;
-  
-  margin-right: .3rem;
+  height: .8rem;
+
+  margin-right: .2rem;
 }
 
 @media screen and (max-width: 576px) {
@@ -210,9 +246,11 @@ nav .contact_btn {
     width: 1.5rem;
     height: auto;
   }
+
   .nav__sublist .listIcon {
     width: .6rem;
   }
+
   .simplified__nav .nav__list.active {
     padding-left: 2rem;
   }
@@ -248,12 +286,15 @@ nav .contact_btn {
     width: 3.6rem;
     height: 3.3rem;
   }
+
   .nav__toggle .menu-icon div span {
     height: 9px;
   }
+
   .menu-icon__checkbox:checked+div span:first-of-type {
     top: 1rem;
   }
+
   .menu-icon__checkbox:checked+div span:last-of-type {
     bottom: 1rem;
   }
