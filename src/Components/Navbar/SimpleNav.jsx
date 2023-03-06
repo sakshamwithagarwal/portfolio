@@ -105,8 +105,8 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
                     >
                       <ListIconComp className="icon" /> {"  "} {item.title}
                       <ul className="nav__sublist">
-                        {item.sublist.map((subItem) => (
-                          <Link to={subItem.url}>
+                        {item.sublist.map((subItem, idx) => (
+                          <Link to={subItem.url} key={idx+subItem.title}>
                             <li className="nav__list-sub-item">
                               <ListIconComp className="icon" /> {"  "}{" "}
                               {subItem.title}

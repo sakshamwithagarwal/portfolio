@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { gsap } from "gsap";
 import "./collection.css";
 import { SimpleNav } from "../../Components";
 import collectionData from "../../assets/PostersList.json";
@@ -7,6 +8,18 @@ const Collection = () => {
   const [thumbnail, setThumbnail] = useState("");
   const [isTouched, setIsTouched] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const thumbnailRef = useRef(null);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    // console.log("thumbnail");
+    gsap.fromTo(
+      thumbnailRef.current,
+      { scale: 0, autoAlpha: 0 },
+      { scale: 1, autoAlpha: 1, duration: 1 }
+    );
+    gsap.fromTo(containerRef.current, { opacity: 0 }, { opacity: 1 });
+  }, [thumbnail]);
 
   const storageKey = "theme-preference";
 
@@ -78,8 +91,10 @@ const Collection = () => {
         ""
       ) : (
         <div className="collection__container">
-          <div className="collection__thumbnail">
-            <img src={"/assets/" + thumbnail} alt="" />
+          <div className="collection__thumbnail" ref={containerRef}>
+            <div className="collection__thumbnail-inside">
+              <img src={"/assets/" + thumbnail} alt="" ref={thumbnailRef} />
+            </div>
           </div>
           <div className="collection__list-wrapper">
             <h3 className="collection__list-title">Posters</h3>
