@@ -52,7 +52,7 @@
   margin-bottom: 1rem;
   text-transform: uppercase;
   border-bottom: 2px solid;
-
+  width: 70.7%;
 }
 
 .collection__list-item {
@@ -63,11 +63,7 @@
   position: relative;
 }
 
-.collection__list-item:first-child{
-  /* border-top: 2px solid; */
-}
-
-.collection__list-item:last-child{
+.collection__list-item:last-child {
   border-bottom: none;
 }
 
@@ -107,6 +103,7 @@
   .collection__container {
     flex-direction: column;
   }
+
   .collection__list {
     width: 100%;
   }
