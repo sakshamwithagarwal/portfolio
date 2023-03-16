@@ -20,9 +20,9 @@ const Main = ({ compRef }) => {
       { scale: 0 },
       { scale: 1, delay: 1.6, ease: "ease.in", duration: 1 }
     );
-    // gsap.fromTo(headingRef.current, {autoAlpha: 0}, {autoAlpha: 1, duration: 1});
-    // gsap.fromTo(subHeadingRef.current, {y: 500}, {y: 0});
-    gsap.fromTo(contentRef.current, {y: 500}, {y: 0});
+    // gsap.fromTo(headingRef.current, {autoAlpha: 0}, {autoAlpha: 1, duration: 2});
+    // gsap.fromTo(subHeadingRef.current, {y: 500}, {y: 0, duration: .7});
+    gsap.fromTo(contentRef.current, {y: 500}, {y: 0, duration: .9});
 
     let mm = gsap.matchMedia();
     mm.add("(max-width: 576px", () => {
@@ -53,7 +53,7 @@ const Main = ({ compRef }) => {
   };
   return (
     <main>
-      <h1 className="heading_main" ref={headingRef}>
+      <h1 className="heading_main">
         <div className="animated_heading_wrapper">
           <span>Visual</span>
           <span>Industrial</span>
@@ -78,10 +78,12 @@ const Main = ({ compRef }) => {
           </div>
         </div>
 
-        <span className="hero__subheading" ref={subHeadingRef}>Designer</span>
-        <span className="hero__subheading-mobile">
-          Design <br /> er
-        </span>
+        <div ref={subHeadingRef} className="hero__subheading-wrapper">
+          <span className="hero__subheading">Designer</span>
+          <span className="hero__subheading-mobile">
+            Design <br /> er
+          </span>
+        </div>
       </h1>
       <div className="hero__content">
         <p ref={contentRef}>

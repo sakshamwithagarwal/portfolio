@@ -72,8 +72,28 @@ main p {
 .animated_heading_wrapper span {
   display: block;
   height: 100%;
-  /* animation-delay: 1.5s; */
   animation: spin-words-vertical 8s infinite;
+  /* border: 1px solid yellow; */
+}
+
+.hero__subheading-wrapper {
+  overflow: hidden;
+}
+
+.hero__subheading {
+  display: block;
+  animation: reveal 1s;
+}
+
+@keyframes reveal {
+  0% {
+    transform: translateY(110%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+  
 }
 
 .hero__heading-mobile,

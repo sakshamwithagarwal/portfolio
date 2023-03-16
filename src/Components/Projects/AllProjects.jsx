@@ -10,7 +10,6 @@ const AllProjects = forwardRef((props, ref) => {
     projectData.sort((a, b) => {
       return a.priority - b.priority;
     })
-    // console.log(projectData);
   }, [projectData]);
 
   return (
