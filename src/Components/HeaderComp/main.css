@@ -80,7 +80,8 @@ main p {
   overflow: hidden;
 }
 
-.hero__subheading {
+.hero__subheading,
+.hero__subheading-mobile {
   display: block;
   animation: reveal 1s;
 }
@@ -102,27 +103,27 @@ main p {
 }
 
 @keyframes spin-words-vertical {
-  11% {
+  13% {
     transform: translateY(-112%);
   }
 
-  37% {
+  33.3333% {
     transform: translateY(-102%);
   }
 
-  48% {
+  46.3333% {
     transform: translateY(-212%);
   }
 
-  74% {
+  66.6663% {
     transform: translateY(-202%);
   }
 
-  85% {
+  79.6663% {
     transform: translateY(-312%);
   }
 
-  100% {
+  99.9996% {
     transform: translateY(-302%);
   }
 }
@@ -198,7 +199,7 @@ main p {
   }
 
   .hero__heading_row-2 .hero__heading_col-2 span {
-    animation: spin-words-vertical 8.2s infinite;
+    animation: spin-words-vertical 8.1s infinite;
   }
 
   .hero__heading_row-2 {
