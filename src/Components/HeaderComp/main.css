@@ -103,27 +103,27 @@ main p {
 }
 
 @keyframes spin-words-vertical {
-  11% {
+  13% {
     transform: translateY(-112%);
   }
 
-  37% {
+  33.3333% {
     transform: translateY(-102%);
   }
 
-  48% {
+  46.3333% {
     transform: translateY(-212%);
   }
 
-  74% {
+  66.6663% {
     transform: translateY(-202%);
   }
 
-  85% {
+  79.6663% {
     transform: translateY(-312%);
   }
 
-  100% {
+  99.9996% {
     transform: translateY(-302%);
   }
 }
