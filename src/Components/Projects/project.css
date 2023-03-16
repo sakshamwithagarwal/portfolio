@@ -2,8 +2,8 @@
   list-style: none;
   counter-reset: project-counter;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1em;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1em 1.5em;
 }
 
 .projects .section_container ol li {
@@ -14,6 +14,10 @@
   padding-bottom: 0;
   border-radius: 5px;
 }
+
+/* .projects .section_container ol li:nth-child(3n) {
+  grid-column: 1 / span 2;
+} */
 
 .projects .section_container ol li::before {
   content: counter(project-counter);
