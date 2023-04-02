@@ -1,13 +1,17 @@
 {
     "projects": [
       {
+        "id": 1,
         "title": "Wall-Plug<br>Tug",
         "duration": "4 Months",
         "period": "January '21 - April '21",
         "thumbnail": "/assets/1.webp",
+        "frame-dark": "/assets/dark-pj.png",
+        "frame-light": "/assets/light-pj.png",
         "priority": "1"
       },
       {
+        "id": 2,
         "title": "Saathi",
         "duration": "2 Months",
         "period": "March '21 - April '21",
@@ -15,6 +19,7 @@
         "priority": "2"
       },
       {
+        "id": 3,
         "title": "Teacup Cafe<br>Branding",
         "duration": "4 Months",
         "period": "August '21 - November '21",
@@ -22,6 +27,7 @@
         "priority": "3"
       },
       {
+        "id": 4,
         "title": "Teabags<br>Packaging",
         "duration": "3 Months",
         "period": "February '22 - April '22",
@@ -29,6 +35,7 @@
         "priority": "4"
       },
       {
+        "id": 5,
         "title": "Bio-Mimicry",
         "duration": "2 Months",
         "period": "March '22 - April '22",
@@ -36,6 +43,7 @@
         "priority": "5"
       },
       {
+        "id": 6,
         "title": "Uttar Pradesh<br>State Government<br>Portal",
         "duration": "4 Months",
         "period": "January '22 - April '22",
@@ -43,6 +51,7 @@
         "priority": "6"
       },
       {
+        "id": 7,
         "title": "Delhi Technological<br>University<br>Students' Portal",
         "duration": "4 Months",
         "period": "August '22 - November '22",
@@ -50,6 +59,7 @@
         "priority": "7"
       },
       {
+        "id": 8,
         "title": "B&C's Bistro<br>Branding",
         "duration": "1 Month",
         "period": "January '23",
@@ -57,6 +67,7 @@
         "priority": "8"
       },
       {
+        "id": 9,
         "title": "Assistive<br>Accessories",
         "duration": "6 Months",
         "period": "January '23 - June '23",

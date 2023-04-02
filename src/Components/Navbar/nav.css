@@ -160,6 +160,7 @@ nav .contact_btn {
   /* background: var(--main-bg); */
 
   z-index: 1;
+  overflow: hidden;
 }
 
 .simplified__nav .nav__list .nav__list-item {

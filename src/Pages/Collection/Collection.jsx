@@ -4,10 +4,9 @@ import "./collection.css";
 import { SimpleNav } from "../../Components";
 import collectionData from "../../assets/PostersList.json";
 
-const Collection = () => {
+const Collection = ({ isOpen, setIsOpen }) => {
   const [thumbnail, setThumbnail] = useState("");
   const [isTouched, setIsTouched] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   const thumbnailRef = useRef(null);
   const containerRef = useRef(null);
 
