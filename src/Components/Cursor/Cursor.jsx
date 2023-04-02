@@ -30,7 +30,8 @@ const Cursor = () => {
     "textarea",
     "button",
     ".hoverable",
-    ".link"
+    ".link",
+    "Link"
   ];
   const trailingSpeed = 8;
   let endX = useRef(0);
