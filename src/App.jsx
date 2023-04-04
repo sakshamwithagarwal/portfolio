@@ -1,17 +1,17 @@
-import { useState } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BrowserView } from "react-device-detect";
 
-import { Collection, Home, ExpandedProject } from "./Pages";
-import {
-  Noise,
-  SplashScreen,
-  Cursor,
-  Background
-} from "./Components";
+const Home = lazy(() => import("./Pages/Home/Home"));
+const Collection = lazy(() => import("./Pages/Collection/Collection"));
+const ExpandedProject = lazy(() =>
+  import("./Pages/ExpandedProject/ExpandedProject")
+);
+
+import { Noise, Cursor, Background } from "./Components";
+const SplashScreen = lazy(() => import("./Components/SplashScreen/SplashScreen"))
+
 import "./App.css";
-
-
 
 function App() {
   const [isSplashOpen, setIsSplashOpen] = useState(true);
@@ -21,16 +21,28 @@ function App() {
     [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <Suspense fallback={<>loading...</>}>
+            <Home />,
+          </Suspense>
+        ),
       },
       {
         path: "/collection",
-        element: <Collection isOpen={isOpen} setIsOpen={setIsOpen} />,
+        element: (
+          <Suspense fallback={<>loading...</>}>
+            <Collection isOpen={isOpen} setIsOpen={setIsOpen} />
+          </Suspense>
+        ),
       },
       {
         path: "/project/:id",
-        element: <ExpandedProject isOpen={isOpen} setIsOpen={setIsOpen} />
-      }
+        element: (
+          <Suspense fallback={<>loading...</>}>
+            <ExpandedProject isOpen={isOpen} setIsOpen={setIsOpen} />
+          </Suspense>
+        ),
+      },
     ],
     { basename: "/" }
   );
