@@ -45,6 +45,7 @@ body {
 
   width: 95%;
   margin: auto;
+  transition: .25s;
 }
 
 * {
