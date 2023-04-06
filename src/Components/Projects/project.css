@@ -1,9 +1,10 @@
+
 .projects .section_container ol {
   list-style: none;
   counter-reset: project-counter;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1em 1.5em;
+  grid-gap: 3em 3em;
 }
 
 .projects .section_container ol li {
@@ -13,11 +14,15 @@
   padding: 0.8rem 1.3rem;
   padding-bottom: 0;
   border-radius: 5px;
+  /* aspect-ratio: 1.96; */
+  /* grid-column: 1 / 2 ; */
 }
 
-/* .projects .section_container ol li:nth-child(3n) {
+.projects .section_container ol a:nth-child(3n) {
   grid-column: 1 / span 2;
-} */
+  aspect-ratio: 1.96;
+}
+
 
 .projects .section_container ol li::before {
   content: counter(project-counter);
@@ -36,7 +41,7 @@
 }
 
 .projects .section_container .project {
-  max-height: 50vh;
+  max-height: auto;
   width: 100%;
   position: relative;
   background-color: var(--dark-bg);

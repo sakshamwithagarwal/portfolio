@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import "./collection.css";
 import { SimpleNav } from "../../Components";
@@ -9,6 +9,7 @@ const Collection = ({ isOpen, setIsOpen }) => {
   const [isTouched, setIsTouched] = useState(false);
   const thumbnailRef = useRef(null);
   const containerRef = useRef(null);
+  const listRef = useRef(null);
 
   useEffect(() => {
     // console.log("thumbnail");
@@ -19,6 +20,15 @@ const Collection = ({ isOpen, setIsOpen }) => {
     );
     gsap.fromTo(containerRef.current, { opacity: 0 }, { opacity: 1 });
   }, [thumbnail]);
+
+  // useLayoutEffect(() => {
+  //   let ctx = gsap.context(() => {
+  //     gsap.fromTo(".collection__list-item", {y: -70, autoAlpha: 0}, {y: 0, autoAlpha: 1})
+  //   }, listRef);
+
+
+  //   return () => ctx.revert()
+  // }, [])
 
   const storageKey = "theme-preference";
 
@@ -98,7 +108,7 @@ const Collection = ({ isOpen, setIsOpen }) => {
           <div className="collection__list-wrapper">
             <h3 className="collection__list-title">Posters</h3>
             <div className="collection__list-outer">
-              <ul className="collection__list">
+              <ul className="collection__list" ref={listRef}>
                 {collectionData.posters.map((item, key) => (
                   <li
                     className={
