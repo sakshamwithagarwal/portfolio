@@ -1,29 +1,42 @@
-import React, { useState, useContext, useRef, useEffect, useLayoutEffect } from "react";
+import React, {
+  useState,
+  useContext,
+  useRef,
+  useEffect,
+  useLayoutEffect,
+} from "react";
 import "./nav.css";
 import "./custom-ham.css";
 import ListIconComp from "./ListIconComp";
-import { gsap } from "gsap"
+import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 
 // import listIcon from "../../assets/list-icon.svg"
 
 const SimpleNav = ({ isOpen, setIsOpen }) => {
-  const navRef = useRef(null)
-  const listRef = useRef()
+  const navRef = useRef(null);
+  const listRef = useRef();
 
   useEffect(() => {
-    gsap.fromTo(navRef.current, {y: -100}, {y: 0})
-  }, [])
+    gsap.fromTo(navRef.current, { y: -100 }, { y: 0 });
+  }, []);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.fromTo(".nav__list-item", {y: 70, autoAlpha: 0}, {y: 0, autoAlpha: 1})
-      gsap.fromTo(".nav__list-sub-item", {y: 50, autoAlpha: 0}, {y: 0, autoAlpha: 1})
+      gsap.fromTo(
+        ".nav__list-item",
+        { y: 70, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1 }
+      );
+      gsap.fromTo(
+        ".nav__list-sub-item",
+        { y: 50, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1 }
+      );
     }, listRef);
 
-
-    return () => ctx.revert()
-  }, [isOpen])
+    return () => ctx.revert();
+  }, [isOpen]);
 
   // const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
@@ -80,7 +93,7 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
     <div className="simplified__nav">
       <nav ref={navRef}>
         <div className="logo">
-        <a className="brand_logo" href="/" rel="noopener noreferrer">
+          <a className="brand_logo" href="/" rel="noopener noreferrer">
             m.
           </a>
         </div>
@@ -91,13 +104,15 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
               return (
                 <>
                   {item.sublist.length >= 1 ? (
-                    <li className="nav__list-item"
-                      key={idx}
-                    >
+                    <li className="nav__list-item" key={idx}>
                       <ListIconComp className="icon" /> {"  "} {item.title}
                       <ul className="nav__sublist">
                         {item.sublist.map((subItem, idx) => (
-                          <Link to={subItem.url} key={idx+subItem.title}>
+                          <Link
+                            to={subItem.url}
+                            key={idx + subItem.title}
+                            onClick={() => setIsOpen(!isOpen)}
+                          >
                             <li className="nav__list-sub-item">
                               <ListIconComp className="icon" /> {"  "}{" "}
                               {subItem.title}
@@ -110,6 +125,7 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
                     <Link
                       to={item.url}
                       key={idx}
+                      onClick={() => setIsOpen(!isOpen)}
                     >
                       <li className="nav__list-item">
                         <ListIconComp className="icon" /> {"  "} {item.title}
