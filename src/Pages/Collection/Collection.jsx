@@ -1,6 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import "./collection.css";
+import { motion } from "framer-motion";
 import { SimpleNav } from "../../Components";
 import collectionData from "../../assets/PostersList.json";
 
@@ -9,6 +10,43 @@ const Collection = ({ isOpen, setIsOpen }) => {
   const [isTouched, setIsTouched] = useState(false);
   const thumbnailRef = useRef(null);
   const containerRef = useRef(null);
+  const listRef = useRef(null);
+
+  const variants = {
+    hidden: {
+      opacity: 0,
+      transition: { mass: 0.1, transitionEnd: { y: -48 }, type: "spring" },
+      y: -96,
+    },
+    visible: {
+      opacity: 1,
+      transition: { mass: 0.1, restDelta: 0.00001, type: "spring" },
+      y: 0,
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      transition: {
+        striffness: 300,
+        damping: 24,
+        transitionEnd: { y: -48 },
+        type: "spring",
+      },
+      y: -96,
+    },
+    visible: {
+      opacity: 1,
+      transition: { mass: 0.1, restDelta: 0.00001, type: "spring" },
+      y: 0,
+    },
+  };
+
+  const parentVariants = {
+    hidden: {transition: {staggerChildren: 0.05, staggerDirection: 1}},
+    visible: {transition: {staggerChildren: 0.05, staggerDirection: -1}}
+  }
 
   useEffect(() => {
     // console.log("thumbnail");
@@ -19,6 +57,14 @@ const Collection = ({ isOpen, setIsOpen }) => {
     );
     gsap.fromTo(containerRef.current, { opacity: 0 }, { opacity: 1 });
   }, [thumbnail]);
+
+  // useLayoutEffect(() => {
+  //   let ctx = gsap.context(() => {
+  //     gsap.fromTo(".collection__list-item", {y: -70, autoAlpha: 0}, {y: 0, autoAlpha: 1})
+  //   }, listRef);
+
+  //   return () => ctx.revert()
+  // }, [])
 
   const storageKey = "theme-preference";
 
@@ -89,41 +135,52 @@ const Collection = ({ isOpen, setIsOpen }) => {
       {isOpen ? (
         ""
       ) : (
-        <div className="collection__container">
-          <div className="collection__thumbnail" ref={containerRef}>
-            <div className="collection__thumbnail-inside">
-              <img src={"/assets/" + thumbnail} alt="" ref={thumbnailRef} />
-            </div>
-          </div>
-          <div className="collection__list-wrapper">
-            <h3 className="collection__list-title">Posters</h3>
-            <div className="collection__list-outer">
-              <ul className="collection__list">
+        <motion.div className="collection__container" variants={parentVariants} animate={"visible"} initial={"hidden"} exit={"hidden"} >
+          <motion.div className="collection__thumbnail" ref={containerRef}>
+            <motion.div className="collection__thumbnail-inside">
+              <motion.img
+                src={"/assets/" + thumbnail}
+                alt=""
+                ref={thumbnailRef}
+              />
+            </motion.div>
+          </motion.div>
+
+          <motion.div className="collection__list-wrapper">
+            <motion.h3
+              className="collection__list-title"
+              variants={variants}
+            >
+              Posters
+            </motion.h3>
+            <motion.div className="collection__list-outer">
+              {collectionData && <motion.ul className="collection__list" ref={listRef}>
                 {collectionData.posters.map((item, key) => (
-                  <li
+                  <motion.li
                     className={
                       isTouched
                         ? "collection__list-item touched"
                         : "collection__list-item"
                     }
-                    key={key}
+                    variants={itemVariants}
+                    key={key + "-" + item.title}
                     onMouseEnter={() => handleMouseEnter(item.thumbnail)}
                     onMouseLeave={() => handleMouseLeave()}
                   >
-                    <div
+                    <motion.div
                       style={
                         item.diffFont ? { fontFamily: item.fontFamily } : {}
                       }
                       className="hoverable"
                     >
                       {item.title}
-                    </div>
-                  </li>
+                    </motion.div>
+                  </motion.li>
                 ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+              </motion.ul>}
+            </motion.div>
+          </motion.div>
+        </motion.div>
       )}
     </div>
   );

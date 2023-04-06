@@ -46,7 +46,11 @@ nav .contact_btn {
   position: relative;
 }
 
-.simplified__nav .logo img {
+.simplified__nav .logo {
+  font-size: 1.2em;
+}
+
+/* .simplified__nav .logo img {
   height: 2.8rem;
 }
 
@@ -58,7 +62,7 @@ nav .contact_btn {
 .simplified__nav .logo path {
   stroke: var(--text-main);
   stroke-width: 2px;
-}
+} */
 
 .simplified__nav .nav__toggle>* {
   box-sizing: border-box;
