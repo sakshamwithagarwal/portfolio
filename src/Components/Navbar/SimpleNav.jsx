@@ -102,15 +102,15 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
           <ul ref={listRef}>
             {listItem.map((item, idx) => {
               return (
-                <>
+                <div key={idx}>
                   {item.sublist.length >= 1 ? (
-                    <li className="nav__list-item" key={idx}>
+                    <li className="nav__list-item" key={idx + "-" + item.title}>
                       <ListIconComp className="icon" /> {"  "} {item.title}
                       <ul className="nav__sublist">
-                        {item.sublist.map((subItem, idx) => (
+                        {item.sublist.map((subItem, idx_) => (
                           <Link
                             to={subItem.url}
-                            key={idx + subItem.title}
+                            key={idx_ + "-" + subItem.title}
                             onClick={() => setIsOpen(!isOpen)}
                           >
                             <li className="nav__list-sub-item">
@@ -124,7 +124,7 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
                   ) : (
                     <Link
                       to={item.url}
-                      key={idx}
+                      key={idx + "-" + item.title}
                       onClick={() => setIsOpen(!isOpen)}
                     >
                       <li className="nav__list-item">
@@ -132,7 +132,7 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
                       </li>
                     </Link>
                   )}
-                </>
+                </div>
               );
             })}
           </ul>
