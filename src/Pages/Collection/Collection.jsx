@@ -48,23 +48,36 @@ const Collection = ({ isOpen, setIsOpen }) => {
     visible: {transition: {staggerChildren: 0.05, staggerDirection: -1}}
   }
 
-  useEffect(() => {
-    // console.log("thumbnail");
-    gsap.fromTo(
-      thumbnailRef.current,
-      { scale: 0, autoAlpha: 0 },
-      { scale: 1, autoAlpha: 1, duration: 1 }
-    );
-    gsap.fromTo(containerRef.current, { opacity: 0 }, { opacity: 1 });
-  }, [thumbnail]);
+  const thumbnailVariants = {
+    selected: {
+      opacity: 1,
+      transition: {bounce: 0.1, duration: 0.8, restDelta: 0.00001, type: "spring"}
+    },
+    unselected: {
+      opacity: 0,
+      transition: {bounce: 0.1, duration: 0.8, restDelta: 0.00001, type: "spring"}
+    }
+  }
+  const thumbnailIMGVariants = {
+    selected: {
+      scale: 1.1,
+      transition: {bounce: 0.1, duration: 0.8, restDelta: 0.00001, type: "spring"}
+    },
+    unselected: {
+      scale: 1,
+      transition: {bounce: 0.1, duration: 0.8, restDelta: 0.00001, type: "spring"}
+    }
+  }
 
-  // useLayoutEffect(() => {
-  //   let ctx = gsap.context(() => {
-  //     gsap.fromTo(".collection__list-item", {y: -70, autoAlpha: 0}, {y: 0, autoAlpha: 1})
-  //   }, listRef);
-
-  //   return () => ctx.revert()
-  // }, [])
+  // useEffect(() => {
+  //   // console.log("thumbnail");
+  //   gsap.fromTo(
+  //     thumbnailRef.current,
+  //     { scale: 0, autoAlpha: 0 },
+  //     { scale: 1, autoAlpha: 1, duration: 1 }
+  //   );
+  //   gsap.fromTo(containerRef.current, { opacity: 0 }, { opacity: 1 });
+  // }, [thumbnail]);
 
   const storageKey = "theme-preference";
 
@@ -136,12 +149,12 @@ const Collection = ({ isOpen, setIsOpen }) => {
         ""
       ) : (
         <motion.div className="collection__container" variants={parentVariants} animate={"visible"} initial={"hidden"} exit={"hidden"} >
-          <motion.div className="collection__thumbnail" ref={containerRef}>
-            <motion.div className="collection__thumbnail-inside">
+          <motion.div className="collection__thumbnail" variants={variants}>
+            <motion.div className="collection__thumbnail-inside" variants={thumbnailVariants} animate={thumbnail == "" ? "unselected" : "selected"} initial={"unselected"} >
               <motion.img
                 src={"/assets/" + thumbnail}
                 alt=""
-                ref={thumbnailRef}
+                variants={thumbnailIMGVariants}
               />
             </motion.div>
           </motion.div>

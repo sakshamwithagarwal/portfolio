@@ -1,5 +1,6 @@
 .collection {
   max-height: 100vh;
+  overflow: hidden;
 }
 
 .collection__container {
