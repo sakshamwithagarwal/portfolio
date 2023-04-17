@@ -2,7 +2,7 @@
     "projects": [
       {
         "id": 1,
-        "title": "Wall-Plug<br>Tug",
+        "title": "Wall-Plug Tug",
         "duration": "4 Months",
         "period": "January '21 - April '21",
         "thumbnail": "/assets/1.webp",
@@ -15,12 +15,12 @@
         "title": "Saathi",
         "duration": "2 Months",
         "period": "March '21 - April '21",
-        "thumbnail": "/assets/2.webp",
+        "thumbnail": "/assets/3.webp",
         "priority": "2"
       },
       {
         "id": 3,
-        "title": "Teacup Cafe<br>Branding",
+        "title": "Teacup Cafe Branding",
         "duration": "4 Months",
         "period": "August '21 - November '21",
         "thumbnail": "/assets/3.webp",
@@ -28,7 +28,7 @@
       },
       {
         "id": 4,
-        "title": "Teabags<br>Packaging",
+        "title": "Teabags Packaging",
         "duration": "3 Months",
         "period": "February '22 - April '22",
         "thumbnail": "/assets/4.webp",
@@ -39,12 +39,12 @@
         "title": "Bio-Mimicry",
         "duration": "2 Months",
         "period": "March '22 - April '22",
-        "thumbnail": "/assets/5.webp",
+        "thumbnail": "/assets/4.webp",
         "priority": "5"
       },
       {
         "id": 6,
-        "title": "Uttar Pradesh<br>State Government<br>Portal",
+        "title": "Uttar Pradesh State Government Portal",
         "duration": "4 Months",
         "period": "January '22 - April '22",
         "thumbnail": "/assets/4.webp",
@@ -52,7 +52,7 @@
       },
       {
         "id": 7,
-        "title": "Delhi Technological<br>University<br>Students' Portal",
+        "title": "Delhi Technological University Students' Portal",
         "duration": "4 Months",
         "period": "August '22 - November '22",
         "thumbnail": "/assets/7.webp",
@@ -60,7 +60,7 @@
       },
       {
         "id": 8,
-        "title": "B&C's Bistro<br>Branding",
+        "title": "B&C's Bistro Branding",
         "duration": "1 Month",
         "period": "January '23",
         "thumbnail": "/assets/7.webp",
@@ -68,10 +68,10 @@
       },
       {
         "id": 9,
-        "title": "Assistive<br>Accessories",
+        "title": "Assistive Accessories",
         "duration": "6 Months",
         "period": "January '23 - June '23",
-        "thumbnail": "/assets/9.webp",
+        "thumbnail": "/assets/3.webp",
         "priority": "9"
       }
     ]
