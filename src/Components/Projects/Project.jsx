@@ -18,26 +18,16 @@ const Project = ({ data }) => {
   };
   return (
     <Link to={`project/${data.id}`}>
-      <li
-        className={
-          isTouched ? "project touched hoverable" : "project hoverable"
-        }
-        style={{ backgroundImage: `url(${data.thumbnail})` }}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-        onMouseEnter={handleTouchStart}
-        onMouseLeave={handleTouchEnd}
-      >
+      <li className="project hoverable">
+        <img src={data.thumbnail} alt="" className="project__thumbnail" />
         <div className="project_container">
-          <div
-            className="project__title"
-            dangerouslySetInnerHTML={creatMarkup(data.title)}
-          ></div>
-        </div>
-        <div className="project_details">
-          <div className="left">Project Duration - {data.duration}</div>
-          <div className="right">{data.period}</div>
+          <div className="project__title"> {data.title} </div>
+          <p className="project__description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere
+            odio, libero mollitia doloribus iure assumenda et voluptate labore
+            fugit omnis consectetur inventore vel magni ex natus atque adipisci
+            cum quas.
+          </p>
         </div>
       </li>
     </Link>
