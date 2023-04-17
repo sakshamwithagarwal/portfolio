@@ -1,13 +1,12 @@
-
 .projects .section_container ol {
   list-style: none;
   counter-reset: project-counter;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 3em 3em;
+  grid-gap: 4em 3em;
 }
 
-.projects .section_container ol li {  
+.projects .section_container ol li {
   /* padding: 0.8rem 1.3rem;
   padding-bottom: 0; */
   /* border-radius: 5px; */
@@ -41,7 +40,7 @@
 }
 
 .project__title {
-  font-family: var(--project-title-font);
+  font-family: var(--head-font);
   font-size: 2em;
   margin: .3em 0;
 }
@@ -52,6 +51,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  width: 90%;
 }
 
 
@@ -69,10 +69,12 @@
     grid-template-columns: 1fr;
     grid-gap: 0.5em;
   }
+
   .projects .section_container .project .project_details {
     font-size: 0.5rem;
     padding: 0.1em 0.5em;
   }
+
   .projects .section_container ol li::before {
     font-size: 3.5em;
   }
@@ -82,6 +84,7 @@
   .projects .section_container .project .project__title {
     font-size: 1.5rem;
   }
+
   .projects .section_container ol li::before {
     font-size: 2rem;
   }
