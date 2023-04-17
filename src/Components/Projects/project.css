@@ -46,7 +46,7 @@
 }
 
 .project__description {
-  font-family: var(--portfolio-font-light);
+  font-family: var(--portfolio-font-regular);
   font-size: 1.1em;
 
   overflow: hidden;
