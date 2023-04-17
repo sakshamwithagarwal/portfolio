@@ -43,7 +43,7 @@ body {
   font-family: var(--body-font);
   font-size: 16px;
 
-  width: 95%;
+  width: 90%;
   margin: auto;
   transition: .25s;
 }
@@ -128,13 +128,13 @@ section {
 }
 
 .section_title {
-  background-color: var(--text-main);
-  color: var(--main-bg);
+  /* background-color: var(--text-main); */
+  color: var(--text-main);
 
   border-radius: 5px;
 
-  padding: 0rem 2rem;
-  padding-left: clamp(0.8rem, 1.25vw, 2rem);
+  /* padding: 0rem 2rem; */
+  /* padding-left: clamp(0.8rem, 1.25vw, 2rem); */
   margin-bottom: 1.5em;
 }
 
