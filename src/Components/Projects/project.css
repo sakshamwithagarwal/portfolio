@@ -42,12 +42,16 @@
 .project__title {
   font-family: var(--head-font);
   font-size: 2em;
-  margin: .3em 0;
+  margin: .2em 0;
 }
 
 .project__description {
+  font-family: var(--portfolio-font-light);
+  font-size: 1.1em;
+
   overflow: hidden;
   text-overflow: ellipsis;
+  
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
