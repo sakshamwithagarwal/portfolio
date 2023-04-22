@@ -19,7 +19,9 @@ const Project = ({ data }) => {
   return (
     <Link to={`project/${data.id}`}>
       <li className="project hoverable">
-        <img src={data.thumbnail} alt="" className="project__thumbnail" />
+        <div className="thumbnail_wrapper">
+          <img src={data.thumbnail} alt="" className="project__thumbnail" />
+        </div>
         <div className="project_container">
           <div className="project__title"> {data.title} </div>
           <p className="project__description">
