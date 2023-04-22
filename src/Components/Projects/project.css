@@ -80,10 +80,10 @@
 }
 
 .project__tags > div {
-  color: var(--main-bg);
   border-radius: 5em;
   padding: .3em 1em;
-  background-color: var(--text-main);
+  border: 1.5px solid var(--text-main);
+  color: var(--text-main);
 } 
 
 .projects .section_container ol a:nth-child(2n) .project__tags > div {
