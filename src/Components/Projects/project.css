@@ -86,6 +86,12 @@
   background-color: var(--text-main);
 } 
 
+.projects .section_container ol a:nth-child(2n) .project__tags > div {
+  border: 1.5px solid var(--text-main);
+  background-color: transparent;
+  color: var(--text-main);
+}
+
 @media screen and (max-width: 768px) {
   .projects .section_container ol {
     grid-template-columns: repeat(2, 1fr);
