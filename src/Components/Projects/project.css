@@ -26,13 +26,25 @@
   background-size: cover;
 }
 
+.thumbnail_wrapper,
 .project__thumbnail {
   width: inherit;
+  transition: .4s;
+}
+
+.thumbnail_wrapper {
+  overflow: hidden;
+  display: flex;
+}
+
+.thumbnail_wrapper:hover .project__thumbnail{
+  scale: 1.1;
 }
 
 .project_container {
   width: inherit;
   color: var(--text-darker);
+  margin-top: 1em;
 }
 
 .project_container img {
@@ -41,17 +53,17 @@
 
 .project__title {
   font-family: var(--head-font);
-  font-size: 2em;
+  font-size: 2.2em;
   margin: .2em 0;
 }
 
 .project__description {
-  font-family: var(--portfolio-font-regular);
-  font-size: 1.1em;
+  font-family: var(--portfolio-font-light);
+  font-size: 1em;
 
   overflow: hidden;
   text-overflow: ellipsis;
-  
+
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
