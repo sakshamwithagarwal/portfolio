@@ -8,7 +8,8 @@
         "thumbnail": "/assets/1.webp",
         "frame-dark": "/assets/dark-pj.png",
         "frame-light": "/assets/light-pj.png",
-        "priority": "1"
+        "priority": "1",
+        "tags": ["Product Design", "3D Modeling", "Research"]
       },
       {
         "id": 2,
@@ -16,7 +17,8 @@
         "duration": "2 Months",
         "period": "March '21 - April '21",
         "thumbnail": "/assets/3.webp",
-        "priority": "2"
+        "priority": "2",
+        "tags": ["Product Design", "3D Modeling", "Research"]
       },
       {
         "id": 3,
@@ -24,7 +26,8 @@
         "duration": "4 Months",
         "period": "August '21 - November '21",
         "thumbnail": "/assets/3.webp",
-        "priority": "3"
+        "priority": "3",
+        "tags": ["Product Design", "3D Modeling", "Research"]
       },
       {
         "id": 4,
@@ -32,7 +35,8 @@
         "duration": "3 Months",
         "period": "February '22 - April '22",
         "thumbnail": "/assets/4.webp",
-        "priority": "4"
+        "priority": "4",
+        "tags": ["Product Design", "3D Modeling", "Research"]
       },
       {
         "id": 5,
@@ -40,7 +44,8 @@
         "duration": "2 Months",
         "period": "March '22 - April '22",
         "thumbnail": "/assets/4.webp",
-        "priority": "5"
+        "priority": "5",
+        "tags": ["Product Design", "3D Modeling", "Research"]
       },
       {
         "id": 6,
@@ -48,7 +53,8 @@
         "duration": "4 Months",
         "period": "January '22 - April '22",
         "thumbnail": "/assets/4.webp",
-        "priority": "6"
+        "priority": "6",
+        "tags": ["Product Design", "3D Modeling", "Research"]
       },
       {
         "id": 7,
@@ -56,7 +62,8 @@
         "duration": "4 Months",
         "period": "August '22 - November '22",
         "thumbnail": "/assets/7.webp",
-        "priority": "7"
+        "priority": "7",
+        "tags": ["Product Design", "3D Modeling", "Research"]
       },
       {
         "id": 8,
@@ -64,7 +71,8 @@
         "duration": "1 Month",
         "period": "January '23",
         "thumbnail": "/assets/7.webp",
-        "priority": "8"
+        "priority": "8",
+        "tags": ["Product Design", "3D Modeling", "Research"]
       },
       {
         "id": 9,
@@ -72,7 +80,8 @@
         "duration": "6 Months",
         "period": "January '23 - June '23",
         "thumbnail": "/assets/3.webp",
-        "priority": "9"
+        "priority": "9",
+        "tags": ["Product Design", "3D Modeling", "Research"]
       }
     ]
   }
