@@ -30,6 +30,11 @@ const Project = ({ data }) => {
             fugit omnis consectetur inventore vel magni ex natus atque adipisci
             cum quas.
           </p>
+          <div className="project__tags">
+            {data.tags.map((tag) => (
+              <div className="project_tag">{tag}</div>
+            ))}
+          </div>
         </div>
       </li>
     </Link>
