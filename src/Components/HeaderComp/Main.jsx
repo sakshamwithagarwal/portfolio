@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useContext, useLayoutEffect } from "react";
 import "./main.css";
 import { gsap } from "gsap";
+import { motion } from "framer-motion";
 
 const Main = ({ compRef }) => {
   const arrowRef = useRef(null);
@@ -20,9 +21,6 @@ const Main = ({ compRef }) => {
       { scale: 0 },
       { scale: 1, delay: 1.6, ease: "ease.in", duration: 1 }
     );
-    // gsap.fromTo(headingRef.current, {autoAlpha: 0}, {autoAlpha: 1, duration: 2});
-    // gsap.fromTo(subHeadingRef.current, {y: 500}, {y: 0, duration: .7});
-    gsap.fromTo(contentRef.current, {y: 500}, {y: 0, duration: .9});
 
     let mm = gsap.matchMedia();
     mm.add("(max-width: 576px", () => {
@@ -51,14 +49,44 @@ const Main = ({ compRef }) => {
   const handleClickToScroll = () => {
     compRef.current.scrollIntoView({ behavior: "smooth" });
   };
+
+  const animation = {
+    animate: { y: ["0%", "-112%", "-102%", "-212%", "-202%", "-312%", "-302%"] },
+    transition: {
+      duration: 7,
+      ease: "easeInOut",
+      times: [0, 0.13, 0.3333, 0.4633, 0.6666, 0.79666, 0.9999],
+      repeat: Infinity,
+    },
+  };
   return (
     <main>
       <h1 className="heading_main">
         <div className="animated_heading_wrapper">
-          <span>Visual</span>
-          <span>Industrial</span>
-          <span>Interaction</span>
-          <span>Visual</span>
+          <motion.span
+            animate={animation.animate}
+            transition={animation.transition}
+          >
+            Visual
+          </motion.span>
+          <motion.span
+            animate={animation.animate}
+            transition={animation.transition}
+          >
+            Industrial
+          </motion.span>
+          <motion.span
+            animate={animation.animate}
+            transition={animation.transition}
+          >
+            Interaction
+          </motion.span>
+          <motion.span
+            animate={animation.animate}
+            transition={animation.transition}
+          >
+            Visual
+          </motion.span>
         </div>
         <div className="hero__heading-mobile">
           <div className="hero__heading_row-1">
@@ -78,29 +106,29 @@ const Main = ({ compRef }) => {
           </div>
         </div>
 
-        <div ref={subHeadingRef} className="hero__subheading-wrapper">
+        <motion.div className="hero__subheading-wrapper">
           <span className="hero__subheading">Designer</span>
           <span className="hero__subheading-mobile">
             Design <br /> er
           </span>
-        </div>
+        </motion.div>
       </h1>
       <div className="hero__content">
-        <p ref={contentRef}>
+        <motion.p
+          initial={{ y: 500 }}
+          animate={{ y: 0, transition: { duration: 0.9 } }}
+          end={{ y: 500 }}
+        >
           I am an Industrial and Interaction Designer who creates designs that
           are both sustainable and universal. I try to draw inspiration from
           music and comics in order to create designs that provide a harmonious
           and consistent user experience for others.
-        </p>
+        </motion.p>
         <div className="hero__scroll_arrow" onClick={handleClickToScroll}>
-          <div
+          <motion.div
             className="hero__scroll-arrow-circle"
-            ref={arrowRef}
-            onMouseEnter={handleArrowMouseEnter}
-            onMouseLeave={handleArrowMouseLeave}
-            onTouchStart={handleArrowMouseEnter}
-            onTouchEnd={handleArrowMouseLeave}
-          ></div>
+            whileHover={{ scale: [null, 1.25, 1.2] }}
+          ></motion.div>
           <svg
             width="93"
             height="74"

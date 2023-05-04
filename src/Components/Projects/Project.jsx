@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./project.css";
+import { motion, useInView } from "framer-motion";
 
 const Project = ({ data }) => {
   const [isTouched, setIsTouched] = useState(false);
@@ -16,9 +17,23 @@ const Project = ({ data }) => {
   const creatMarkup = (str) => {
     return { __html: str };
   };
+
+  const variants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 }
+  };
+
   return (
     <Link to={`project/${data.id}`}>
-      <li className="project hoverable">
+      <motion.li
+        className="project hoverable"
+        viewport={{once: true}}
+        transition={{ duration: 0.3 }}
+        variants={variants}
+        initial="hidden"
+        exit={"hidden"}
+        whileInView={"visible"}
+      >
         <div className="thumbnail_wrapper">
           <img src={data.thumbnail} alt="" className="project__thumbnail" />
         </div>
@@ -36,7 +51,7 @@ const Project = ({ data }) => {
             ))}
           </div>
         </div>
-      </li>
+      </motion.li>
     </Link>
   );
 };

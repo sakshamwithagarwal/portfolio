@@ -1,5 +1,5 @@
 import React, { createRef, useEffect, useRef } from "react";
-import locomotiveScroll from "locomotive-scroll";
+// import locomotiveScroll from "locomotive-scroll";
 import { Navbar, Main, AllProjects, Collections } from "../../Components";
 import "./home.css";
 
@@ -8,12 +8,12 @@ const Home = () => {
   const scrollRef = createRef();
   const storageKey = "theme-preference";
 
-  useEffect(() => {
-    const scroll = new locomotiveScroll({
-      el: scrollRef.current,
-      smooth: true,
-    });
-  });
+  // useEffect(() => {
+  //   const scroll = new locomotiveScroll({
+  //     el: scrollRef.current,
+  //     smooth: true,
+  //   });
+  // });
 
   const onClick = () => {
     theme.value = theme.value === "light" ? "dark" : "light";
@@ -59,9 +59,9 @@ const Home = () => {
 
   return (
     <div
-      data-scroll
-      data-scroll-speed="7"
-      data-scroll-position="top"
+      // data-scroll
+      // data-scroll-speed="7"
+      // data-scroll-position="top"
       ref={scrollRef}
     >
       {/* <div className="line-1"></div>
