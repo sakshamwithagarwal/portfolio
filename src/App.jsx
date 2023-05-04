@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from "react";
+import React, { Suspense, lazy, useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BrowserView } from "react-device-detect";
 
@@ -9,12 +9,12 @@ const ExpandedProject = lazy(() =>
 );
 
 import { Noise, Cursor, Background } from "./Components";
-const SplashScreen = lazy(() => import("./Components/SplashScreen/SplashScreen"))
+const Preloader = lazy(() => import("./Components/SplashScreen/Preloader"));
 
 import "./App.css";
 
 function App() {
-  const [isSplashOpen, setIsSplashOpen] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const router = createBrowserRouter(
@@ -50,6 +50,12 @@ function App() {
   const onClickHandler = () => {
     setIsSplashOpen(false);
   };
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 2000);
+  // }, []);
 
   return (
     <div className="App">
@@ -59,10 +65,16 @@ function App() {
         <Cursor />
       </BrowserView>
       <Noise />
-      <div>
-        <RouterProvider router={router} />
-      </div>
-      <Background />
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <>
+          <div>
+            <RouterProvider router={router} />
+          </div>
+          <Background />{" "}
+        </>
+      )}
     </div>
   );
 }

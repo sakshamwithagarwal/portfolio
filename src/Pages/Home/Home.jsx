@@ -59,9 +59,9 @@ const Home = () => {
 
   return (
     <div
-      data-scroll
-      data-scroll-speed="7"
-      data-scroll-position="top"
+      // data-scroll
+      // data-scroll-speed="7"
+      // data-scroll-position="top"
       ref={scrollRef}
     >
       {/* <div className="line-1"></div>

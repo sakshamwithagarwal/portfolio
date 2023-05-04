@@ -7,11 +7,7 @@
 }
 
 .projects .section_container ol li {
-  /* padding: 0.8rem 1.3rem;
-  padding-bottom: 0; */
-  /* border-radius: 5px; */
   aspect-ratio: 2;
-  /* grid-column: 1 / 2 ; */
 }
 
 .projects .section_container ol a:nth-child(3n) {
@@ -80,17 +76,13 @@
 }
 
 .project__tags > div {
-  border-radius: 5em;
-  padding: .3em 1em;
   border: 1.5px solid var(--text-main);
+  border-radius: 5em;
+
+  /* margin-top: .5rem; */
+  padding: .3em 1em;
   color: var(--text-main);
 } 
-
-.projects .section_container ol a:nth-child(2n) .project__tags > div {
-  border: 1.5px solid var(--text-main);
-  background-color: transparent;
-  color: var(--text-main);
-}
 
 @media screen and (max-width: 768px) {
   .projects .section_container ol {

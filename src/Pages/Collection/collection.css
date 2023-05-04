@@ -1,6 +1,6 @@
 .collection {
   max-height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .collection__container {
@@ -12,7 +12,7 @@
 }
 
 .collection__thumbnail {
-  min-height: 70vh;
+  max-height: 70vh;
 }
 
 .collection__list-wrapper,
@@ -26,6 +26,7 @@
   border-radius: 1rem;
   display: flex;
   height: 100%;
+  overflow: hidden;
 }
 
 .collection__thumbnail-inside img {

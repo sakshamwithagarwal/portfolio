@@ -1,16 +1,15 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import React from "react";
 import "./nav.css";
+import { motion } from "framer-motion";
 
 const Navbar = ({ handler }) => {
-  const navRef = useRef(null);
-
-  useEffect(() => {
-    gsap.fromTo(navRef.current, {y: -100}, {y: 0})
-  }, [])
-
   return (
-    <nav ref={navRef}>
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      end={{ y: -100 }}
+      transition={{ duration: 0.9 }}
+    >
       <ul>
         <li>
           <a className="brand_logo" href="/" rel="noopener noreferrer">
@@ -68,7 +67,7 @@ const Navbar = ({ handler }) => {
           </div>
         </li>
       </ul>
-    </nav>
+    </motion.nav>
   );
 };
 

@@ -1,0 +1,7 @@
+body {
+    --text: #5b5b5b;
+    --background: #121212;
+
+    background-color: var(--background);
+    color: var(--text);
+}

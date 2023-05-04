@@ -72,7 +72,7 @@ main p {
 .animated_heading_wrapper span {
   display: block;
   height: 100%;
-  animation: spin-words-vertical 8s infinite;
+  /* animation: spin-words-vertical 8s infinite; */
   /* border: 1px solid yellow; */
 }
 
@@ -102,7 +102,7 @@ main p {
   display: none;
 }
 
-@keyframes spin-words-vertical {
+/* @keyframes spin-words-vertical {
   13% {
     transform: translateY(-112%);
   }
@@ -126,7 +126,7 @@ main p {
   99.9996% {
     transform: translateY(-302%);
   }
-}
+} */
 
 @media screen and (max-width: 703px) {
   main {

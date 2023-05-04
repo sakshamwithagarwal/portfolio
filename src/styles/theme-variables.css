@@ -1,0 +1,17 @@
+.light {
+  --main-bg: #f1ede8;
+  --medium-bg: #e5d5c3;
+  --dark-bg: #ebded2;
+  --grey: #c9c8c9;
+  --text-main: #272421;
+  --text-darker: #2b2b2b;
+}
+
+.dark {
+  --main-bg: #1c1c25;
+  --medium-bg: #727272;
+  --dark-bg: #9f9f9f;
+  --grey: #b0b0b0;
+  --text-main: #83878d;
+  --text-darker: #c6c5c5;
+}
