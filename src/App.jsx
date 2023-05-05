@@ -50,12 +50,12 @@ function App() {
   const onClickHandler = () => {
     setIsSplashOpen(false);
   };
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 2000);
-  // }, []);
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
 
   return (
     <div className="App">
