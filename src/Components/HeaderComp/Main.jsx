@@ -51,7 +51,9 @@ const Main = ({ compRef }) => {
   };
 
   const animation = {
-    animate: { y: ["0%", "-112%", "-102%", "-212%", "-202%", "-312%", "-302%"] },
+    animate: {
+      y: ["0%", "-108%", "-102%", "-208%", "-202%", "-308%", "-302%"],
+    },
     transition: {
       duration: 7,
       ease: "easeInOut",
@@ -90,18 +92,46 @@ const Main = ({ compRef }) => {
         </div>
         <div className="hero__heading-mobile">
           <div className="hero__heading_row-1">
-            <span>Visual</span>
-            <span>Indust</span>
-            <span>Interac</span>
-            <span>Visual</span>
+            <motion.span animate={animation.animate} transition={animation.transition}>
+              Visual
+            </motion.span>
+            <motion.span animate={animation.animate} transition={animation.transition}>
+              Indust
+            </motion.span>
+            <motion.span animate={animation.animate} transition={animation.transition}>
+              Interac
+            </motion.span>
+            <motion.span animate={animation.animate} transition={animation.transition}>
+              Visual
+            </motion.span>
           </div>
           <div className="hero__heading_row-2">
             <div className="hero__heading_col-1"></div>
             <div className="hero__heading_col-2">
-              <span>O.O</span>
-              <span>rial</span>
-              <span>tion</span>
-              <span>O.O</span>
+              <motion.span
+                animate={animation.animate}
+                transition={animation.transition}
+              >
+                O.O
+              </motion.span>
+              <motion.span
+                animate={animation.animate}
+                transition={animation.transition}
+              >
+                rial
+              </motion.span>
+              <motion.span
+                animate={animation.animate}
+                transition={animation.transition}
+              >
+                tion
+              </motion.span>
+              <motion.span
+                animate={animation.animate}
+                transition={animation.transition}
+              >
+                O.O
+              </motion.span>
             </div>
           </div>
         </div>

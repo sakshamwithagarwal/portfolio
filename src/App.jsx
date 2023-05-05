@@ -1,6 +1,7 @@
 import React, { Suspense, lazy, useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BrowserView } from "react-device-detect";
+import { request } from "graphql-request";
 
 const Home = lazy(() => import("./Pages/Home/Home"));
 const Collection = lazy(() => import("./Pages/Collection/Collection"));
@@ -17,13 +18,48 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  
+  const [projectData, setProjectData] = useState(null);
+  const PROJECT_QUERY = `
+    {
+      projects {
+        id
+        projectName
+        projectDescription
+        projectThumbnail {
+          url
+        }
+        tags
+        slug
+        projectContent {
+          html
+        }
+      }
+    }
+  `;
+  const endPointURL =
+    "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master";
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      // const { projects } = await hygraph.request(PROJECT_QUERY)
+
+      const { projects } = await request(endPointURL, PROJECT_QUERY);
+
+      setProjectData(projects);
+      console.log(projects);
+    };
+
+    fetchProjects();
+  }, []);
+
   const router = createBrowserRouter(
     [
       {
         path: "/",
         element: (
           <Suspense fallback={<>loading...</>}>
-            <Home />,
+            <Home projects={projectData} />,
           </Suspense>
         ),
       },
@@ -36,10 +72,10 @@ function App() {
         ),
       },
       {
-        path: "/project/:id",
+        path: "/project/:slug",
         element: (
           <Suspense fallback={<>loading...</>}>
-            <ExpandedProject isOpen={isOpen} setIsOpen={setIsOpen} />
+            <ExpandedProject projects={projectData} isOpen={isOpen} setIsOpen={setIsOpen} />
           </Suspense>
         ),
       },
@@ -47,9 +83,7 @@ function App() {
     { basename: "/" }
   );
 
-  const onClickHandler = () => {
-    setIsSplashOpen(false);
-  };
+  // * preloader
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {

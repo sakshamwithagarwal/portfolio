@@ -50,19 +50,19 @@ nav .contact_btn {
   font-size: 1.2em;
 }
 
-/* .simplified__nav .logo img {
+.simplified__nav .logo img {
   height: 2.8rem;
 }
 
 .simplified__nav .logo svg {
-  width: 5em;
+  /* width: 5em; */
   display: block;
 }
 
 .simplified__nav .logo path {
   stroke: var(--text-main);
   stroke-width: 2px;
-} */
+}
 
 .simplified__nav .nav__toggle > * {
   box-sizing: border-box;
@@ -270,7 +270,7 @@ nav .contact_btn {
   }
 
   .simplified__nav .logo svg {
-    width: 3em;
+    width: .6em;
   }
 
   .brand_logo {
@@ -287,14 +287,22 @@ nav .contact_btn {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .nav__toggle .menu-icon {
-    width: 3.6rem;
-    height: 3.3rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    width: 2.5em;
+    height: 1.7em;
+  }
+
+  .nav__toggle .menu-icon div {
+    width: inherit;
+    height: inherit;
   }
 
   .nav__toggle .menu-icon div span {
-    height: 9px;
+    height: 6px;
+    width: 100%;
   }
 
   /* .menu-icon__checkbox:checked+div span:first-of-type {

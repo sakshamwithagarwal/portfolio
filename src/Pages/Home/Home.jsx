@@ -3,7 +3,7 @@ import locomotiveScroll from "locomotive-scroll";
 import { Navbar, Main, AllProjects, Collections } from "../../Components";
 import "./home.css";
 
-const Home = () => {
+const Home = ({ projects }) => {
   const projectCompRef = useRef(null);
   const scrollRef = createRef();
   const storageKey = "theme-preference";
@@ -70,7 +70,7 @@ const Home = () => {
       <div className="circle"></div> */}
       <Navbar handler={onClick} />
       <Main compRef={projectCompRef} />
-      <AllProjects ref={projectCompRef} />
+      <AllProjects projects={projects} ref={projectCompRef} />
       <Collections />
     </div>
   );

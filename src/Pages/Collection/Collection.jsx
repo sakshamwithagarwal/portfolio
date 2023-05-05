@@ -1,15 +1,14 @@
 import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
-import { gsap } from "gsap";
 import "./collection.css";
 import { motion } from "framer-motion";
 import { SimpleNav } from "../../Components";
 import collectionData from "../../assets/PostersList.json";
+import { useParams } from "react-router-dom";
 
-const Collection = ({ isOpen, setIsOpen }) => {
+const Collection = ({ projects, isOpen, setIsOpen }) => {
   const [thumbnail, setThumbnail] = useState("");
   const [isTouched, setIsTouched] = useState(false);
-  const thumbnailRef = useRef(null);
-  const containerRef = useRef(null);
+  const { slug } = useParams();
   const listRef = useRef(null);
 
   const variants = {
@@ -24,7 +23,6 @@ const Collection = ({ isOpen, setIsOpen }) => {
       y: 0,
     },
   };
-
   const itemVariants = {
     hidden: {
       opacity: 0,
@@ -42,12 +40,10 @@ const Collection = ({ isOpen, setIsOpen }) => {
       y: 0,
     },
   };
-
   const parentVariants = {
     hidden: {transition: {staggerChildren: 0.05, staggerDirection: 1}},
     visible: {transition: {staggerChildren: 0.05, staggerDirection: -1}}
   }
-
   const thumbnailVariants = {
     selected: {
       opacity: 1,
@@ -68,17 +64,6 @@ const Collection = ({ isOpen, setIsOpen }) => {
       transition: {bounce: 0.1, duration: 0.8, restDelta: 0.00001, type: "spring"}
     }
   }
-
-  // useEffect(() => {
-  //   // console.log("thumbnail");
-  //   gsap.fromTo(
-  //     thumbnailRef.current,
-  //     { scale: 0, autoAlpha: 0 },
-  //     { scale: 1, autoAlpha: 1, duration: 1 }
-  //   );
-  //   gsap.fromTo(containerRef.current, { opacity: 0 }, { opacity: 1 });
-  // }, [thumbnail]);
-
   const storageKey = "theme-preference";
 
   const getColorPreference = () => {
@@ -140,6 +125,8 @@ const Collection = ({ isOpen, setIsOpen }) => {
       });
     });
   })();
+
+  
 
   return (
     <div className="collection">

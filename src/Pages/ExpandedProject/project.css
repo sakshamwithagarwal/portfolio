@@ -1,7 +1,90 @@
-body {
+/* body {
     --text: #5b5b5b;
     --background: #121212;
 
     background-color: var(--background);
     color: var(--text);
+} */
+
+.simplified__nav {
+    position: fixed;
+    top: 0;
+    width: 90%;
+}
+
+.simplified__nav nav {}
+
+.project-content-container {
+    width: 69vw;
+    margin: auto;
+}
+
+.project-content-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.project-thumbnail,
+/* .project-content-wrapper, */
+.project-content,
+.project-content-wrapper img {
+    margin-bottom: 4em;
+}
+
+.project-content-wrapper p {
+    font-size: 1.1em;
+    margin-bottom: .5em;
+    margin-left: 1em;
+}
+
+.project-content p,
+.project-table {
+    font-size: 1.5em;
+    text-align: center;
+    /* width: 60%; */
+    margin: auto;
+}
+
+.project-table {
+    margin-bottom: 4em;
+    width: 60%;
+    font-size: 1.2em;
+}
+
+.project-table tr {
+    display: flex;
+    gap: 2em;
+}
+
+.project-table tr td {
+    width: 50%;
+}
+
+@media screen and (max-width: 1024px) {
+    .project-content-container {
+        width: 90vw;
+        margin-top: 6em;
+    }
+
+    .project-thumbnail,
+    /* .project-content-wrapper, */
+    .project-content,
+    .project-content-wrapper img {
+        margin-bottom: 1em;
+    }
+
+    .project-content-wrapper p {
+        font-size: .8em;
+        margin-left: .5em;
+    }
+
+    .project-content p,
+    .project-table {
+        font-size: 1em;
+    }
+    .project-table {
+        width: 100%;
+        font-size: .8em;
+    }
 }
