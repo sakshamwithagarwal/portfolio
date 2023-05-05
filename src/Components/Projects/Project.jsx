@@ -24,7 +24,7 @@ const Project = ({ data }) => {
   };
 
   return (
-    <Link to={`project/${data.id}`}>
+    <Link to={`project/${data.slug}`}>
       <motion.li
         className="project hoverable"
         viewport={{once: true}}
@@ -35,15 +35,12 @@ const Project = ({ data }) => {
         whileInView={"visible"}
       >
         <div className="thumbnail_wrapper">
-          <img src={data.thumbnail} alt="" className="project__thumbnail" />
+          <img src={data.projectThumbnail.url} alt="" className="project__thumbnail" />
         </div>
         <div className="project_container">
-          <div className="project__title"> {data.title} </div>
+          <div className="project__title"> {data.projectName} </div>
           <p className="project__description">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere
-            odio, libero mollitia doloribus iure assumenda et voluptate labore
-            fugit omnis consectetur inventore vel magni ex natus atque adipisci
-            cum quas.
+            {data.projectDescription}
           </p>
           <div className="project__tags">
             {data.tags.map((tag) => (
