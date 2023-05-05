@@ -6,10 +6,6 @@
   grid-gap: 4em 3em;
 }
 
-.projects .section_container ol li {
-  aspect-ratio: 2;
-}
-
 .projects .section_container ol a:nth-child(3n) {
   /* grid-column: 1 / span 2; */
   aspect-ratio: 2;
@@ -25,7 +21,9 @@
 .thumbnail_wrapper,
 .project__thumbnail {
   width: inherit;
+  aspect-ratio: 1.99;
   transition: .4s;
+  object-fit: cover;
 }
 
 .thumbnail_wrapper {
