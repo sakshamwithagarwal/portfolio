@@ -1,5 +1,4 @@
 import React, { useState, useEffect, forwardRef } from "react";
-import projects from "../../assets/ProjectsList.json";
 import Project from "./Project";
 
 const AllProjects = forwardRef((props, ref) => {
