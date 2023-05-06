@@ -44,7 +44,7 @@ const Project = ({ data }) => {
           </p>
           <div className="project__tags">
             {data.tags.map((tag) => (
-              <div className="project_tag">{tag}</div>
+              <div className="project_tag" key={tag}>{tag}</div>
             ))}
           </div>
         </div>

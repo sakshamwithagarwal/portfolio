@@ -56,13 +56,46 @@ function App() {
     fetchProjects();
   }, []);
 
+  // 🎨 Color theme switcher
+  const storageKey = "theme-preference";
+  const getColorPreference = () => {
+    if (localStorage.getItem(storageKey))
+      return localStorage.getItem(storageKey);
+    else
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+  };
+
+  const theme = { value: getColorPreference() };
+
+  const setPreference = () => {
+    localStorage.setItem(storageKey, theme.value);
+    reflectPreference();
+  };
+
+  const reflectPreference = () => {
+    document.firstElementChild.setAttribute("data-theme", theme.value);
+
+    document
+      .querySelector("#theme-toggle")
+      ?.setAttribute("aria-label", theme.value);
+  };
+
+  reflectPreference();
+
+  window.onload = () => {
+    reflectPreference();
+  };
+
+  // React Router
   const router = createBrowserRouter(
     [
       {
         path: "/",
         element: (
           <Suspense fallback={<>loading...</>}>
-            <Home projects={projectData} />,
+            <Home onClick={onclick} projects={projectData} />,
           </Suspense>
         ),
       },
@@ -107,7 +140,7 @@ function App() {
       </BrowserView>
       <Noise />
       {isLoading ? (
-        <Preloader />
+        <Preloader theme={theme} />
       ) : (
         <>
           <div>
