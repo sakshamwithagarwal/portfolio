@@ -34,27 +34,22 @@ const Preloader = () => {
   window.onload = () => {
     reflectPreference();
   };
+
   return (
     <motion.section className="preloader_container">
-      <>
-        <motion.div className="line-1"></motion.div>
-        <motion.div className="line-2"></motion.div>
-        <motion.div className="line-3"></motion.div>
-        <motion.div
-          className="circle-preloader"
-          animate={{
-            scale: [1, 1.2, 1, 1.2, 1],
-            // rotate: [0, 0, 180, 180, 0],
-            borderRadius: ["50%", "50%", "50%", "50%", "50%"],
+      <motion.img
+          src={'/assets/preloader_'+ theme.value +'.webp'}
+          alt=""
+          initial={{ y: 50 }}
+          animate={{ y: 0 }}
+          exit={{
+            opacity: 0,
+            pathLength: 1,
+            rotate: 0,
+            transition: { duration: 0.5 },
+            y: -96,
           }}
-          transition={{
-            duration: 3,
-            ease: "easeInOut",
-            times: [0, 0.2, 0.5, 0.8, 1],
-            repeat: Infinity,
-          }}
-        ></motion.div>
-      </>
+        />
     </motion.section>
   );
 };

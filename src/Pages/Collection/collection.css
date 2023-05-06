@@ -1,14 +1,23 @@
+:root {
+  --container-height: calc(89vh - 7em);
+}
 .collection {
   max-height: 100vh;
   /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
 }
 
 .collection__container {
   display: flex;
   gap: 4em;
   margin-bottom: 0rem;
-  min-height: 70vh;
+  /* max-height: 70vh; */
+  max-height: var(--container-height);
   margin-top: 1rem;
+  /* background-color: pink; */
 }
 
 .collection__thumbnail {
@@ -39,10 +48,11 @@
 .collection__list {
   width: 75%;
   list-style: none;
-  max-height: 57vh;
+  max-height: calc(var(--container-height) - 8em);
   overflow: auto;
   padding-right: 1em;
   margin-top: -1rem;
+  /* background-color: yellow; */
 }
 
 .collection__list-title {
