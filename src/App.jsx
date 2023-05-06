@@ -1,7 +1,8 @@
-import React, { Suspense, lazy, useState, useEffect } from "react";
+import React, { Suspense, lazy, useState, useEffect, createRef } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BrowserView } from "react-device-detect";
 import { request } from "graphql-request";
+import LocomotiveScroll from "locomotive-scroll";
 
 const Home = lazy(() => import("./Pages/Home/Home"));
 const Collection = lazy(() => import("./Pages/Collection/Collection"));
@@ -15,6 +16,7 @@ const Preloader = lazy(() => import("./Components/SplashScreen/Preloader"));
 import "./App.css";
 
 function App() {
+  const scrollRef = createRef();
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -74,6 +76,11 @@ function App() {
     reflectPreference();
   };
 
+  const onClick = () => {
+    theme.value = theme.value === "light" ? "dark" : "light";
+    setPreference();
+  };
+
   const reflectPreference = () => {
     document.firstElementChild.setAttribute("data-theme", theme.value);
 
@@ -95,7 +102,7 @@ function App() {
         path: "/",
         element: (
           <Suspense fallback={<>loading...</>}>
-            <Home onClick={onclick} projects={projectData} />,
+            <Home handler={onClick} projects={projectData} />,
           </Suspense>
         ),
       },
@@ -123,7 +130,7 @@ function App() {
     { basename: "/" }
   );
 
-  // * preloader
+  // Preloader
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
@@ -143,7 +150,7 @@ function App() {
         <Preloader theme={theme} />
       ) : (
         <>
-          <div>
+          <div ref={scrollRef}>
             <RouterProvider router={router} />
           </div>
           <Background />{" "}

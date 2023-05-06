@@ -5,7 +5,6 @@ import React, {
   useCallback,
   useState,
 } from "react";
-import { gsap } from "gsap";
 import { useEventListener } from "../../hooks/useEventListener";
 import "./cursor.css";
 
