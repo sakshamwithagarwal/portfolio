@@ -61,7 +61,7 @@ nav .contact_btn {
 
 .simplified__nav .logo path {
   stroke: var(--text-main);
-  stroke-width: 2px;
+  stroke-width: .8px;
 }
 
 .simplified__nav .nav__toggle > * {
@@ -291,8 +291,8 @@ nav .contact_btn {
   .nav__toggle .menu-icon {
     width: 3.5rem;
     height: 3.5rem;
-    width: 2.5em;
-    height: 1.7em;
+    /* width: 2.5em;
+    height: 1.7em; */
   }
 
   .nav__toggle .menu-icon div {
