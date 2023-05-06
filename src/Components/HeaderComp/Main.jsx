@@ -1,51 +1,8 @@
-import React, { useRef, useEffect, useContext, useLayoutEffect } from "react";
+import React from "react";
 import "./main.css";
-import { gsap } from "gsap";
 import { motion } from "framer-motion";
 
 const Main = ({ compRef }) => {
-  const arrowRef = useRef(null);
-  const arrowSVGRef = useRef(null);
-  const headingRef = useRef(null);
-  const subHeadingRef = useRef(null);
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    gsap.fromTo(
-      arrowRef.current,
-      { width: 0, height: 0 },
-      { width: "200px", height: "200px", duration: 1, delay: 1.4 }
-    );
-    gsap.fromTo(
-      arrowSVGRef.current,
-      { scale: 0 },
-      { scale: 1, delay: 1.6, ease: "ease.in", duration: 1 }
-    );
-
-    let mm = gsap.matchMedia();
-    mm.add("(max-width: 576px", () => {
-      gsap.fromTo(
-        arrowRef.current,
-        { width: 0, height: 0 },
-        { width: "100px", height: "100px", duration: 1, delay: 1.4 }
-      );
-    });
-  }, []);
-
-  const handleArrowMouseEnter = () => {
-    gsap.to(arrowRef.current, {
-      scale: 1.1,
-      duration: 0.3,
-    });
-  };
-
-  const handleArrowMouseLeave = () => {
-    gsap.to(arrowRef.current, {
-      scale: 1,
-      duration: 0.3,
-    });
-  };
-
   const handleClickToScroll = () => {
     compRef.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -92,16 +49,28 @@ const Main = ({ compRef }) => {
         </div>
         <div className="hero__heading-mobile">
           <div className="hero__heading_row-1">
-            <motion.span animate={animation.animate} transition={animation.transition}>
+            <motion.span
+              animate={animation.animate}
+              transition={animation.transition}
+            >
               Visual
             </motion.span>
-            <motion.span animate={animation.animate} transition={animation.transition}>
+            <motion.span
+              animate={animation.animate}
+              transition={animation.transition}
+            >
               Indust
             </motion.span>
-            <motion.span animate={animation.animate} transition={animation.transition}>
+            <motion.span
+              animate={animation.animate}
+              transition={animation.transition}
+            >
               Interac
             </motion.span>
-            <motion.span animate={animation.animate} transition={animation.transition}>
+            <motion.span
+              animate={animation.animate}
+              transition={animation.transition}
+            >
               Visual
             </motion.span>
           </div>
@@ -159,13 +128,15 @@ const Main = ({ compRef }) => {
             className="hero__scroll-arrow-circle"
             whileHover={{ scale: [null, 1.25, 1.2] }}
           ></motion.div>
-          <svg
+          <motion.svg
             width="93"
             height="74"
             viewBox="0 0 93 74"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            ref={arrowSVGRef}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1 }}
             className="link"
           >
             {/* <circle cx={0} cy={0} r={100} stroke="white" strokeWidth={1} /> */}
@@ -175,7 +146,7 @@ const Main = ({ compRef }) => {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-          </svg>
+          </motion.svg>
         </div>
       </div>
     </main>

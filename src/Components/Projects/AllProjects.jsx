@@ -19,7 +19,7 @@ const AllProjects = forwardRef((props, ref) => {
           <ol>
             {props.projects &&
               props.projects.map((project, id) => (
-                <Project key={id} data={project} />
+                <Project key={project.id} data={project} />
               ))}
           </ol>
         )}

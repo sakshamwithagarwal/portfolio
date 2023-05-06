@@ -6,7 +6,6 @@ import "./home.css";
 const Home = ({ onClick, projects }) => {
   const projectCompRef = useRef(null);
   const scrollRef = createRef();
-  
 
   return (
     <div

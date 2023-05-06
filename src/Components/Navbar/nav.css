@@ -136,7 +136,7 @@ nav .contact_btn {
 
 .menu-icon__checkbox:checked+div span:last-of-type {
   transform: rotate(-45deg);
-  bottom: .97em;
+  top: calc(0.97em + 1px)
 }
 
 .menu-icon__checkbox:checked+div span:nth-child(2) {
@@ -287,21 +287,21 @@ nav .contact_btn {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .nav__toggle .menu-icon {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3.6rem;
+    height: 3.3rem;
     /* width: 2.5em;
     height: 1.7em; */
   }
 
   .nav__toggle .menu-icon div {
-    width: inherit;
-    height: inherit;
+    width: 3.3em;
+    height: 2.5em;
   }
 
   .nav__toggle .menu-icon div span {
-    height: 6px;
+    height: 9px;
     width: 100%;
   }
 

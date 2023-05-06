@@ -56,7 +56,8 @@ function App() {
     fetchProjects();
   }, []);
 
-  // 🎨 Color theme
+  // 🎨 Color theme switcher
+  const storageKey = "theme-preference";
   const getColorPreference = () => {
     if (localStorage.getItem(storageKey))
       return localStorage.getItem(storageKey);
