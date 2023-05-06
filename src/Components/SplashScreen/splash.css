@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.preloader_container img {
+  width: 5em;
+}
+
 .circle-preloader {
   width: 29.27vw;
   height: 29.27vw;

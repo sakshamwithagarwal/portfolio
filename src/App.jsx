@@ -18,9 +18,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  
   const [projectData, setProjectData] = useState(null);
-  const PROJECT_QUERY = `
+  const projectQuery = {
+    PROJECT_QUERY: `
     {
       projects {
         id
@@ -36,18 +36,21 @@ function App() {
         }
       }
     }
-  `;
-  const endPointURL =
-    "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master";
+  `,
+    endPointURL:
+      "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master",
+  };
 
+  // 📨 Fetch projects
   useEffect(() => {
     const fetchProjects = async () => {
-      // const { projects } = await hygraph.request(PROJECT_QUERY)
-
-      const { projects } = await request(endPointURL, PROJECT_QUERY);
+      const { projects } = await request(
+        projectQuery.endPointURL,
+        projectQuery.PROJECT_QUERY
+      );
 
       setProjectData(projects);
-      console.log(projects);
+      // console.log(projects);
     };
 
     fetchProjects();
@@ -75,7 +78,11 @@ function App() {
         path: "/project/:slug",
         element: (
           <Suspense fallback={<>loading...</>}>
-            <ExpandedProject projects={projectData} isOpen={isOpen} setIsOpen={setIsOpen} />
+            <ExpandedProject
+              projects={projectData}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+            />
           </Suspense>
         ),
       },
@@ -88,7 +95,7 @@ function App() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 3000);
   }, []);
 
   return (
