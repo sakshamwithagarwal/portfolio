@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { request } from "graphql-request";
 import "./project.css";
 
 import { SimpleNav } from "../../Components";
@@ -11,19 +10,18 @@ const ExpandedProject = ({ projects, isOpen, setIsOpen }) => {
   useEffect(() => {
     const project = projects.find((project) => project.slug === slug);
     setProject(project);
-    console.log(project);
+    // console.log(project);
   }, []);
 
   return (
     <>
       <SimpleNav isOpen={isOpen} setIsOpen={setIsOpen} />
-      {!isOpen && project ? (
+      {!isOpen && project && project ? (
         <div className="project-main">
-          {" "}
           <div
             className="project-content-container"
             dangerouslySetInnerHTML={{ __html: project.projectContent.html }}
-          ></div>{" "}
+          ></div>
           <div className="project-next"></div>
         </div>
       ) : (

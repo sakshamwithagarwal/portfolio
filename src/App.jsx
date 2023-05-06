@@ -88,6 +88,7 @@ function App() {
     reflectPreference();
   };
 
+  // React Router
   const router = createBrowserRouter(
     [
       {
