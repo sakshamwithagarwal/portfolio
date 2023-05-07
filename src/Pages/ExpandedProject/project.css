@@ -25,6 +25,10 @@
     margin-bottom: 4em;
 }
 
+.project-thumbnail, .project-content-wrapper img {
+    pointer-events: none;
+}
+
 .project-content-wrapper p {
     font-size: 1.1em;
     margin-bottom: .5em;
