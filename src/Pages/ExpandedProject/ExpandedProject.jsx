@@ -16,7 +16,7 @@ const ExpandedProject = ({ projects, isOpen, setIsOpen }) => {
   }, []);
 
   return (
-    <>
+    <div className="project-container">
       <SimpleNav isOpen={isOpen} setIsOpen={setIsOpen} />
       {!isOpen && project && project ? (
         <div
@@ -35,7 +35,7 @@ const ExpandedProject = ({ projects, isOpen, setIsOpen }) => {
       ) : (
         ""
       )}
-    </>
+    </div>
   );
 };
 

@@ -1,6 +1,4 @@
 import React, {
-  useState,
-  useContext,
   useRef,
   useEffect,
   useLayoutEffect,
@@ -93,7 +91,7 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
     <div className="simplified__nav">
       <nav ref={navRef}>
         <div className="logo">
-          <a className="brand_logo" href="/" rel="noopener noreferrer">
+          <Link to={"/"}>
             {/* m. */}
             <svg
               width="96"
@@ -107,7 +105,7 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
                 stroke="var(--text-main)"
               />
             </svg>
-          </a>
+          </Link>
         </div>
 
         <div className={isOpen ? "nav__list active" : "nav__list"}>

@@ -1,10 +1,8 @@
-.simplified__nav {
+.project-container .simplified__nav {
     position: fixed;
     top: 0;
     width: 90%;
 }
-
-.simplified__nav nav {}
 
 .project-content-container {
     width: 69vw;
@@ -12,9 +10,7 @@
     /* min-height: 100vh; */
 }
 
-.project-thumbnail {
-    
-}
+/* .project-thumbnail {} */
 
 .project-content-container img {
     width: 100%;

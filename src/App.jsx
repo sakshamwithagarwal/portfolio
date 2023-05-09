@@ -1,19 +1,12 @@
-import React, { Suspense, lazy, useState, useEffect, createRef } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React, { lazy, useState, useEffect, createRef } from "react";
 import { BrowserView } from "react-device-detect";
 import { request } from "graphql-request";
-import LocomotiveScroll from "locomotive-scroll";
-
-const Home = lazy(() => import("./Pages/Home/Home"));
-const Collection = lazy(() => import("./Pages/Collection/Collection"));
-const ExpandedProject = lazy(() =>
-  import("./Pages/ExpandedProject/ExpandedProject")
-);
-
 import { Noise, Cursor, Background } from "./Components";
-const Preloader = lazy(() => import("./Components/SplashScreen/Preloader"));
+import { BrowserRouter as Router } from "react-router-dom";
+import AnimatedRouters from "./Components/AnimatedRoutes/AnimatedRouters";
 
 import "./App.css";
+const Preloader = lazy(() => import("./Components/SplashScreen/Preloader"));
 
 function App() {
   const scrollRef = createRef();
@@ -95,48 +88,13 @@ function App() {
     reflectPreference();
   };
 
-  // React Router
-  const router = createBrowserRouter(
-    [
-      {
-        path: "/",
-        element: (
-          <Suspense fallback={<>loading...</>}>
-            <Home handler={onClick} projects={projectData} />,
-          </Suspense>
-        ),
-      },
-      {
-        path: "/collection",
-        element: (
-          <Suspense fallback={<>loading...</>}>
-            <Collection isOpen={isOpen} setIsOpen={setIsOpen} />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/project/:slug",
-        element: (
-          <Suspense fallback={<>loading...</>}>
-            <ExpandedProject
-              projects={projectData}
-              isOpen={isOpen}
-              setIsOpen={setIsOpen}
-            />
-          </Suspense>
-        ),
-      },
-    ],
-    { basename: "/" }
-  );
-
   // Preloader
-  useEffect(() => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 3000);
+  // }, []);
 
   return (
     <div className="App">
@@ -149,12 +107,12 @@ function App() {
       {isLoading ? (
         <Preloader theme={theme} />
       ) : (
-        <>
+        <Router>
           <div ref={scrollRef}>
-            <RouterProvider router={router} />
+            <AnimatedRouters handler={onClick} projectData={projectData} isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
           <Background />{" "}
-        </>
+        </Router>
       )}
     </div>
   );

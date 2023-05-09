@@ -1,5 +1,6 @@
 import React from "react";
 import "./nav.css";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Navbar = ({ handler }) => {
@@ -12,9 +13,9 @@ const Navbar = ({ handler }) => {
     >
       <ul>
         <li>
-          <a className="brand_logo" href="/" rel="noopener noreferrer">
+          <Link to={"/"} className="brand_logo">
             m.
-          </a>
+          </Link>
         </li>
         <li className="center">
           Saksham <br /> Parag Agarwal
