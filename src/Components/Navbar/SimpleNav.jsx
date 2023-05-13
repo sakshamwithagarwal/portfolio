@@ -1,13 +1,10 @@
-import React, {
-  useRef,
-  useEffect,
-  useLayoutEffect,
-} from "react";
+import React, { useRef, useEffect, useLayoutEffect } from "react";
 import "./nav.css";
 import "./custom-ham.css";
 import ListIconComp from "./ListIconComp";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // import listIcon from "../../assets/list-icon.svg"
 
@@ -88,7 +85,13 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
     },
   ];
   return (
-    <div className="simplified__nav">
+    <motion.div
+      className="simplified__nav"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      end={{ y: -100 }}
+      transition={{ duration: 0.9 }}
+    >
       <nav ref={navRef}>
         <div className="logo">
           <Link to={"/"}>
@@ -163,7 +166,7 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
           </div>
         </div>
       </nav>
-    </div>
+    </motion.div>
   );
 };
 

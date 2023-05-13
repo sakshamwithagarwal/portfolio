@@ -16,7 +16,11 @@
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 12px;
+}
+
+.project-thumbnail img {
+    border-radius: 0 0 65px 65px;
 }
 
 .project-thumbnail,
@@ -80,6 +84,10 @@
     .project-content,
     .project-content-wrapper img {
         margin-bottom: 1em;
+    }
+    
+    .project-thumbnail img {
+        border-radius: 12px;
     }
 
     .project-content-wrapper p {

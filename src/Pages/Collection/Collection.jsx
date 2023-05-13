@@ -41,29 +41,49 @@ const Collection = ({ projects, isOpen, setIsOpen }) => {
     },
   };
   const parentVariants = {
-    hidden: {transition: {staggerChildren: 0.05, staggerDirection: 1}},
-    visible: {transition: {staggerChildren: 0.05, staggerDirection: -1}}
-  }
+    hidden: { transition: { staggerChildren: 0.05, staggerDirection: 1 } },
+    visible: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+  };
   const thumbnailVariants = {
     selected: {
       opacity: 1,
-      transition: {bounce: 0.1, duration: 0.8, restDelta: 0.00001, type: "spring"}
+      transition: {
+        bounce: 0.1,
+        duration: 0.8,
+        restDelta: 0.00001,
+        type: "spring",
+      },
     },
     unselected: {
       opacity: 0,
-      transition: {bounce: 0.1, duration: 0.8, restDelta: 0.00001, type: "spring"}
-    }
-  }
+      transition: {
+        bounce: 0.1,
+        duration: 0.8,
+        restDelta: 0.00001,
+        type: "spring",
+      },
+    },
+  };
   const thumbnailIMGVariants = {
     selected: {
       scale: 1.1,
-      transition: {bounce: 0.1, duration: 0.8, restDelta: 0.00001, type: "spring"}
+      transition: {
+        bounce: 0.1,
+        duration: 0.8,
+        restDelta: 0.00001,
+        type: "spring",
+      },
     },
     unselected: {
       scale: 1,
-      transition: {bounce: 0.1, duration: 0.8, restDelta: 0.00001, type: "spring"}
-    }
-  }
+      transition: {
+        bounce: 0.1,
+        duration: 0.8,
+        restDelta: 0.00001,
+        type: "spring",
+      },
+    },
+  };
   const storageKey = "theme-preference";
 
   const handleTouchStart = () => {
@@ -96,18 +116,33 @@ const Collection = ({ projects, isOpen, setIsOpen }) => {
     });
   })();
 
-  
-
   return (
-    <div className="collection">
+    <motion.div
+      className="collection"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.25, delay: 0.5, ease: "easeOut" }}
+      end={{opacity: 0}}
+    >
       <SimpleNav isOpen={isOpen} setIsOpen={setIsOpen} />
 
       {isOpen ? (
         ""
       ) : (
-        <motion.div className="collection__container" variants={parentVariants} animate={"visible"} initial={"hidden"} exit={"hidden"} >
+        <motion.div
+          className="collection__container"
+          variants={parentVariants}
+          animate={"visible"}
+          initial={"hidden"}
+          exit={"hidden"}
+        >
           <motion.div className="collection__thumbnail" variants={variants}>
-            <motion.div className="collection__thumbnail-inside" variants={thumbnailVariants} animate={thumbnail == "" ? "unselected" : "selected"} initial={"unselected"} >
+            <motion.div
+              className="collection__thumbnail-inside"
+              variants={thumbnailVariants}
+              animate={thumbnail == "" ? "unselected" : "selected"}
+              initial={"unselected"}
+            >
               <motion.img
                 src={"/assets/" + thumbnail}
                 alt=""
@@ -117,42 +152,41 @@ const Collection = ({ projects, isOpen, setIsOpen }) => {
           </motion.div>
 
           <motion.div className="collection__list-wrapper">
-            <motion.h3
-              className="collection__list-title"
-              variants={variants}
-            >
+            <motion.h3 className="collection__list-title" variants={variants}>
               Posters
             </motion.h3>
             <motion.div className="collection__list-outer">
-              {collectionData && <motion.ul className="collection__list" ref={listRef}>
-                {collectionData.posters.map((item, key) => (
-                  <motion.li
-                    className={
-                      isTouched
-                        ? "collection__list-item touched"
-                        : "collection__list-item"
-                    }
-                    variants={itemVariants}
-                    key={key + "-" + item.title}
-                    onMouseEnter={() => handleMouseEnter(item.thumbnail)}
-                    onMouseLeave={() => handleMouseLeave()}
-                  >
-                    <motion.div
-                      style={
-                        item.diffFont ? { fontFamily: item.fontFamily } : {}
+              {collectionData && (
+                <motion.ul className="collection__list" ref={listRef}>
+                  {collectionData.posters.map((item, key) => (
+                    <motion.li
+                      className={
+                        isTouched
+                          ? "collection__list-item touched"
+                          : "collection__list-item"
                       }
-                      className="hoverable"
+                      variants={itemVariants}
+                      key={key + "-" + item.title}
+                      onMouseEnter={() => handleMouseEnter(item.thumbnail)}
+                      onMouseLeave={() => handleMouseLeave()}
                     >
-                      {item.title}
-                    </motion.div>
-                  </motion.li>
-                ))}
-              </motion.ul>}
+                      <motion.div
+                        style={
+                          item.diffFont ? { fontFamily: item.fontFamily } : {}
+                        }
+                        className="hoverable"
+                      >
+                        {item.title}
+                      </motion.div>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              )}
             </motion.div>
           </motion.div>
         </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

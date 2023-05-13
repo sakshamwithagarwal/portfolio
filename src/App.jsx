@@ -4,7 +4,8 @@ import { request } from "graphql-request";
 import { Noise, Cursor, Background } from "./Components";
 import { BrowserRouter as Router } from "react-router-dom";
 import AnimatedRouters from "./Components/AnimatedRoutes/AnimatedRouters";
-
+import { AnimatePresence } from "framer-motion";
+// import Preloader from "./Components/SplashScreen/Preloader";
 import "./App.css";
 const Preloader = lazy(() => import("./Components/SplashScreen/Preloader"));
 
@@ -43,6 +44,8 @@ function App() {
         projectQuery.endPointURL,
         projectQuery.PROJECT_QUERY
       );
+      // .then((data) => setProjectData(data))
+      // .catch((error) => console.log(error));
 
       setProjectData(projects);
       // console.log(projects);
@@ -89,12 +92,12 @@ function App() {
   };
 
   // Preloader
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 3000);
-  // }, []);
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
 
   return (
     <div className="App">
@@ -104,16 +107,24 @@ function App() {
         <Cursor />
       </BrowserView>
       <Noise />
-      {isLoading ? (
-        <Preloader theme={theme} />
-      ) : (
-        <Router>
-          <div ref={scrollRef}>
-            <AnimatedRouters handler={onClick} projectData={projectData} isOpen={isOpen} setIsOpen={setIsOpen} />
-          </div>
-          <Background />{" "}
-        </Router>
-      )}
+      <AnimatePresence>
+        {isLoading ? (
+          <Preloader key={"preloader"} theme={theme} />
+        ) : (
+          <Router>
+            <div ref={scrollRef}>
+              <AnimatedRouters
+                key={"components"}
+                handler={onClick}
+                projectData={projectData}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+              />
+            </div>
+            <Background />
+          </Router>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, forwardRef } from "react";
 import Project from "./Project";
+import { motion } from "framer-motion";
 
 const AllProjects = forwardRef((props, ref) => {
   // useEffect(() => {
@@ -9,19 +10,19 @@ const AllProjects = forwardRef((props, ref) => {
   // }, [projectData]);
   return (
     <section className="projects" ref={ref} id="projects">
-      <div className="section_title">
+      <motion.div className="section_title" initial={{y: 100}} whileInView={{y: 0}} transition={{ease: "easeInOut"}}>
         <h3>Projects</h3>
-      </div>
+      </motion.div>
       <div className="section_container">
         {!props.projects ? (
           "Loading"
         ) : (
-          <ol>
+          <motion.ol initial={{y: 100}} whileInView={{y: 0}} transition={{ease: "easeInOut", delay: 0}}>
             {props.projects &&
               props.projects.map((project, id) => (
                 <Project key={project.id} data={project} />
               ))}
-          </ol>
+          </motion.ol>
         )}
       </div>
     </section>
