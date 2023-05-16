@@ -20,7 +20,12 @@ const Main = ({ compRef }) => {
   };
   return (
     <main>
-      <h1 className="heading_main">
+      <motion.h1
+        className="heading_main"
+        initial={{ opacity: 0, y: 200 }}
+        animate={{ opacity: 0.9, y: 0 }}
+        transition={{ delay: 0.3 }}
+      >
         <div className="animated_heading_wrapper">
           <motion.span
             animate={animation.animate}
@@ -105,17 +110,23 @@ const Main = ({ compRef }) => {
           </div>
         </div>
 
-        <motion.div className="hero__subheading-wrapper">
+        <motion.div
+          className="hero__subheading-wrapper"
+          initial={{ opacity: 0, y: 200 }}
+          animate={{ opacity: 0.9, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
           <span className="hero__subheading">Designer</span>
           <span className="hero__subheading-mobile">
             Design <br /> er
           </span>
         </motion.div>
-      </h1>
+      </motion.h1>
       <div className="hero__content">
         <motion.p
-          initial={{ y: 500 }}
-          animate={{ y: 0, transition: { duration: 0.9 } }}
+          initial={{ opacity: 0, y: 500 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
           end={{ y: 500 }}
         >
           I am an Industrial and Interaction Designer who creates designs that
@@ -127,6 +138,9 @@ const Main = ({ compRef }) => {
           <motion.div
             className="hero__scroll-arrow-circle"
             whileHover={{ scale: [null, 1.25, 1.2] }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1, delay: 0.35 }}
           ></motion.div>
           <motion.svg
             width="93"
@@ -136,7 +150,7 @@ const Main = ({ compRef }) => {
             xmlns="http://www.w3.org/2000/svg"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
             className="link"
           >
             {/* <circle cx={0} cy={0} r={100} stroke="white" strokeWidth={1} /> */}

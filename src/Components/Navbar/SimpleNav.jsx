@@ -1,15 +1,10 @@
-import React, {
-  useState,
-  useContext,
-  useRef,
-  useEffect,
-  useLayoutEffect,
-} from "react";
+import React, { useRef, useEffect, useLayoutEffect } from "react";
 import "./nav.css";
 import "./custom-ham.css";
 import ListIconComp from "./ListIconComp";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // import listIcon from "../../assets/list-icon.svg"
 
@@ -90,10 +85,16 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
     },
   ];
   return (
-    <div className="simplified__nav">
+    <motion.div
+      className="simplified__nav"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      end={{ y: -100 }}
+      transition={{ duration: 0.9 }}
+    >
       <nav ref={navRef}>
         <div className="logo">
-          <a className="brand_logo" href="/" rel="noopener noreferrer">
+          <Link to={"/"}>
             {/* m. */}
             <svg
               width="96"
@@ -107,7 +108,7 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
                 stroke="var(--text-main)"
               />
             </svg>
-          </a>
+          </Link>
         </div>
 
         <div className={isOpen ? "nav__list active" : "nav__list"}>
@@ -165,7 +166,7 @@ const SimpleNav = ({ isOpen, setIsOpen }) => {
           </div>
         </div>
       </nav>
-    </div>
+    </motion.div>
   );
 };
 

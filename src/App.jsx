@@ -1,19 +1,13 @@
-import React, { Suspense, lazy, useState, useEffect, createRef } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React, { lazy, useState, useEffect, createRef } from "react";
 import { BrowserView } from "react-device-detect";
 import { request } from "graphql-request";
-import LocomotiveScroll from "locomotive-scroll";
-
-const Home = lazy(() => import("./Pages/Home/Home"));
-const Collection = lazy(() => import("./Pages/Collection/Collection"));
-const ExpandedProject = lazy(() =>
-  import("./Pages/ExpandedProject/ExpandedProject")
-);
-
 import { Noise, Cursor, Background } from "./Components";
-const Preloader = lazy(() => import("./Components/SplashScreen/Preloader"));
-
+import { BrowserRouter as Router } from "react-router-dom";
+import AnimatedRouters from "./Components/AnimatedRoutes/AnimatedRouters";
+import { AnimatePresence } from "framer-motion";
+// import Preloader from "./Components/SplashScreen/Preloader";
 import "./App.css";
+const Preloader = lazy(() => import("./Components/SplashScreen/Preloader"));
 
 function App() {
   const scrollRef = createRef();
@@ -50,6 +44,8 @@ function App() {
         projectQuery.endPointURL,
         projectQuery.PROJECT_QUERY
       );
+      // .then((data) => setProjectData(data))
+      // .catch((error) => console.log(error));
 
       setProjectData(projects);
       // console.log(projects);
@@ -95,41 +91,6 @@ function App() {
     reflectPreference();
   };
 
-  // React Router
-  const router = createBrowserRouter(
-    [
-      {
-        path: "/",
-        element: (
-          <Suspense fallback={<>loading...</>}>
-            <Home handler={onClick} projects={projectData} />,
-          </Suspense>
-        ),
-      },
-      {
-        path: "/collection",
-        element: (
-          <Suspense fallback={<>loading...</>}>
-            <Collection isOpen={isOpen} setIsOpen={setIsOpen} />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/project/:slug",
-        element: (
-          <Suspense fallback={<>loading...</>}>
-            <ExpandedProject
-              projects={projectData}
-              isOpen={isOpen}
-              setIsOpen={setIsOpen}
-            />
-          </Suspense>
-        ),
-      },
-    ],
-    { basename: "/" }
-  );
-
   // Preloader
   useEffect(() => {
     setIsLoading(true);
@@ -146,16 +107,24 @@ function App() {
         <Cursor />
       </BrowserView>
       <Noise />
-      {isLoading ? (
-        <Preloader theme={theme} />
-      ) : (
-        <>
-          <div ref={scrollRef}>
-            <RouterProvider router={router} />
-          </div>
-          <Background />{" "}
-        </>
-      )}
+      <AnimatePresence>
+        {isLoading ? (
+          <Preloader key={"preloader"} theme={theme} />
+        ) : (
+          <Router>
+            <div ref={scrollRef}>
+              <AnimatedRouters
+                key={"components"}
+                handler={onClick}
+                projectData={projectData}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+              />
+            </div>
+            <Background />
+          </Router>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
