@@ -33,7 +33,7 @@ const Home = ({ handler, projects }) => {
       <div className="line-2"></div>
       <div className="line-3"></div>
       <div className="circle"></div> */}
-      <Navbar handler={handler} />
+      {/* <Navbar handler={handler} /> */}
       <Main compRef={projectCompRef} />
       <AllProjects projects={projects} ref={projectCompRef} />
       <Collections />

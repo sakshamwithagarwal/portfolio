@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 import "./collection.css";
 import { motion } from "framer-motion";
-import { SimpleNav } from "../../Components";
+import { Navbar } from "../../Components";
 import collectionData from "../../assets/PostersList.json";
 import { useParams } from "react-router-dom";
 
@@ -124,7 +124,8 @@ const Collection = ({ projects, isOpen, setIsOpen }) => {
       transition={{ duration: 0.25, delay: 0.5, ease: "easeOut" }}
       end={{opacity: 0}}
     >
-      <SimpleNav isOpen={isOpen} setIsOpen={setIsOpen} />
+      {/* <SimpleNav isOpen={isOpen} setIsOpen={setIsOpen} /> */}
+      {/* <Navbar /> */}
 
       {isOpen ? (
         ""

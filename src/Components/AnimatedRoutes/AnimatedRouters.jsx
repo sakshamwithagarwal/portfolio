@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,6 +16,10 @@ const ExpandedProject = lazy(() =>
 
 const AnimatedRouters = ({ handler, projectData, isOpen, setIsOpen }) => {
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   // React Router
   const router = createBrowserRouter(
@@ -53,38 +57,38 @@ const AnimatedRouters = ({ handler, projectData, isOpen, setIsOpen }) => {
   );
   return (
     <>
-      <AnimatePresence>
-        <Routes location={location} key={location.pathname}>
-          <Route
-            path="/"
-            element={
-              <Suspense fallback={<>loading...</>}>
-                <Home handler={handler} projects={projectData} />,
-              </Suspense>
-            }
-          />
-          <Route
-            path="/collection"
-            element={
-              <Suspense fallback={<>loading...</>}>
-                <Collection isOpen={isOpen} setIsOpen={setIsOpen} />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/project/:slug"
-            element={
-              <Suspense fallback={<>loading...</>}>
-                <ExpandedProject
-                  projects={projectData}
-                  isOpen={isOpen}
-                  setIsOpen={setIsOpen}
-                />
-              </Suspense>
-            }
-          />
-        </Routes>
-      </AnimatePresence>
+      {isOpen ? (
+        ""
+      ) : (
+        <AnimatePresence>
+          <Routes location={location} key={location.pathname}>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<>loading...</>}>
+                  <Home handler={handler} projects={projectData} />,
+                </Suspense>
+              }
+            />
+            <Route
+              path="/collection"
+              element={
+                <Suspense fallback={<>loading...</>}>
+                  <Collection isOpen={isOpen} />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/project/:slug"
+              element={
+                <Suspense fallback={<>loading...</>}>
+                  <ExpandedProject projects={projectData} isOpen={isOpen} />
+                </Suspense>
+              }
+            />
+          </Routes>
+        </AnimatePresence>
+      )}
       {/* <AnimatePresence>
         <RouterProvider router={router} />;
       </AnimatePresence> */}

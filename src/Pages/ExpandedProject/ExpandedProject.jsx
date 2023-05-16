@@ -1,10 +1,8 @@
-import React, { useEffect, useState, createRef } from "react";
+import React, { useEffect, useState } from "react";
 import locomotiveScroll from "locomotive-scroll";
 import { useParams } from "react-router-dom";
 import { motion as m } from "framer-motion";
 import "./project.css";
-
-import { SimpleNav } from "../../Components";
 
 const ExpandedProject = ({ projects, isOpen, setIsOpen }) => {
   const { slug } = useParams();
@@ -29,7 +27,6 @@ const ExpandedProject = ({ projects, isOpen, setIsOpen }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.25, delay: 0.5, ease: "easeOut" }}
     >
-      <SimpleNav isOpen={isOpen} setIsOpen={setIsOpen} />
       {!isOpen && project && project ? (
         <div
           className="project-main"

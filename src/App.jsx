@@ -1,7 +1,7 @@
 import React, { lazy, useState, useEffect, createRef } from "react";
 import { BrowserView } from "react-device-detect";
 import { request } from "graphql-request";
-import { Noise, Cursor, Background } from "./Components";
+import { Noise, Cursor, Background, Navbar } from "./Components";
 import { BrowserRouter as Router } from "react-router-dom";
 import AnimatedRouters from "./Components/AnimatedRoutes/AnimatedRouters";
 import { AnimatePresence } from "framer-motion";
@@ -12,7 +12,7 @@ const Preloader = lazy(() => import("./Components/SplashScreen/Preloader"));
 function App() {
   const scrollRef = createRef();
   const [isLoading, setIsLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
 
   const [projectData, setProjectData] = useState(null);
   const projectQuery = {
@@ -92,12 +92,12 @@ function App() {
   };
 
   // Preloader
-  useEffect(() => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 3000);
+  // }, []);
 
   return (
     <div className="App">
@@ -113,13 +113,8 @@ function App() {
         ) : (
           <Router>
             <div ref={scrollRef}>
-              <AnimatedRouters
-                key={"components"}
-                handler={onClick}
-                projectData={projectData}
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-              />
+              <Navbar handler={onClick} isOpen={isHamburgerOpen} setIsOpen={setIsHamburgerOpen} />
+              <AnimatedRouters key={"components"} projectData={projectData} isOpen={isHamburgerOpen}/>
             </div>
             <Background />
           </Router>
