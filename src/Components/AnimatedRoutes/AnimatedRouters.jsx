@@ -19,6 +19,7 @@ const AnimatedRouters = ({ handler, projectData, isOpen, setIsOpen }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    console.log('switched');
   }, [location.pathname]);
 
   // React Router

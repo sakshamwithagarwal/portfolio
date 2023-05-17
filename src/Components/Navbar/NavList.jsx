@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import ListIconComp from "./ListIconComp";
 
-const NavList = ({ isOpen, setIsOpen }) => {
+const NavList = ({ toggle, isOpen }) => {
   const listItem = [
     {
       title: "Home",
@@ -60,66 +60,87 @@ const NavList = ({ isOpen, setIsOpen }) => {
         type: "spring",
       },
       transitionEnd: { display: "none" },
+      y: -100,
     },
-    open: { display: "block", opacity: 1 },
+    open: {
+      display: "",
+      opacity: 1,
+      y: 0,
+      transition: { delayChildren: 0.3, staggerChildren: 0.05 },
+    },
+  };
+
+  // const itemVariants = {
+  //   open: {
+  //     opacity: 1,
+  //     y: 0,
+  //     transition: { type: "spring", stiffness: 300, damping: 24, delay: 0.5 },
+  //   },
+  //   closed: { opacity: 0, y: -100, transition: { duration: 0.2 } },
+  // };
+
+  const itemVariants = {
+    close: {
+      opacity: 0,
+      transition: {
+        striffness: 300,
+        damping: 24,
+        type: "spring",
+      },
+      y: -96,
+    },
+    open: {
+      opacity: 1,
+      transition: { mass: 0.1, restDelta: 0.00001, type: "spring" },
+      y: 0,
+    },
   };
   return (
-    <div className={isOpen ? "nav__list active" : "nav__list"}>
-      <ul>
-        {listItem.map((item, idx) => {
+    <motion.div className={"nav__list active"}>
+      <motion.ul
+        initial="close"
+        animate="open"
+        exit="close"
+        transition={{ duration: 0.5 }}
+        variants={navListVariants}
+      >
+        {listItem.map((item) => {
           return (
-            <div key={idx}>
+            <li key={item.title}>
               {item.sublist.length >= 1 ? (
-                <motion.li
-                  className="nav__list-item"
-                  key={idx + "-" + item.title}
-                  variants={navListVariants}
-                  initial="close"
-                  animate="open"
-                  end="close"
-                >
-                  <ListIconComp className="icon" /> {"  "} {item.title}
+                <motion.div className="listitem-inner" variants={itemVariants}>
+                  <ListIconComp className="icon" /> {item.title}
                   <ul className="nav__sublist">
-                    {item.sublist.map((subItem, idx_) => (
-                      <Link
-                        to={subItem.url}
-                        key={idx_ + "-" + subItem.title}
-                        onClick={() => setIsOpen(!isOpen)}
+                    {item.sublist.map((subItem) => (
+                      <motion.li
+                        variants={itemVariants}
+                        className="nav__list-sub-item"
+                        key={subItem.title}
+                        onClick={toggle}
                       >
-                        <motion.li
-                          className="nav__list-sub-item"
-                          variants={navListVariants}
-                          initial="close"
-                          animate="open"
-                          end="close"
-                        >
-                          <ListIconComp className="icon" /> {"  "}{" "}
-                          {subItem.title}
-                        </motion.li>
-                      </Link>
+                        <Link to={subItem.url}>
+                          <ListIconComp className="icon" /> {subItem.title}
+                        </Link>
+                      </motion.li>
                     ))}
                   </ul>
-                </motion.li>
+                </motion.div>
               ) : (
-                <Link
-                  to={item.url}
-                  key={idx + 1 + "-" + item.title}
-                  onClick={() => setIsOpen(!isOpen)}
-                  variants={navListVariants}
-                  initial="close"
-                  animate="open"
-                  end="close"
+                <motion.div
+                  className="listitem-inner"
+                  onClick={toggle}
+                  variants={itemVariants}
                 >
-                  <li className="nav__list-item">
-                    <ListIconComp className="icon" /> {"  "} {item.title}
-                  </li>
-                </Link>
+                  <Link to={item.url}>
+                    <ListIconComp className="icon" /> {item.title}
+                  </Link>
+                </motion.div>
               )}
-            </div>
+            </li>
           );
         })}
-      </ul>
-    </div>
+      </motion.ul>
+    </motion.div>
   );
 };
 
