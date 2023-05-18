@@ -35,7 +35,7 @@ const Navbar = ({ handler, isOpen, setIsOpen }) => {
       animate={{ y: 0 }}
       end={{ y: -100 }}
       transition={{ duration: 0.9 }}
-      style={location.pathname === '/' ? '' : {position: 'fixed', width: '90%'}}
+      style={location.pathname.slice(0, 8) === '/project' ? {position: 'fixed', width: '90%'} : ''}
     >
       <ul>
         {/* LOGO */}
@@ -48,7 +48,7 @@ const Navbar = ({ handler, isOpen, setIsOpen }) => {
                   variants={logoVariants}
                   initial="menuClosed"
                   animate="menuOpen"
-                  end="menuClosed"
+                  exit="menuClosed"
                   onClick={() => {
                     setIsOpen(false);
                   }}

@@ -196,7 +196,12 @@ nav .contact_btn {
   }
 
   .logo svg {
-    width: 55px;
+    width: 50px;
+    margin-top: .1em;
+  }
+
+  .brand_logo {
+    font-size: 3.5em;
   }
 
   .nav__toggle .nav_hamburger {
@@ -226,10 +231,6 @@ nav .contact_btn {
 
   nav {
     margin-top: 1rem;
-  }
-
-  .brand_logo {
-    font-size: 3.5em;
   }
 
   nav ul li,

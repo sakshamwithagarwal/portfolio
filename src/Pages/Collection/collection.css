@@ -117,4 +117,7 @@
   .collection__list {
     width: 100%;
   }
+  .collection__list-title {
+    width: calc(100% - 1.5rem);
+  }
 }
