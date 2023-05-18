@@ -5,9 +5,10 @@ import { Noise, Cursor, Background, Navbar } from "./Components";
 import { BrowserRouter as Router } from "react-router-dom";
 import AnimatedRouters from "./Components/AnimatedRoutes/AnimatedRouters";
 import { AnimatePresence } from "framer-motion";
-// import Preloader from "./Components/SplashScreen/Preloader";
+import Preloader from "./Components/SplashScreen/Preloader";
+import { usePresence } from "framer-motion";
 import "./App.css";
-const Preloader = lazy(() => import("./Components/SplashScreen/Preloader"));
+// const Preloader = lazy(() => import("./Components/SplashScreen/Preloader"));
 
 function App() {
   const scrollRef = createRef();
@@ -109,6 +110,7 @@ function App() {
         <Cursor />
       </BrowserView>
       <Noise />
+      <Background />
       <AnimatePresence>
         {isLoading ? (
           <Preloader key={"preloader"} theme={theme} />
@@ -126,7 +128,6 @@ function App() {
                 isOpen={isHamburgerOpen}
               />
             </div>
-            <Background />
           </Router>
         )}
       </AnimatePresence>

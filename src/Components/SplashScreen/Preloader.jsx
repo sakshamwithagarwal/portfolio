@@ -15,7 +15,7 @@ const Preloader = ({ theme }) => {
     >
       
       <motion.img
-        src={"/assets/preloader_" + theme.value + ".webp"}
+        src={"/assets/preloader_" + theme.value + ".gif"}
         alt=""
         initial={{ y: 50 }}
         animate={{ y: 0 }}
