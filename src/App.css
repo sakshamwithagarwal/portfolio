@@ -116,7 +116,7 @@ a {
 }
 
 .circle {
-  position: absolute;
+  position: fixed;
   top: 50vh;
   left: 50%;
   transform: translate(-50%, -50%);

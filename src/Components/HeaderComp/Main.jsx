@@ -23,8 +23,9 @@ const Main = ({ compRef }) => {
       <motion.h1
         className="heading_main"
         initial={{ opacity: 0, y: 200 }}
-        animate={{ opacity: 0.9, y: 0 }}
-        transition={{ delay: 0.3 }}
+        animate={{ opacity: 1, y: 0 }}
+        // exit={{opacity: 0, y: -200}}
+        transition={{ delay: 0.2 }}
       >
         <div className="animated_heading_wrapper">
           <motion.span
@@ -113,8 +114,9 @@ const Main = ({ compRef }) => {
         <motion.div
           className="hero__subheading-wrapper"
           initial={{ opacity: 0, y: 200 }}
-          animate={{ opacity: 0.9, y: 0 }}
-          transition={{ delay: 0.3 }}
+          animate={{ opacity: 1, y: 0 }}
+          // exit={{opacity: 0, y: -200}}
+          transition={{ delay: 0.2 }}
         >
           <span className="hero__subheading">Designer</span>
           <span className="hero__subheading-mobile">
@@ -127,7 +129,7 @@ const Main = ({ compRef }) => {
           initial={{ opacity: 0, y: 500 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          end={{ y: 500 }}
+          // exit={{ y: 500 }}
         >
           I am an Industrial and Interaction Designer who creates designs that
           are both sustainable and universal. I try to draw inspiration from
@@ -140,7 +142,7 @@ const Main = ({ compRef }) => {
             whileHover={{ scale: [null, 1.25, 1.2] }}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 1, delay: 0.35 }}
+            transition={{ duration: .5, delay: 0.05 }}
           ></motion.div>
           <motion.svg
             width="93"
