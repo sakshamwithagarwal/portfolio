@@ -35,6 +35,7 @@ const Navbar = ({ handler, isOpen, setIsOpen }) => {
       animate={{ y: 0 }}
       end={{ y: -100 }}
       transition={{ duration: 0.9 }}
+      style={location.pathname === '/' ? '' : {position: 'fixed', width: '90%'}}
     >
       <ul>
         {/* LOGO */}

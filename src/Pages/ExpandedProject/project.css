@@ -5,16 +5,16 @@
 }
 
 .project-main {
-    position: relative;
+    /* position: relative; */
     font-family: var(--portfolio-font-regular);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .project-content-container {
     width: 69vw;
     margin: auto;
-    /* position: absolute; */
-    top: 0;
-    /* min-height: 100vh; */
 }
 
 /* .project-thumbnail {} */
