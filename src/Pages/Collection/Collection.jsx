@@ -84,8 +84,6 @@ const Collection = ({ projects, isOpen, setIsOpen }) => {
       },
     },
   };
-  const storageKey = "theme-preference";
-
   const handleTouchStart = () => {
     setIsTouched(true);
   };

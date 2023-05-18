@@ -92,12 +92,14 @@ function App() {
   };
 
   // Preloader
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 3000);
-  // }, []);
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => {setIsLoading(false)};
+  }, []);
 
   return (
     <div className="App">
@@ -113,8 +115,16 @@ function App() {
         ) : (
           <Router>
             <div ref={scrollRef}>
-              <Navbar handler={onClick} isOpen={isHamburgerOpen} setIsOpen={setIsHamburgerOpen} />
-              <AnimatedRouters key={"components"} projectData={projectData} isOpen={isHamburgerOpen}/>
+              <Navbar
+                handler={onClick}
+                isOpen={isHamburgerOpen}
+                setIsOpen={setIsHamburgerOpen}
+              />
+              <AnimatedRouters
+                key={"components"}
+                projectData={projectData}
+                isOpen={isHamburgerOpen}
+              />
             </div>
             <Background />
           </Router>

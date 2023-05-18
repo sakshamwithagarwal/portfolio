@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./nav.css";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Turn as Hamburger } from "hamburger-react";
 import { HamburgerToggle } from "./HamburgerToggle";
 import NavList from "./NavList";
 
@@ -33,7 +32,7 @@ const Navbar = ({ handler, isOpen, setIsOpen }) => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      end={{ y: -100 }}
+      exit={{ y: -100 }}
       transition={{ duration: 0.9 }}
       style={location.pathname.slice(0, 8) === '/project' ? {position: 'fixed', width: '90%'} : ''}
     >
