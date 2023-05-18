@@ -195,6 +195,24 @@ nav .contact_btn {
     height: auto;
   }
 
+  .logo svg {
+    width: 55px;
+  }
+
+  .nav__toggle .nav_hamburger {
+    height: 2.5em;
+    width: 3em;
+  }
+
+  .burger {
+    height: 7px;
+  }
+
+  .nav__list.active {
+    padding-left: 3em;
+    min-height: 60vh;
+  }
+
   .nav__sublist .listIcon {
     width: .6rem;
   }
@@ -206,13 +224,8 @@ nav .contact_btn {
 
 @media screen and (max-width: 480px) {
 
-  nav,
-  .simplified__nav {
+  nav {
     margin-top: 1rem;
-  }
-
-  .simplified__nav .logo svg {
-    width: .6em;
   }
 
   .brand_logo {
@@ -230,10 +243,6 @@ nav .contact_btn {
 }
 
 @media screen and (max-width: 1024px) {
-  .nav__toggle {
-    scale: .6;
-  }
-
   .nav__toggle .menu-icon {
     width: 3.6rem;
     height: 3.3rem;
