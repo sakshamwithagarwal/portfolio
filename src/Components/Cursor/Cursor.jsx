@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { useEventListener } from "../../hooks/useEventListener";
 import "./cursor.css";
+import { motion } from "framer-motion";
 
 const Cursor = () => {
   const cursorBigCircle = useRef();
@@ -30,9 +31,9 @@ const Cursor = () => {
     "button",
     ".hoverable",
     ".link",
-    "Link"
+    "Link",
   ];
-  const trailingSpeed = 8;
+  const trailingSpeed = 5;
   let endX = useRef(0);
   let endY = useRef(0);
 
@@ -142,16 +143,32 @@ const Cursor = () => {
   //   };
   // }, [isActive, clickables]);
 
+  const variants = {
+    click: { left: 821, opacity: 1, top: 188, x: "-50%", y: "-50%"},
+    clickSelected: { left: 821, opacity: 0, top: 188, x: "-50%", y: "-50%"},
+    invisible: { left: 821, opacity: 0, top: 188, x: "-50%", y: "-50%"},
+    selected: { left: 821, opacity: 0, top: 188, x: "-50%", y: "-50%"},
+    visible: { left: 821, opacity: 1, top: 188, x: "-50%", y: "-50%"},
+  };
+
   return (
     <>
-      <div
+      <motion.div
         className="cursor__ball cursor__ball--big"
+        // animate="invisible"
+        // initial="invisible"
+        // variants={variants}
+        // transition={{ mass: 0.15, stiffness: 200, type: "spring" }}
         ref={cursorBigCircle}
-      ></div>
-      <div
+      ></motion.div>
+      <motion.div
         className="cursor__ball cursor__ball--small"
+        // variants={variants}
+        // animate="invisible"
+        // initial="invisible"
+        // transition={{ mass: 0.25, stiffness: 200, type: "spring" }}
         ref={cursorSmallCircle}
-      ></div>
+      ></motion.div>
     </>
   );
 };
