@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./nav.css";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, usePresence } from "framer-motion";
 import { HamburgerToggle } from "./HamburgerToggle";
 import NavList from "./NavList";
 
@@ -21,20 +21,26 @@ const Navbar = ({ handler, isOpen, setIsOpen }) => {
       },
       y: 0,
     },
-    menuClosed: { transitionEnd: { display: "none" }, y: -100, transition: {duration: 0.5} },
+    menuClosed: {
+      transitionEnd: { display: "none" },
+      y: -100,
+      transition: { duration: 0.5 },
+    },
   };
   const logoVariants = {
     menuOpen: { opacity: 1, display: "block" },
     menuClosed: { opacity: 0, display: "none" },
   };
-
+  const [isPresent, safeToRemove] = usePresence();
+  useEffect(() => {
+    !isPresent && setTimeout(safeToRemove, 1000);
+  }, [isPresent]);
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       exit={{ y: -100 }}
       transition={{ duration: 0.9 }}
-      style={location.pathname.slice(0, 8) === '/project' ? {position: 'fixed', width: '90%'} : ''}
     >
       <ul>
         {/* LOGO */}
@@ -170,7 +176,11 @@ const Navbar = ({ handler, isOpen, setIsOpen }) => {
           </div>
         </motion.li>
         <AnimatePresence>
-          {isOpen ? <NavList toggle={toggleHamburger} key="navbar__list" /> : ""}
+          {(isOpen) ? (
+            <NavList toggle={toggleHamburger} key="navbar__list" />
+          ) : (
+            ""
+          )}
         </AnimatePresence>
       </ul>
     </motion.nav>

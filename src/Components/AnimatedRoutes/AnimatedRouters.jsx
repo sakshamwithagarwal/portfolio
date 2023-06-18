@@ -10,15 +10,17 @@ import { AnimatePresence } from "framer-motion";
 
 const Home = lazy(() => import("../../Pages/Home/Home"));
 const Collection = lazy(() => import("../../Pages/Collection/Collection"));
-const ExpandedProject = lazy(() =>
-  import("../../Pages/ExpandedProject/ExpandedProject")
-);
+// const ExpandedProject = lazy(() =>
+//   import("../../Pages/ExpandedProject/ExpandedProject")
+// );
+
+import { ExpandedProject } from "../../Pages";
 
 const AnimatedRouters = ({ handler, projectData, isOpen, setIsOpen }) => {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     // console.log(location);
   }, [location.pathname]);
 
@@ -61,7 +63,7 @@ const AnimatedRouters = ({ handler, projectData, isOpen, setIsOpen }) => {
       {isOpen ? (
         ""
       ) : (
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route
               path="/"

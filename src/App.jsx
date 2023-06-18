@@ -38,6 +38,22 @@ function App() {
       "https://api-ap-south-1.hygraph.com/v2/clha5gtcw11sx01taepog266q/master",
   };
 
+  useEffect(() => {
+    const onPageLoad = () => {
+      console.log("page loaded");
+      // do something else
+    };
+
+    // Check if the page has already loaded
+    if (document.readyState === "complete") {
+      onPageLoad();
+    } else {
+      window.addEventListener("load", onPageLoad, false);
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener("load", onPageLoad);
+    }
+  }, []);
+
   // 📨 Fetch projects
   useEffect(() => {
     const fetchProjects = async () => {
@@ -99,7 +115,9 @@ function App() {
       setIsLoading(false);
     }, 3000);
 
-    return () => {setIsLoading(false)};
+    return () => {
+      setIsLoading(false);
+    };
   }, []);
 
   return (

@@ -10,14 +10,24 @@ const AllProjects = forwardRef((props, ref) => {
   // }, [projectData]);
   return (
     <section className="projects" ref={ref} id="projects">
-      <motion.div className="section_title" initial={{y: 100}} whileInView={{y: 0}} transition={{ease: "easeInOut"}}>
+      <motion.div
+        className="section_title"
+        initial={{ y: 100, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ ease: "easeInOut" }}
+        viewport={{ once: true }}
+      >
         <h3>Projects</h3>
       </motion.div>
       <div className="section_container">
         {!props.projects ? (
           "Loading"
         ) : (
-          <motion.ol initial={{y: 100}} whileInView={{y: 0}} transition={{ease: "easeInOut", delay: 0}}>
+          <motion.ol
+            initial={{ y: 100 }}
+            whileInView={{ y: 0 }}
+            transition={{ ease: "easeInOut", delay: 0 }}
+          >
             {props.projects &&
               props.projects.map((project, id) => (
                 <Project key={project.id} data={project} />
