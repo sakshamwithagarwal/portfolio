@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import locomotiveScroll from "locomotive-scroll";
 import { useParams } from "react-router-dom";
-import { motion as m } from "framer-motion";
+import { motion as m, usePresence, useIsPresent } from "framer-motion";
 import { request } from "graphql-request";
 import "./project.css";
 
 const ExpandedProject = ({ projects, isOpen, setIsOpen }) => {
   const { slug } = useParams();
+  const isPresent = useIsPresent();
   const [project, setProject] = useState(null);
   const projectVariants = {
     hidden: {
@@ -62,7 +63,7 @@ const ExpandedProject = ({ projects, isOpen, setIsOpen }) => {
 
     fetchProjects();
     return () => {
-      setProject(null);
+      // setProject(null);
     };
   }, []);
 
@@ -78,13 +79,19 @@ const ExpandedProject = ({ projects, isOpen, setIsOpen }) => {
   //   return () => {};
   // }, []);
 
+  // 🔝 Scroll to top on load
+  useEffect(() => {
+    document.querySelector(".project-container").scrollTop = 0;
+  }, []);
+
   return (
     <m.div
       className="project-container"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.25, delay: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.15, delay: 0.25, ease: "easeOut" }}
     >
+      {/* <button onClick={() => {document.querySelector('.project-container').scrollTop = 0}} style={{position: 'fixed', bottom: 10, left: 10}}>Top</button> */}
       {!isOpen && project ? (
         <m.div
           className="project-main"
@@ -98,7 +105,7 @@ const ExpandedProject = ({ projects, isOpen, setIsOpen }) => {
           }}
           initial="hidden"
           animate="visible"
-          exit="hidden"
+          // exit="hidden"
         >
           <m.div
             variants={projectVariants}

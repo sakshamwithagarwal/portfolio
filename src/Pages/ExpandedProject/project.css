@@ -1,7 +1,11 @@
-.project-container .simplified__nav {
-    position: fixed;
+.project-container {
+    position: absolute;
     top: 0;
     width: 90%;
+    height: 100vh;
+    overflow-y: scroll;
+    z-index: -1
+    /* background-color: pink; */
 }
 
 .project-main {
@@ -10,6 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* background-color: red; */
 }
 
 .project-content-container {

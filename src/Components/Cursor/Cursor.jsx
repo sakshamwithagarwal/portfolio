@@ -144,27 +144,86 @@ const Cursor = () => {
   // }, [isActive, clickables]);
 
   const variants = {
-    click: { left: 821, opacity: 1, top: 188, x: "-50%", y: "-50%"},
-    clickSelected: { left: 821, opacity: 0, top: 188, x: "-50%", y: "-50%"},
-    invisible: { left: 821, opacity: 0, top: 188, x: "-50%", y: "-50%"},
-    selected: { left: 821, opacity: 0, top: 188, x: "-50%", y: "-50%"},
-    visible: { left: 821, opacity: 1, top: 188, x: "-50%", y: "-50%"},
+    bigCursor: {
+      click: { left: 821, opacity: 1, top: 188, x: "-50%", y: "-50%" },
+      clickSelected: { left: 821, opacity: 0, top: 188, x: "-50%", y: "-50%" },
+      invisible: { left: 821, opacity: 0, top: 188, x: "-50%", y: "-50%" },
+      selected: { left: 821, opacity: 0, top: 188, x: "-50%", y: "-50%" },
+      visible: { left: 821, opacity: 1, top: 188, x: "-50%", y: "-50%" },
+    },
+    smallCursor: {
+      click: {
+        backgroundColor: "var(--text-main)",
+        borderStyle: "solid",
+        borderWidth: 1.5,
+        left: 512,
+        opacity: 1,
+        scale: 2,
+        top: 602,
+        x: "-50%",
+        y: "-50%",
+      },
+      clickSelected: {
+        backgroundColor: "var(--text-main)",
+        borderStyle: "none",
+        borderWidth: 0,
+        left: 512,
+        opacity: 1,
+        scale: 4,
+        top: 602,
+        x: "-50%",
+        y: "-50%",
+      },
+      invisible: {
+        // backgroundColor: "rgba(0, 0, 0, 0)",
+        // borderStyle: "solid",
+        // borderWidth: 0,
+        // left: 512,
+        opacity: 0,
+        scale: 1,
+        // top: 602,
+        x: "-50%",
+        y: "-50%",
+      },
+      selected: {
+        backgroundColor: "var(--text-main)",
+        borderStyle: "none",
+        borderWidth: 0,
+        left: 512,
+        opacity: 1,
+        scale: 2,
+        top: 602,
+        x: "-50%",
+        y: "-50%",
+      },
+      visible: {
+        // backgroundColor: "rgba(0, 0, 0, 0)",
+        // borderStyle: "solid",
+        // borderWidth: 2,
+        // left: 512,
+        opacity: 1,
+        scale: 1,
+        // top: 602,
+        x: "-50%",
+        y: "-50%",
+      },
+    },
   };
 
   return (
     <>
       <motion.div
         className="cursor__ball cursor__ball--big"
-        // animate="invisible"
+        // animate="visible"
         // initial="invisible"
-        // variants={variants}
+        // variants={variants.bigCursor}
         // transition={{ mass: 0.15, stiffness: 200, type: "spring" }}
         ref={cursorBigCircle}
       ></motion.div>
       <motion.div
         className="cursor__ball cursor__ball--small"
-        // variants={variants}
-        // animate="invisible"
+        // variants={variants.smallCursor}
+        // animate="visible"
         // initial="invisible"
         // transition={{ mass: 0.25, stiffness: 200, type: "spring" }}
         ref={cursorSmallCircle}
